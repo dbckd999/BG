@@ -20,39 +20,34 @@
 <body>
 
 	<div id="menu">
-		 
-		
+
+
 		<div class="close"></div>
 	</div>
-	
-	
+
+
 	<div class="btn"></div>
 
 	<div class="btn"></div>
-	
-	
+
+
 	<div onclick="history.back();" class="page_cover"></div>
-	
+
 	<div id="menu">
-	   <h2 class="BGateLogo">BGate</h2>
-	 <div class="menuList">
-	 <ul class="ulmenuList">
-          <li> <a href=""> 로그인 </a></li>
-          <li> <a href="">회원가입</a></li>
-          <li><a href="/myPage">마이페이지</a></li>
+		<h2 class="BGateLogo">BGate</h2>
+		<div class="menuList">
+			<ul class="ulmenuList">
+				<li><a href=""> 로그인 </a></li>
+				<li><a href="">회원가입</a></li>
+				<li><a href="/myPage">마이페이지</a></li>
 
-		  </ul>
-		  </div>
-	<div onclick="history.back();" class="close"></div>
+			</ul>
+		</div>
+		<div onclick="history.back();" class="close"></div>
 	</div>
-
-
-	<div id="map"> 	
-	</div>
-
-
-
-
+	<div id="map"></div>
+	
+	<script src="${path}/resources/js/map.js"></script>
 	<script src="${path}/resources/js/myPage.js"></script>
 </body>
 </html>
