@@ -142,3 +142,30 @@ html.open {
 	z-index: 4;
 	display: none;
 }
+
+
+.BGateLogo{
+	
+	font-size: 3cm;
+	margin-right: 30%;
+	border-bottom: 1px solid black;
+   
+	
+
+	
+	 
+}
+
+.ulmenuList{
+	list-style: none;
+	margin-right: 60%;
+	
+}
+
+li { margin-top: 50px;
+	 font-size: 1cm;
+}
+
+a{text-decoration: none;
+	color:  black;
+}
