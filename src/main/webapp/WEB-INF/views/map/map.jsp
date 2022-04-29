@@ -38,8 +38,8 @@
 	 <div class="menuList">
 	 <ul class="ulmenuList">
           <li> <a href=""> 로그인 </a></li>
-          <li> <a href="map/mypage">회원가입</a></li>
-          <li><a href="">마이페이지</a></li>
+          <li> <a href="">회원가입</a></li>
+          <li><a href="/myPage">마이페이지</a></li>
 
 		  </ul>
 		  </div>
@@ -53,6 +53,6 @@
 
 
 
-	<script src="${path}/resources/js/map.js"></script>
+	<script src="${path}/resources/js/myPage.js"></script>
 </body>
 </html>
