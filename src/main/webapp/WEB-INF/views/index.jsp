@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>BG logo</title>
-<meta http-equiv="refresh" content="2; url=http://localhost:8080/Map/"> 
+<meta http-equiv="refresh" content="1; url=http://localhost:8080/Map/"> 
 <link rel="stylesheet" href="${path}/resources/css/BGlogo.css"/>
 </head>
 <body>

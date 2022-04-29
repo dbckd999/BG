@@ -53,6 +53,6 @@
 
 
 
-	<script src="${path}/resources/js/myPage.js"></script>
+	<script src="${path}/resources/js/map.js"></script>
 </body>
 </html>
