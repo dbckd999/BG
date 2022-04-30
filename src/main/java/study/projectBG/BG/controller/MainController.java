@@ -8,6 +8,7 @@ public class MainController {
 
 	@GetMapping
 	public String main() {
+		System.out.println("대충 치명적인 코드");
 		System.out.println("main call");
 		return "index";
 	}
