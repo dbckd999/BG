@@ -14,7 +14,6 @@ public class MapController {
 	
 	@GetMapping("/myPage")
 	public String myPage() {
-
 		return "/map/myPage";
 	
 	}
