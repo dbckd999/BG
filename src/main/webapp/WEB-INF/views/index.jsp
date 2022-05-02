@@ -5,17 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>BG logo</title>
-<meta http-equiv="refresh" content="1; url=http://localhost:8080/Map/"> 
-<link rel="stylesheet" href="${path}/resources/css/BGlogo.css"/>
+<link rel="stylesheet" href="${path}/resources/css/bg.css"/>
 </head>
 <body>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	
 	
-	
-	
-	 <img alt="" src="resources/img/BGlogo.png">
+	<div>
+		<div class="logo">
+		<div id="choonDiv"></div>
+		</div>
+
+	</div>
 	 
 	 
-	
+	<script type="text/javascript" src="${path}/resources/js/bg.js"></script>
 </body>
 </html>

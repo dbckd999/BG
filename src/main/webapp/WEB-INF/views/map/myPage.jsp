@@ -57,21 +57,22 @@
 		<table id="centertable">
 			<tr>
 			   <th>아이디</th>
-				<td> <input type="text" id="bg_id"></td>
+				<td> <input type="text" id="user_id"></td>
+				<div></div>
 			</tr>
 			<tr>
 			<th>비밀번호</th>
-				<td >  <input type="text" id="bg_pw">  </td>
+				<td >  <input type="text" id="user_pw">  </td>
 			</tr>
 
 			<tr>
 			<th>별명</th>
-				<td>  <input type="text" id="bg_nick"></td>
+				<td>  <input type="text" id="user_nick"></td>
 			</tr>
 			
 			<tr>
 			<th>주소</th>
-			<td> <input type="text" id="bg_address"></td>
+			<td> <input type="text" id="user_addr"></td>
 			</tr>
 			
 			<tr>
@@ -79,7 +80,6 @@
 			<td>  <input type="email" id="bg_email">	</td>
 			</tr>
 		
-            
 
 		</table>
 
