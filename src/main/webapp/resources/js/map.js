@@ -33,7 +33,7 @@ function updateMyLocation(){
 			map.setView(latlng);
 		});
 }
-updateMyLocation();
+//updateMyLocation();
 
 // create control and add to map
 var lc = L.control.locate().addTo(map);
