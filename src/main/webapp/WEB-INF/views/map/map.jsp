@@ -22,12 +22,25 @@
 	<div id="menu">
 		<div class="close"></div>
 	</div>
+	
 	<div class="btn"></div>
 
 	<div class="btn"></div>
+	
+	
 	<div onclick="history.back();" class="page_cover"></div>
+	
 	<div id="menu">
-		<div onclick="history.back();" class="close"></div>
+	   <h2 class="BGateLogo">BGate</h2>
+	 <div class="menuList">
+	 <ul class="ulmenuList">
+          <li> <a href=""> 로그인 </a></li>
+          <li> <a href="/regist">회원가입</a></li>
+          <li><a href="/myPage">마이페이지</a></li>
+
+		  </ul>
+		  </div>
+	<div onclick="history.back();" class="close"></div>
 	</div>
 
 

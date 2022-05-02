@@ -9,7 +9,7 @@ function locateKap() {
 	location.replace("map");
 }
 
-var cnt = 5;
+var cnt = 1;
 function countdown() {
 	if (cnt == 0) {
 		locateKap();

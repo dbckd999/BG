@@ -1,5 +1,4 @@
 var map = L.map('map').setView([35.861509, 128.572311], 13);
-
 //var layer = L.tileLayer(
 	//'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?lang=zh&access_token={accessToken}', {
 	//'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',{
