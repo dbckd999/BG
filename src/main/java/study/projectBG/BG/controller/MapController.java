@@ -16,9 +16,6 @@ public class MapController {
 		return "/map/myPage";
 	}
 	
-	@GetMapping("/regist")
-	public String regist() {
-		return "map/regist";
-	}
+	
 
 }
