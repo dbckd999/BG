@@ -19,4 +19,11 @@ public class MapController {
 	
 	}
 	
+	@GetMapping("/login")
+	public String login() {
+
+		return "/map/login";
+	
+	}
+	
 }
