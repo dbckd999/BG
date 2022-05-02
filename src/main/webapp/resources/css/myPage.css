@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+.Logo {
+	font-size: 2cm;
+	width: 50%;
+	margin-left: 39%;
+}
+
+.headMain {
+	border-bottom: 1px solid black;
+	height: 200px;
+	width: 100%;
+}
+
+.content {
+	border: 1px solid black;
+}
+
+#titleh1 {
+	margin-left: 39%;
+}
+
+#center {
+	border: 0.3px dotted black;
+	height: 50%;
+	width: 80%;
+	margin-left: 100px;
+}
+
+#center1 {
+	border: 0.3px dotted black;
+	height: 100px;
+	width: 100%;
+	background: #f1f1f1;
+}
+
+#center1 h1 {
+	margin-left: 50px;
+}
+
+#center1 div {
+	border: 0.3px dotted black;
+}
+
+#centertable{
+	margin-left: 30px;
+}
+
+
+td {
+	   font-size: 50px;
+	    
+}
+
+
+input { margin-left: 50px;
+	      height: 50px;
+	       width:  200px;
+	       
+	       font-size : 30px
+}
+
+th {
+	font-size: 30px;
+	margin-top: 50px;
+	   
+}
+
+#user_pw{
+	   width:  200px;
+}
