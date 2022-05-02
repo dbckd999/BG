@@ -22,15 +22,11 @@
 	<div id="menu">
 		<div class="close"></div>
 	</div>
-	
-	<div class="btn"></div>
 
 	<div class="btn"></div>
-	
-	
+
 	<div onclick="history.back();" class="page_cover"></div>
-	
-	<div id="menu">
+
 	   <h2 class="BGateLogo">BGate</h2>
 	 <div class="menuList">
 	 <ul class="ulmenuList">
@@ -41,15 +37,12 @@
 		  </ul>
 		  </div>
 	<div onclick="history.back();" class="close"></div>
-	</div>
 
 
 	<div id="map"> 	
 	</div>
 
-
-
-
 	<script src="${path}/resources/js/map.js"></script>
+	<script src="${path}/resources/js/myPage.js"></script>
 </body>
 </html>
