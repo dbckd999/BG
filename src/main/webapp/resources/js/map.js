@@ -2,6 +2,7 @@
 var map = L.map('map').setView([35.892805, 128.525276], 13);
 //주변 화장실을 배열로 담게 됩니다.
 var restRooms;
+
 //지도타일 생성
 var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -35,8 +36,16 @@ function updateMyLocation(){
 }
 //updateMyLocation();
 
+var lc;
 // create control and add to map
-var lc = L.control.locate().addTo(map);
+//var lc = L.control.locate().addTo(map);
+
+map.addControl(lc = L.control.locate({
+       locateOptions: {
+               enableHighAccuracy: true
+}}));
 
 // request location update and set location
 lc.start();
+
+ㅁ
