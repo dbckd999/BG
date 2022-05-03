@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,10 +23,10 @@
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
-		<h2 class="BGateLogo">BGate</h2>
+		<h2 class="BGateLogo" > BGate </h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href=""> 로그인 </a></li>
+				<li><a href="login"> 로그인 </a></li>
 				<li><a href="">회원가입</a></li>
 				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
@@ -53,34 +54,67 @@
 		<div id="center1">
 			<h1>기본정보</h1>
 		</div>
+		<br>
+		<br>
 		<table id="centertable">
+
 			<tr>
-			   <th>아이디</th>
-				<td> <input type="text" id="user_id"></td>
-				<div></div>
+
+				<th>아이디</th>
+				<td><input type="text" id="user_id" name="user_id"> <br>
+				</td>
+
 			</tr>
 			<tr>
-			<th>비밀번호</th>
-				<td >  <input type="text" id="user_pw">  </td>
+				<th>비밀번호</th>
+				<td><input type="text" id="user_pw" name="user_pw"
+					placeholder="0~20자"> <br></td>
 			</tr>
 
 			<tr>
-			<th>별명</th>
-				<td>  <input type="text" id="user_nick"></td>
+				<th>별명</th>
+				<td><input type="text" id="user_nick"  name="user_nick"> <br></td>
 			</tr>
-			
+
 			<tr>
-			<th>주소</th>
-			<td> <input type="text" id="user_addr"></td>
+				<th>주소</th>
+				<td><input type="text" id="user_addr"  name="user_addr"> <br></td>
 			</tr>
-			
+
 			<tr>
-			<th>이메일</th>
-			<td>  <input type="email" id="bg_email">	</td>
+				<th>이메일</th>
+				<td><input type="email" id="user_email" name="user_email"> <br></td>
 			</tr>
-		
+
 
 		</table>
+
+
+	</div>
+
+	<div id="updateChang">
+		<a href="#"><input type="button" value="수정하기" id="updateBtn"></a>
+
+	</div>
+
+	<div id="footer">
+		<ul>
+			<li>
+				<h3>BGate</h3>
+			</li>
+			<li>문의 사항 <br> 문의: 게시판 혹은 email <br> OPEN : MON-FRI
+				09:00-24:00 <br> EVERY WEEKEND, HOLIDAY OFF
+			</li>
+			<li id="liemail">https://github.com/dbckd999/BG/issues <br>
+
+
+
+			</li>
+
+
+
+
+		</ul>
 
 	</div>
 

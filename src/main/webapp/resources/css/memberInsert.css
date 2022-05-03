@@ -22,7 +22,7 @@
 
 #center {
 	border: 2px dotted black;
-	height: 700px;
+	height: 900px;
 	width: 80%;
 	margin-left: 100px;
 }
@@ -53,15 +53,16 @@ td {
 
 
 input { margin-left: 50px;
-	      height: 70px;
+	      height: 50px;
 	       width:  200px;
 	     margin-top: 10px;
 	       
-	       font-size : 30px;
+	       font-size : 30px
 }
 
 th {
 	font-size: 30px;
+	
 	
 	
 	   
@@ -88,7 +89,7 @@ th {
 	height: 500px;
 	width: 80%;
 	margin-left: 100px;
-	margin-top: 100px;
+	margin-top: 50px;
 	
 }
 
@@ -108,3 +109,16 @@ ul{list-style: none;
 #updateBtn{
 	 margin-left: 550px;
 }
+
+#check_id{
+	width: 150px;
+}
+
+#check_nick{
+	width: 150px;
+}
+#check_email{
+	width: 150px;
+}
+
+

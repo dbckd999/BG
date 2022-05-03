@@ -6,11 +6,12 @@ import lombok.Data;
 
 @Data
 public class MemberDTO {
-	private int u_no;
-	private String u_id;
-	private String u_pw;
-	private String u_Rpw;
-	private String u_email;
-	private String u_addr;
-	private Timestamp u_regDate;
+	private int user_no;
+	private String user_nick;
+	private String user_id;
+	private String user_pw;
+	private String user_Rpw;
+	private String user_email;
+	private String user_addr;
+	private Timestamp user_regDate;
 }

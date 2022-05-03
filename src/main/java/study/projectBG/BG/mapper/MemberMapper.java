@@ -7,5 +7,9 @@ import study.projectBG.BG.model.MemberDTO;
 @Mapper
 public interface MemberMapper {
 	
-	public void memberInsert(MemberDTO dto); 
+	public void memberInsert(MemberDTO dto);
+
+	public int check_id(String user_id);
+
+	public int check_nick(String user_nick); 
 }
