@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>BG logo</title>
-<link rel="stylesheet" href="${path}/resources/css/BGlogo.css" />
+<link rel="stylesheet" href="${path}/resources/css/BGlogo.css"/>
 <link rel="stylesheet" href="${path}/resources/css/bg.css" />
 </head>
 <body>

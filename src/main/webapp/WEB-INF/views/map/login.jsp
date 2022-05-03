@@ -10,7 +10,7 @@
 	crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
-<link rel="stylesheet" href="${path}/resources/css/myPage.css" />
+<link rel="stylesheet" href="${path}/resources/css/login.css" />
 <link rel="stylesheet" href="${path}/resources/css/footer.css" />
 <title>Map</title>
 </head>
@@ -36,20 +36,19 @@
 	</div>
 
 	<div class="headMain">
-			<h1 class="Logo"><a href="/map">BGate</a></h1>
+	<h1 class="Logo"><a href="/map">BGate</a></h1>
 	</div>
 	<br><br>
 	
 	<div id="titleArea">
 		<h1 id="titleh1">
-			[ 회원 정보 수정 ]
+			[ 로그인 ]
 		</h1>
 	</div>
 
 <div id=center>
   <div id="centerMain"> 
   <div id="centerLogo"> <span id="centerspan"> 기본정보 </span></div> 
-       
      
      <form action="">
      <table id="centertable" >
@@ -66,37 +65,10 @@
         <input type="password" id="user_pw" name="user_pw">
          </td>
         </tr>  
-         <tr>
-     <th>비밀번호 확인란</th> 
-        <td>
-        <input type="text" id="user_Rpw" name="user_Rpw">
-         </td>
-        </tr>  
-         <tr>
-     <th>별명</th> 
-        <td>
-        <input type="text" id="user_nick" name="user_nick">
-        <input type="button" value="중복확인"  id="nickBtn" name="nickBtn">
-         </td>
-        </tr>  
-         <tr>
-     <th>주소</th> 
-        <td>
-        <input type="text" id="user_addr" name="user_addr">
-         </td>
-        </tr>  
-          <tr>
-     <th>email</th> 
-        <td>
-        <input type="email" id="user_email" name="user_email">
-         </td>
-        </tr>  
-          
-     
         
      </table> 
-       <input type="submit" id="update" name="update" value="수정하기"> 
-        <input type="button" id="delete" name="delete" value="삭제하기"> 
+       <input type="submit" id="login" name="login" value="로그인하기"> 
+        <input type="button" id="regist" name="regist" value="회원가입" onclick="location.href='/regist'"> 
         </form>
   </div>
 

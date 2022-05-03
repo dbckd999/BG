@@ -10,13 +10,14 @@
 	crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
-<link rel="stylesheet" href="${path}/resources/css/myPage.css" />
+<link rel="stylesheet" href="${path}/resources/css/regist.css" />
 <link rel="stylesheet" href="${path}/resources/css/footer.css" />
+
+
 <title>Map</title>
 </head>
 <body>
-
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -42,14 +43,14 @@
 	
 	<div id="titleArea">
 		<h1 id="titleh1">
-			[ 회원 정보 수정 ]
+			[ 회원 가입 ]
 		</h1>
 	</div>
 
-<div id=center>
+ 
+    <div id=center>
   <div id="centerMain"> 
   <div id="centerLogo"> <span id="centerspan"> 기본정보 </span></div> 
-       
      
      <form action="">
      <table id="centertable" >
@@ -57,7 +58,8 @@
      <tr>
       <th>아이디</th> 
         <td>
-        <input type="text" id="user_id" name="user_id">         
+        <input type="text" id="user_id" name="user_id">      
+        <input type="button" value="중복확인"   id="idBtn" name="idBtn">   
          </td>
         </tr>  
          <tr>
@@ -95,8 +97,8 @@
      
         
      </table> 
-       <input type="submit" id="update" name="update" value="수정하기"> 
-        <input type="button" id="delete" name="delete" value="삭제하기"> 
+       <input type="submit" id="regist" name="regist"  value="회원가입"> 
+ 
         </form>
   </div>
 
@@ -106,7 +108,7 @@
 	
 	
 	
-	<div id=footer>
+	<<div id=footer>
 	<div id="footerMain">
 		<ul>
 			<li>
