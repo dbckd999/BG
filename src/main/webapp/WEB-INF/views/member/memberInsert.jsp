@@ -80,8 +80,8 @@
 
 				<tr>
 					<th>별명</th>
-					<td><input type="text" id="user_nick" name="user_nick"><input
-						type="button" id="nickCheckBtn" value="중복확인"> <br></td>
+					<td><input type="text" id="user_nick" name="user_nick">
+					<button type="button" id="nickCheckBtn">중복확인</button> <br></td>
 				</tr>
 
 				<tr>
@@ -129,7 +129,7 @@
 
 	</div>
 
-
+	
 	<script src="${path}/resources/js/member.js"></script>
 </body>
 </html>

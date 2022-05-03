@@ -7,20 +7,20 @@ $(function() {
 	var user_email = "";
 	var user_addr = "";
 
-	
-	
-	
-	$('#nickCheckBtn').click(function() {
-		user_nick = $('#user_nick').val();
+	$('#idCheckBtn').click(function() {
+		user_id = $('#user_id').val();
 		$.ajax({
-			url: "/check_nick",
+			url: '/check_id',
 			type: 'post',
-			data: { user_nick: user_nick },
+			data: {
+				user_id: user_id
+			},
 			success: function(data) {
+				console.log(data);
 				if (data > 0) {
-					alert('중복이라고 ㅆㅂ');
+					alert('아이이 중복');
 				} else {
-					alert('별명 사용 가능');
+					alert('아이디 사용 가능');
 				}
 			},
 			error: function(request, status, error) {
@@ -30,7 +30,12 @@ $(function() {
 			}
 		});
 	});
+
+
+
+
 	
+
 
 
 	$('#regist').click(function() {
@@ -93,26 +98,17 @@ $(function() {
 
 })
 
-
-
-
-
-$('#idCheckBtn').click(function() {
-		alert('하이');
-		user_id = $('#user_id').val();
-		alert(user_id);
+$('#nickCheckBtn').click(function() {
+		var user_nick = $('#user_nick').val();
 		$.ajax({
-			url: '/check_id',
-			type: 'post',
-			data: { 
-				user_id : user_id 
-			},
+			url: "/check_nick",
+			type: 'POST',
+			data: { user_nick },
 			success: function(data) {
-				console.log(data);
 				if (data > 0) {
-					console.log('중복이라고 ㅆㅂ');
+					alert('별명 중복');
 				} else {
-					console.log('아이디 사용 가능');
+					alert('별명 사용 가능');
 				}
 			},
 			error: function(request, status, error) {
@@ -121,4 +117,7 @@ $('#idCheckBtn').click(function() {
 					"error:" + error);
 			}
 		});
-	});
+	});	
+
+
+
