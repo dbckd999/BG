@@ -15,10 +15,11 @@
 	integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
 	crossorigin=""></script>
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
+<link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <title>Map</title>
 </head>
 <body>
-
+<div>
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -27,23 +28,24 @@
 	<div class="btn"></div>
 	<div class="btn"></div>
 
-
+  
 	<div onclick="history.back();" class="page_cover"></div>
 
 	<div id="menu">
-	   <h2 class="BGateLogo">BGate</h2>
+	<h2 class="BGateLogo"><a href="/map">BGate</a></h2>
 	 <div class="menuList">
 	 <ul class="ulmenuList">
           <li> <a href="/login"> 로그인 </a></li>
-          <li> <a href="">회원가입</a></li>
+          <li> <a href="/regist">회원가입</a></li>
           <li><a href="/myPage">마이페이지</a></li>
 
 		  </ul>
 		  </div>
 	<div onclick="history.back();" class="close"></div>
 	</div>
+	  </div>
 	<div id="map"></div>
-
+  
 	
 
 	<script src="${path}/resources/js/map.js"></script>
