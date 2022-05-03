@@ -1,111 +1,61 @@
-/* @charset "UTF-8"; */
-
-
-
-
+@charset "UTF-8" ; 
 .Logo {
 	font-size: 2cm;
-	
-
+	width: 50%;
+	margin-left: 39%;
 }
 
 .headMain {
 	border-bottom: 1px solid black;
 	height: 200px;
 	width: 100%;
-	justify-content: center;
-	display: flex;
 }
 
-#titleArea{
-	justify-content: center;
-	display: flex;
+h3 {
+	text-align: center;
 }
 
-
-#center{
- margin-top : 10%;
-	height: 50%;
+.all {
 	width: 100%;
-	justify-content: center;
-	display: flex;
-
-}
-
-#centerMain{
-	border: 1px dashed black;
 	height: 100%;
-	width: 70%;
-
+	margin: 0px;
+	background-color: rgba(0, 0, 255, 50%);
 }
-#centerLogo{
-	border-bottom: 1px dotted black;
-	height: 5%;
+
+.header {
+	border: 1px solid black;
+	width: 100vw;
+	height: 10%;
+	font-size: 130px;
+	text-align: center;
+}
+
+.main {
+	vertical-align: middle;
 	width: 100%;
-
-	 background-color: #d5d5d5;
-
- 
-}
-
-
-
-
- #centerspan{font-size: 20px;
-
-
- }
-
-
-
-
-
-
-
-
-
-#centertable{
 	height: 100%;
-    width: 100%; 
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  border-bottom: 1 solid black;
 }
 
-th, td {
-    border-bottom: 1px dashed #444444;
-    padding: 10px;
-  }
-
-input {
-	height: 40px;
-	border : none;
-	border-bottom: 1px solid black;
-	
+.regist {
+	margin-top: 5%;
+	width: 80%;
+	margin-left: 10%;
+	background-color: rgba(255, 255, 255, 80%);
+	font-size: 50px;
+	border-radius: 50px 50px 50px 50px;
 }
 
-th{
-	font-size: 20px;
-	
-}
-
-
-#nickBtn{border-bottom: none;}
-
-
-form{
-	height: 70%;
-}
-
-#user_pw, #user_Rpw, #user_email{
-	width:  80%;
-}
-
-
-#regist{
-	
-	margin-left: 20%;
-	width: 50%
-	
-	
+.regist input {
+	margin-left: 3%;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	font-size: 50px;
+	width: 90%;
+	height: 100px;
+	padding: 0 0px;
+	display: block;
+	border: 0;
+	border-bottom: 1px solid gray;
+	color: #777;
+	font-size: 50px
 }

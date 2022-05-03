@@ -16,12 +16,23 @@
 <title>Map</title>
 </head>
 <body>
-	<!-- 사이드 메뉴 바 -->
-	<div>
-		<div id="menu">
-			<div class="close"></div>
-		</div>
 
+	<!-- 좌측상단 메뉴 아이콘 -->
+	<div class="btn"></div>
+	<!--  슬라이드 메뉴 -->
+	<div id="menu">
+		<div class="close"></div>
+	</div>
+	<div onclick="history.back();" class="page_cover"></div>
+	<div id="menu">
+		<h2 class="BGateLogo">BGate</h2>
+		<div class="menuList">
+			<ul class="ulmenuList">
+				<li><a href=""> 로그인 </a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
+				<li><a href="/myPage">마이페이지</a></li>
+			</ul>
+		</div>
 		<div class="btn"></div>
 		<div onclick="history.back();" class="page_cover"></div>
 
@@ -39,7 +50,7 @@
 			<div onclick="history.back();" class="close"></div>
 		</div>
 	</div>
-	
+
 	<!-- 지도 -->
 	<div id="map"></div>
 
