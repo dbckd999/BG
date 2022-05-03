@@ -47,5 +47,3 @@ map.addControl(lc = L.control.locate({
 
 // request location update and set location
 lc.start();
-
-ㅁ
