@@ -1,17 +1,9 @@
-var map = L.map('map').setView([35.861509, 128.572311], 13);
+//cdn으로 불러온 L객체에서 지도 로드.
+var map = L.map('map').setView([35.892805, 128.525276], 13);
+//주변 화장실을 배열로 담게 됩니다.
+var restRooms;
 
-//var layer = L.tileLayer(
-	//'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?lang=zh&access_token={accessToken}', {
-	//'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',{
-    //우측하단 설명글
-//    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-//    maxZoom: 18,
-//    id: 'mapbox/streets-v11',
-//    tileSize: 512,
-//    zoomOffset: -1,
-//    accessToken: 'pk.eyJ1IjoiZGJja2Q5OTkiLCJhIjoiY2wxem80NnU5MDJqOTNwcTR1NXExd3RvcSJ9.SYBe6JfYCNXcWcF7VgYg7A',
-//}).addTo(map);
-
+//지도타일 생성
 var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
@@ -20,25 +12,38 @@ var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y
 	accessToken: 'vAMEUGsqvj1NebwCreykRA1ZKXEVzyyRsUX7d0Il5wnGXe2BoJPTtUAVBaTjYGEB'
 }).addTo(map);
 
+//지도클릭 이벤트
 function onMapClick(e) {
     L.popup()
 	    .setLatLng(e.latlng)
 	    .setContent('You clicked the map at ' + e.latlng.toString())
 	    .openOn(map);
 }
+//지도 클릭이벤트 등록
+//map.on('click', onMapClick);
 
-map.on('click', onMapClick);
+//현재위치 저장
+var myLocationMarker;
 
+//현재위치 표시버튼 누르면 실시간 업데이트
+function updateMyLocation(){
+	navigator.geolocation.getCurrentPosition(
+		function(location) {
+			var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+			myLocationMarker = L.marker(latlng).addTo(map);
+			map.setView(latlng);
+		});
+}
+//updateMyLocation();
 
-$(".btn").click(function() 
-{ $("#menu").addClass("open"); }); 
+var lc;
+// create control and add to map
+//var lc = L.control.locate().addTo(map);
 
-$(".close").click(function() { $("#menu").
-removeClass("open"); });
+map.addControl(lc = L.control.locate({
+       locateOptions: {
+               enableHighAccuracy: true
+}}));
 
-$(".btn").click(function () { $("#menu,.page_cover,html").addClass("open"); 
- window.location.hash = "#open"; }); 
-window.onhashchange = function () 
-{ if (location.hash != "#open") { 
-	 $("#menu,.page_cover,html").removeClass("open");  } };
-
+// request location update and set location
+lc.start();

@@ -6,17 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MapController {
 
-	
-	@GetMapping("/Map")
+	@GetMapping("/map")
 	public String mainMap() {
 		return "/map/map";
 	}
 	
-	@GetMapping("/myPage")
-	public String myPage() {
+//	@GetMapping("/myPage")
+//	public String myPage() {
+//		return "/map/myPage";
+//	}
 
-		return "/map/myPage";
-	
+	@GetMapping("/regist")
+	public String regist() {
+		return "map/regist";
 	}
-	
 }
