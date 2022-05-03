@@ -104,10 +104,6 @@
 		</form>
 	</div>
 
-
-
-
-
 	<div id="footer">
 		<ul>
 			<li>
@@ -117,19 +113,9 @@
 				09:00-24:00 <br> EVERY WEEKEND, HOLIDAY OFF
 			</li>
 			<li id="liemail">https://github.com/dbckd999/BG/issues <br>
-
-
-
 			</li>
-
-
-
-
 		</ul>
-
 	</div>
-
-	
 	<script src="${path}/resources/js/member.js"></script>
 </body>
 </html>
