@@ -1,99 +1,108 @@
-@charset "UTF-8";
+ @charset "UTF-8"; 
+
+
+
 
 .Logo {
 	font-size: 2cm;
-	width: 50%;
-	margin-left: 39%;
+	
+
 }
 
 .headMain {
 	border-bottom: 1px solid black;
 	height: 200px;
 	width: 100%;
+	justify-content: center;
+	display: flex;
 }
 
-.content {
-	border: 1px solid black;
+#titleArea{
+	justify-content: center;
+	display: flex;
 }
 
-#titleh1 {
-	margin-left: 39%;
-}
 
-#center {
-	border: 2px dotted black;
+#center{
+ margin-top : 10%;
 	height: 50%;
-	width: 80%;
-	margin-left: 100px;
-}
-
-#center1 {
-	border: 1px dotted black;
-	height: 100px;
 	width: 100%;
-	background: #f1f1f1;
+	justify-content: center;
+	display: flex;
+
 }
 
-#center1 h1 {
-	margin-left: 50px;
+#centerMain{
+	border: 1px dashed black;
+	height: 100%;
+	width: 70%;
+
+}
+#centerLogo{
+	border-bottom: 1px dotted black;
+	height: 5%;
+	width: 100%;
+
+	 background-color: #d5d5d5;
+
+ 
 }
 
-#center1 div {
-	border: 0.3px dotted black;
-}
+
+
+
+ #centerspan{font-size: 20px;
+
+
+ }
+
+
+
+
+
+
+
+
 
 #centertable{
-	margin-left: 30px;
+	height: 100%;
+    width: 100%; 
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  border-bottom: 1 solid black;
 }
 
+th, td {
+    border-bottom: 1px dashed #444444;
+    padding: 10px;
+  }
 
-td {
-	   font-size: 50px;
-	    
-}
-
-
-input { margin-left: 50px;
-	      height: 50px;
-	       width:  200px;
-	       
-	       font-size : 30px
-}
-
-th {
-	font-size: 30px;
-	margin-top: 50px;
-	   
-}
-
-#user_pw{
-	   width:  400px;
-}
-#user_addr{
-	   width:  400px;
-}
-
-#bg_email{
-	 width:  400px;
-}
-
-
-
-
-tr{
-	margin-top: 100px;
-}
-
-#footer{
-
-	height: 500px;
-	width: 80%;
-	margin-left: 100px;
+input {
+	height: 40px;
+	border : none;
+	border-bottom: 1px solid black;
 	
 }
 
-ul{list-style: none;
-
+th{
+	font-size: 20px;
+	
 }
 
-#liemail{font-size: 40px;}
+
+#nickBtn{border-bottom: none;}
+
+
+form{
+	height: 70%;
+}
+
+#user_pw, #user_Rpw, #user_email{
+	width:  80%;
+}
+
+#update{
+	margin-left: 35%;
+}
+
+#delete{margin-left: 10%; }
