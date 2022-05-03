@@ -1,7 +1,6 @@
 package study.projectBG.BG.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import study.projectBG.BG.mapper.MemberMapper;
@@ -18,8 +17,9 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	
-	public String login(MemberDTO dto) {
+	public MemberDTO login(MemberDTO dto) {
 
+		
 		
 		return mapper.login(dto);
 		

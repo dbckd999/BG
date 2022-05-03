@@ -7,7 +7,7 @@ import study.projectBG.BG.model.MemberDTO;
 @Mapper
 public interface MemberMapper {
 
-	public String login(MemberDTO dto);
+	public MemberDTO login(MemberDTO dto);
 
 //	public String getRealPassword(String user_id);
 	

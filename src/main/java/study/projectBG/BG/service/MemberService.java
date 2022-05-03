@@ -4,7 +4,7 @@ import study.projectBG.BG.model.MemberDTO;
 
 public interface MemberService {
 
-	String login(MemberDTO dto);
+	MemberDTO login(MemberDTO dto);
 
 		
 

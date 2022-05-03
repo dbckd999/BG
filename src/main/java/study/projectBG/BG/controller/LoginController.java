@@ -32,18 +32,20 @@ public class LoginController {
 		  System.out.println(dto.getUser_id());
 		  System.out.println(dto.getUser_pw());
 		  
-		  String result = memberService.login(dto);
+		  String result = null;
+		  MemberDTO dtoRes = memberService.login(dto);
+		  if(dtoRes.getUser_id() != null) {
+			  result = "Suc";
+		  }
 		  
-//		  result.equals("Success")
 		  System.out.println(result);
-		
 		
 		  if(result != null) {
 			  System.out.println("로그인 성공");
-			  return null;
+			  return "/map/map";
 		  } else {
 			 System.out.println("없는 아이디 또는 비밀번호");
-			 return null;
+			 return "/login";
 		  }
 		
 		  
@@ -57,9 +59,5 @@ public class LoginController {
 //			  System.out.println("로그인 실패");
 //			  return "redirect:/login";
 //		  }
-		  
-		  
-	  	
 	  }
-	 
 }
