@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#Logo{
+	border : 2px solid black;
+	text-align : center;
+	font-size : 100px;
+	width : 100%;
+}
+
+
+#loginForm{
+	border : 2px solid black;
+	width : 100%;
+	height: 77vh;
+	font-size: 50px;
+	padding-top: 80%;
+	padding-left: 30%;
+	
+}
+
+#user_id, #user_pw{
+	width : 400px;
+	height: 50px;
+	
+}
+
+#loginSub{
+	width : 400px;
+	height : 50px;
+}
