@@ -1,0 +1,106 @@
+/* @charset "UTF-8"; */
+
+
+
+
+.Logo {
+	font-size: 2cm;
+	
+
+}
+
+.headMain {
+	border-bottom: 1px solid black;
+	height: 200px;
+	width: 100%;
+	justify-content: center;
+	display: flex;
+}
+
+#titleArea{
+	justify-content: center;
+	display: flex;
+}
+
+
+#center{
+   margin-top : 10%;
+	height: 50%;
+	width: 100%;
+	justify-content: center;
+	display: flex;
+
+}
+
+#centerMain{
+	border: 1px dashed black;
+	height: 100%;
+	width: 70%;
+
+}
+#centerLogo{
+	border-bottom: 1px dotted black;
+	height: 5%;
+	width: 100%;
+
+ 	 background-color: #d5d5d5;
+}
+
+
+h2{font-size: 20px;
+margin-left: 5%;
+margin-bottom: 2%;
+}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+#centertable{
+	height: 100%;
+    width: 100%; 
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  border-bottom: 1 solid black;
+}
+
+th, td {
+    border-bottom: 1px dashed #444444;
+    padding: 10px;
+  }
+
+input {
+	height: 40px;
+	border : none;
+	border-bottom: 1px solid black;
+	
+}
+
+th{
+	font-size: 20px;
+	
+}
+
+
+#nickBtn{border-bottom: none;}
+
+
+form{
+	height: 70%;
+}
+
+#user_pw, #user_id{
+	width:  80%;
+}
+
+#login{
+	margin-left: 30%;
+}
