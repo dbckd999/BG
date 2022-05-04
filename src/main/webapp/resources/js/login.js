@@ -15,7 +15,8 @@ window.onhashchange = function() {
 	}
 };
 
-$("#loginSub").click(function(){
+$("#login").click(function(){
+	
 	
 	
 	

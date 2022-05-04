@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.projectBG.BG.mapper.MemberMapper">
+	<insert id="memberInsert">
+		INSERT INTO memberTBL(user_id, user_nick, user_pw, user_Rpw, user_email, user_addr) 
+		VALUES(#{user_id}, #{user_nick}, #{user_pw}, #{user_Rpw}, #{user_email}, #{user_addr})
+	</insert>
+	
+	<!-- study.projectBG.BG.model.MemberDTO -->
+	<select id="check_id" parameterType="string" resultType="Integer">
+		SELECT count(*) cnt FROM memberTBL WHERE user_id = #{user_id}
+	</select>
+	
+	<select id="check_nick" parameterType="string" resultType="Integer">
+		SELECT count(*) cnt FROM memberTBL WHERE user_nick = #{user_nick}
+	</select>
+	
+	<select id="check_email" parameterType="string" resultType="Integer">
+		SELECT count(*) cnt FROM memberTBL WHERE user_email = #{user_email}
+	</select>
+	
+	<select id="login" resultType="study.projectBG.BG.model.MemberDTO">
+		select * from memberTBL where user_id = #{user_id}
+	</select>
+	
+</mapper>

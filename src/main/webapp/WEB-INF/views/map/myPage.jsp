@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -56,7 +56,8 @@
 				<table id="centertable">
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="user_id" id="user_id" value="${dto.user_id}"></td>
+						<td><input type="text" name="user_id" id="user_id"
+							value="${dto.user_id}" readonly></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -71,8 +72,8 @@
 					<tr>
 						<th>별명</th>
 						<td><input type="text" id="user_nick" name="user_nick">
-							<input type="button" value="중복확인" id="nickBtn" name="nickBtn">
-						</td>
+							<input type="button" value="중복확인" id="nickCheckBtn"
+							name="nickCheckBtn"></td>
 					</tr>
 					<tr>
 						<th>주소</th>
@@ -80,14 +81,17 @@
 					</tr>
 					<tr>
 						<th>email</th>
-						<td><input type="email" id="user_email" name="user_email"></td>
+						<td><input type="email" id="user_email" name="user_email"
+							readonly></td>
 					</tr>
 				</table>
-				<input type="submit" id="update" name="update" value="수정하기">
-				<input type="button" id="delete" name="delete" value="삭제하기">
+					<button type="button" id="update" name="update"
+						value="memberUpdate?user_id=${dto.user_id}">수정하기</button>
+					<button type="button" id="delete" name="delete"
+						value="memberDelete?user_id=${dto.user_id}">삭제하기</button>
 			</form>
 		</div>
-		
+
 		<!-- footer -->
 		<ul>
 			<li>
@@ -102,6 +106,7 @@
 		</ul>
 	</div>
 
+	<script src="${path}/resources/js/member.js"></script>
 	<script src="${path}/resources/js/myPage.js"></script>
 </body>
 </html>

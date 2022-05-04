@@ -1,5 +1,8 @@
 package study.projectBG.BG.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +42,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public MemberDTO login(MemberDTO dto) {
+	public int login(MemberDTO dto) {
+		List<MemberDTO> list = new ArrayList<MemberDTO>();
+		list = mapper.login(dto);
+		
+		if(list.size()==0) {
+			return 0;
+		}  
+		
+		if (list.get(0).getUser_pw().equals(dto.getUser_pw())) {
+			return 1;
+		} else {
+			return -1;
+			}
+		} 
+		
+		
 //		String resultPW = mapper.getRealPassword(dto.getUser_id());
 //		System.out.println("resultPW 값 : " + resultPW);
 //		boolean loginFilter = pwEncoder.matches(dto.getUser_pw(), resultPW);
@@ -50,11 +68,11 @@ public class MemberServiceImpl implements MemberService {
 //		} else {
 //			return "Fail";
 //		}
-		return mapper.login(dto);
+		
 	}
+
 	
 
-}
 
 
 

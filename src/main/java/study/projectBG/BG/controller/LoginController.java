@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,27 +27,41 @@ public class LoginController {
 	}
 	
 	  @PostMapping("/login")
-	  @ResponseBody
 	 public String login(MemberDTO dto, HttpServletRequest request, RedirectAttributes rttr) {
 	  
 		  System.out.println(dto.getUser_id());
 		  System.out.println(dto.getUser_pw());
 		  
-		  String result = null;
-		  MemberDTO dtoRes = memberService.login(dto);
-		  if(dtoRes.getUser_id() != null) {
-			  result = "Suc";
-		  }
+		  int result = memberService.login(dto);
+		  if(result == 1) {
+			  HttpSession session = request.getSession();
+				session.setAttribute("user_id", dto.getUser_id());
+			  return "map/map";
+		  }; 
+			  
+		  if(result == 0){
+			  rttr.addFlashAttribute("msgID", false);
+			  return "redirect:/login";
+		  }; 
 		  
-		  System.out.println(result);
+		  if(result == -1) {
+			  rttr.addFlashAttribute("msgPW", false);
+			  return "redirect:/login";
+			  } else {
+				  return "redirect:/login";
+			  }
+			  
+			
+		  
+//		  System.out.println(result);
 		
-		  if(result != null) {
-			  System.out.println("로그인 성공");
-			  return "/map/map";
-		  } else {
-			 System.out.println("없는 아이디 또는 비밀번호");
-			 return "/login";
-		  }
+//		  if(result != null) {
+//			  System.out.println("로그인 성공");
+//			  return "/map/map";
+//		  } else {
+//			 System.out.println("없는 아이디 또는 비밀번호");
+//			 return "/login";
+//		  }
 		
 		  
 //		  if("Success".equals(result)) {
