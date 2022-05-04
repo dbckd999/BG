@@ -19,4 +19,9 @@
 	<select id="login" resultType="study.projectBG.BG.model.MemberDTO">
 		select * from memberTBL where user_id = #{user_id}
 	</select>
+	
+	<select id="getRealPassword" resultType="String">
+		select user_pw from memberTBL where user_id=#{user_id}
+	</select>
+	
 </mapper>

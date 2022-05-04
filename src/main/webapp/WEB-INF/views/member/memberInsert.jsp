@@ -9,6 +9,9 @@
 
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
 <link rel="stylesheet" href="${path}/resources/css/memberInsert.css" />
+<link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
+<link rel="stylesheet" href="${path}/resources/css/login.css" />
+<link rel="stylesheet" href="${path}/resources/css/footer.css" />
 <title>Map</title>
 </head>
 <body>
@@ -117,5 +120,7 @@
 		</ul>
 	</div>
 	<script src="${path}/resources/js/member.js"></script>
+	<script src="${path}/resources/js/myPage.js"></script>
+	<script src="${path}/resources/js/login.js"></script>
 </body>
 </html>

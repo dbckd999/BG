@@ -12,5 +12,5 @@ public interface MemberMapper {
 	public int check_id(String user_id);
 	public int check_nick(String user_nick); 
 	public List<MemberDTO> login(MemberDTO dto);
-//	public String getRealPassword(String user_id);
+	public String getRealPassword(String user_id);
 }

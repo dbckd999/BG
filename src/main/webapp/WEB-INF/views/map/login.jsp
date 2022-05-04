@@ -29,7 +29,7 @@
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<li><a href="/login"> 로그인 </a></li>
-				<li><a href="/regist">회원가입</a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
 				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
 		</div>
@@ -70,7 +70,7 @@
 				</table>
 				<input type="submit" id="login" name="login" value="로그인하기">
 				<input type="button" id="regist" name="regist" value="회원가입"
-					onclick="location.href='/regist'">
+					onclick="location.href='/memberInsert'">
 			</form>
 		</div>
 

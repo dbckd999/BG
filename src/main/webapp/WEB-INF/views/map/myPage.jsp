@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +16,8 @@
 </head>
 <body>
 
+
+
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -25,8 +28,8 @@
 		<h2 class="BGateLogo">BGate</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href="login"> 로그인 </a></li>
-				<li><a href="">회원가입</a></li>
+				<li><a href="/login"> 로그인 </a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
 				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
 		</div>
