@@ -1,5 +1,9 @@
  @charset "UTF-8"; 
 
+html, body{
+	margin: 0;
+}
+
 .Logo {
 	font-size: 2cm;
 }
@@ -18,10 +22,13 @@
 }
 
 #center {
-	border: 2px dotted black;
-	height: 700px;
-	width: 80%;
-	margin-left: 100px;
+	/* border: 2px dotted black; */
+	/* height: 700px; */
+	/* width: 90%; */
+	/* margin-left: 100px; */
+	
+	/* display: flex; */
+	/* flex-direction: column; */
 }
 
 #center1 {
@@ -34,8 +41,9 @@
 
 #centerMain{
 	border: 1px dashed black;
-	height: 100%;
-	width: 70%;
+	margin: 0 auto;
+	width: 90%;
+	/* height: 100%; */
 }
 
 #centerLogo{
@@ -50,7 +58,7 @@
 }
 
 #centertable{
-	height: 100%;
+	/* height: 100%; */
 	width: 100%; 
 	border-top: 1px solid #444444;
 	border-collapse: collapse;
@@ -61,14 +69,8 @@ th, td {
 	border-bottom: 1px dashed #444444;
 	padding: 10px;
 }
-
-input {
-	height: 40px;
-	border : none;
-	border-bottom: 1px solid black;
-}
-
-th{
+/* tr > css선택자 변경 */
+#centertable > tbody > tr > td:first-child{
 	font-size: 20px;
 }
 
@@ -76,29 +78,26 @@ th{
 	border-bottom: none;
 }
 
-td {
-	font-size: 50px;
-}
-
 input {
-	margin-left: 50px;
+	height: 40px;
+	border : none;
+	border-bottom: 1px solid black;
+	/* margin-left: 50px; */
 	height: 70px;
-	width:  200px;
-	margin-top: 10px;
+	/* width:  200px; */
+	/* margin-top: 10px; */
 	font-size : 30px;
-}
-
-#user_pw, #user_Rpw, #user_email{
-	width:  80%;
-}
-th {
-	font-size: 30px;
 }
 
 #update{
 	margin-left: 35%;
 }
 
+/* 각 인풋태그 스타일을 클래스로 통일했습니다. */
+/*
+#user_pw, #user_Rpw, #user_email{
+	width:  80%;
+}
 #user_pw{
 	   width:  400px;
 }
@@ -109,6 +108,19 @@ th {
 
 #bg_email{
 	 width:  400px;
+}
+*/
+/* 회원정보 수정 테이블 중 input태그 스타일 */
+.mod_input_with_button{
+	
+}
+
+.mod_input{
+	width: 100%;
+}
+
+.footer_list > li{
+	margin: 3px;
 }
 
 #footer{
