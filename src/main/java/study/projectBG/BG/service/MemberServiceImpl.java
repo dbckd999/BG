@@ -54,6 +54,11 @@ public class MemberServiceImpl implements MemberService {
 			}
 		}
 
+	@Override
+	public int check_email(String user_email) {
+		return mapper.check_email(user_email);
+	}
+
 
 	
 		

@@ -50,6 +50,12 @@ public class MemberController {
 		return checkCount;
 	}
 	
-	
+	@PostMapping("/check_email")
+	@ResponseBody
+	public int check_email(@RequestParam("user_email")String user_email) {
+		int checkCount = 0;
+		checkCount = memberService.check_email(user_email);
+		return checkCount;
+	}
 
 }

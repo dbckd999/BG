@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,6 +18,7 @@
 </head>
 <body>
 
+
 	<!-- 좌측상단 메뉴 아이콘 -->
 	<div class="btn"></div>
 	<!--  슬라이드 메뉴 -->
@@ -28,9 +30,16 @@
 		<h2 class="BGateLogo">BGate</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href="/login"> 로그인 </a></li>
-				<li><a href="/memberInsert">회원가입</a></li>
-				<li><a href="/myPage">마이페이지</a></li>
+
+				<c:if test="${empty sessionScope.user_id}">
+					<li><a href="/login"> 로그인 </a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
+				</c:if>
+
+				<c:if test="${not empty sessionScope.user_id}">
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage"> 마이페이지 </a></li>
+				</c:if>
 			</ul>
 		</div>
 		<div class="btn"></div>
@@ -42,9 +51,21 @@
 			</h2>
 			<div class="menuList">
 				<ul class="ulmenuList">
+					<!-- <li><a href="/login"> 로그인 </a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
+					<li><a href="/myPage">마이페이지</a></li> -->
+					
+					<c:if test="${empty sessionScope.user_id}">
 					<li><a href="/login"> 로그인 </a></li>
 					<li><a href="/memberInsert">회원가입</a></li>
-					<li><a href="/myPage">마이페이지</a></li>
+					
+				</c:if>
+
+				<c:if test="${not empty sessionScope.user_id}">
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage"> 마이페이지 </a></li>
+				</c:if>
+					
 				</ul>
 			</div>
 			<div onclick="history.back();" class="close"></div>

@@ -7,4 +7,5 @@ public interface MemberService {
 	int check_id(String user_id);
 	int check_nick(String user_nick);
 	int login(MemberDTO dto);
+	int check_email(String user_email);
 }
