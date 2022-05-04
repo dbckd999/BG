@@ -8,7 +8,9 @@ public class MainController {
 	//testest
 	@GetMapping("/")
 	public String main() {
+		System.out.println("aaa");
 		System.out.println("main call");
+		System.out.println("bbb");
 		return "index--";
 	}
 }
