@@ -1,23 +1,20 @@
-@charset "UTF-8";
+ @charset "UTF-8"; 
 
 .Logo {
 	font-size: 2cm;
-	width: 50%;
-	margin-left: 39%;
 }
 
 .headMain {
 	border-bottom: 1px solid black;
 	height: 200px;
 	width: 100%;
+	justify-content: center;
+	display: flex;
 }
 
-.content {
-	border: 1px solid black;
-}
-
-#titleh1 {
-	margin-left: 39%;
+#titleArea{
+	justify-content: center;
+	display: flex;
 }
 
 #center {
@@ -31,45 +28,81 @@
 	border: 1px dotted black;
 	height: 100px;
 	width: 100%;
-	background: #f1f1f1;
+	justify-content: center;
+	display: flex;
 }
 
-#center1 h1 {
-	margin-left: 50px;
+#centerMain{
+	border: 1px dashed black;
+	height: 100%;
+	width: 70%;
 }
 
-#center1 div {
-	border: 0.3px dotted black;
+#centerLogo{
+	border-bottom: 1px dotted black;
+	height: 5%;
+	width: 100%;
+	background-color: #d5d5d5;
+}
+
+#centerspan{
+	font-size: 20px;
 }
 
 #centertable{
-	margin-left: 30px;
+	height: 100%;
+	width: 100%; 
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+	border-bottom: 1 solid black;
 }
 
+th, td {
+	border-bottom: 1px dashed #444444;
+	padding: 10px;
+}
+
+input {
+	height: 40px;
+	border : none;
+	border-bottom: 1px solid black;
+}
+
+th{
+	font-size: 20px;
+}
+
+#nickBtn{
+	border-bottom: none;
+}
 
 td {
-	   font-size: 50px;
+	font-size: 50px;
 }
 
-
-input { margin-left: 50px;
-	      height: 70px;
-	       width:  200px;
-	     margin-top: 10px;
-	       
-	       font-size : 30px;
+input {
+	margin-left: 50px;
+	height: 70px;
+	width:  200px;
+	margin-top: 10px;
+	font-size : 30px;
 }
 
+#user_pw, #user_Rpw, #user_email{
+	width:  80%;
+}
 th {
 	font-size: 30px;
-	
-	
-	   
+}
+
+#update{
+	margin-left: 35%;
 }
 
 #user_pw{
 	   width:  400px;
 }
+
 #user_addr{
 	   width:  400px;
 }
@@ -78,33 +111,31 @@ th {
 	 width:  400px;
 }
 
-
-
-
-
-
 #footer{
-
 	height: 500px;
 	width: 80%;
 	margin-left: 100px;
 	margin-top: 100px;
-	
 }
 
-ul{list-style: none;
-
+ul{
+	list-style: none;
 }
 
-#liemail{font-size: 40px;}
+#liemail{
+	font-size: 40px;
+}
 
 #updateChang{
-	
-		height: 50px;
-		width: 80%;
-		margin-left: 100px;
+	height: 50px;
+	width: 80%;
+	margin-left: 100px;
 }
 
 #updateBtn{
-	 margin-left: 550px;
+	margin-left: 550px;
+}
+
+#delete{
+	margin-left: 10%;
 }

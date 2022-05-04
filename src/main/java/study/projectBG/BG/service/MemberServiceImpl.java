@@ -14,6 +14,9 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper mapper;
 
+//	@Autowired
+//	private BCryptPasswordEncoder pwEncoder ;
+
 	@Override
 	public void memberInsert(MemberDTO dto) {
 		mapper.memberInsert(dto);
@@ -35,9 +38,23 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.check_email(user_email);
 	}
 	
-	
-	
-	
+	@Override
+	public MemberDTO login(MemberDTO dto) {
+//		String resultPW = mapper.getRealPassword(dto.getUser_id());
+//		System.out.println("resultPW 값 : " + resultPW);
+//		boolean loginFilter = pwEncoder.matches(dto.getUser_pw(), resultPW);
+//		System.out.println(loginFilter);
+//		
+//		if(loginFilter) {
+//			return "Success";
+//		} else {
+//			return "Fail";
+//		}
+		return mapper.login(dto);
+	}
 	
 
 }
+
+
+

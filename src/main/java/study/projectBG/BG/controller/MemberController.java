@@ -28,6 +28,7 @@ public class MemberController {
 	@PostMapping("/memberInsert")
 	public String memberInsertProcess(MemberDTO dto) {
 		dto.setUser_pw(bCryptPasswordEncoder.encode(dto.getUser_pw()));
+		dto.setUser_Rpw(bCryptPasswordEncoder.encode(dto.getUser_Rpw()));
 		memberService.memberInsert(dto);
 		return "redirect:/memberInsert";
 	}
