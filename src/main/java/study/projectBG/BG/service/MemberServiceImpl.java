@@ -8,6 +8,8 @@ import study.projectBG.BG.model.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
+	
+	
 
 	@Autowired
 	private MemberMapper mapper;
@@ -27,6 +29,12 @@ public class MemberServiceImpl implements MemberService {
 	public int check_nick(String user_nick) {
 		return mapper.check_nick(user_nick);
 	}
+
+	@Override
+	public int check_email(String user_email) {
+		return mapper.check_email(user_email);
+	}
+	
 	
 	
 	

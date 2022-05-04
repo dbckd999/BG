@@ -11,5 +11,7 @@ public interface MemberMapper {
 
 	public int check_id(String user_id);
 
-	public int check_nick(String user_nick); 
+	public int check_nick(String user_nick);
+
+	public int check_email(String user_email); 
 }

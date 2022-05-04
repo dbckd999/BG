@@ -16,4 +16,9 @@
 		SELECT count(*) cnt FROM memberTBL WHERE user_nick = #{user_nick}
 	</select>
 	
+	<select id="check_email" parameterType="string" resultType="Integer">
+		SELECT count(*) cnt FROM memberTBL WHERE user_email = #{user_email}
+	</select>
+	
+	
 </mapper>

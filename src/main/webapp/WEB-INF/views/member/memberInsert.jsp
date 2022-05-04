@@ -55,7 +55,7 @@
 			<h1>기본정보</h1>
 		</div>
 		<br> <br>
-		<form action="/memberInsert" method="post">
+		<form action="/memberInsert" method="post" id="registForm">
 			<table id="centertable">
 
 				<tr>
@@ -93,7 +93,7 @@
 				<tr>
 					<th>이메일</th>
 					<td><input type="email" id="user_email" name="user_email"><input
-						type="button" id="check_email" value="중복확인"> <br></td>
+						type="button" id="emailCheckBtn" value="중복확인"> <br></td>
 				</tr>
 				<tr>
 					<td><input type="submit" name="regist" id="regist"
