@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import study.projectBG.BG.mapper.MemberMapper;
@@ -17,8 +18,8 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper mapper;
 
-//	@Autowired
-//	private BCryptPasswordEncoder pwEncoder ;
+	@Autowired
+	private BCryptPasswordEncoder pwEncoder ;
 
 	@Override
 	public void memberInsert(MemberDTO dto) {
@@ -46,28 +47,32 @@ public class MemberServiceImpl implements MemberService {
 		List<MemberDTO> list = new ArrayList<MemberDTO>();
 		list = mapper.login(dto);
 		
+		String resultPW = mapper.getRealPassword(dto.getUser_id());
+		System.out.println("resultPW 값 : " + resultPW);
+		
+		
 		if(list.size()==0) {
 			return 0;
 		}  
 		
-		if (list.get(0).getUser_pw().equals(dto.getUser_pw())) {
+		if (pwEncoder.matches(dto.getUser_pw(), resultPW)) {
 			return 1;
 		} else {
 			return -1;
 			}
-		} 
+		}
+
+	@Override
+	public MemberDTO memberRead(String user_id) {
+		return mapper.memberRead(user_id);
+		
+	}
+
+
+	
 		
 		
-//		String resultPW = mapper.getRealPassword(dto.getUser_id());
-//		System.out.println("resultPW 값 : " + resultPW);
-//		boolean loginFilter = pwEncoder.matches(dto.getUser_pw(), resultPW);
-//		System.out.println(loginFilter);
-//		
-//		if(loginFilter) {
-//			return "Success";
-//		} else {
-//			return "Fail";
-//		}
+	
 		
 	}
 

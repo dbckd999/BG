@@ -15,9 +15,9 @@ window.onhashchange = function() {
 	}
 };
 
-$("#login").click(function(){
+/*$("#login").click(function(){
 	
 	
 	
 	
-})
+})*/

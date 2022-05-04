@@ -14,7 +14,9 @@
 <title>Map</title>
 </head>
 <body>
-
+11
+${dto}
+22
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -25,8 +27,8 @@
 		<h2 class="BGateLogo">BGate</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href="login"> 로그인 </a></li>
-				<li><a href="">회원가입</a></li>
+				<li><a href="/login"> 로그인 </a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
 				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
 		</div>
@@ -52,12 +54,13 @@
 			</div>
 
 			<!-- 계정정보 수정 테이블 -->
-			<form action="#">
+			
+			<form action="/memberRead" method ="post">
 				<table id="centertable">
 					<tr>
 						<th>아이디</th>
 						<td><input type="text" name="user_id" id="user_id"
-							value="${dto.user_id}" readonly></td>
+							value="${dto.user_id}" readonly> </td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -71,18 +74,18 @@
 					</tr>
 					<tr>
 						<th>별명</th>
-						<td><input type="text" id="user_nick" name="user_nick">
+						<td><input type="text" id="user_nick" name="user_nick"  value="${dto.user_nick}">
 							<input type="button" value="중복확인" id="nickCheckBtn"
 							name="nickCheckBtn"></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr"></td>
+						<td><input type="text" id="user_addr" name="user_addr"  value="${dto.user_addr}"></td>
 					</tr>
 					<tr>
 						<th>email</th>
 						<td><input type="email" id="user_email" name="user_email"
-							readonly></td>
+							value="${ dto.user_email }" readonly ></td>
 					</tr>
 				</table>
 					<button type="button" id="update" name="update"

@@ -13,6 +13,7 @@ public interface MemberMapper {
 	public int check_nick(String user_nick);
 	public int check_email(String user_email); 
 	public List<MemberDTO> login(MemberDTO dto);
-//	public String getRealPassword(String user_id);
+	public String getRealPassword(String user_id);
+	public MemberDTO memberRead(String user_id);
 
 }

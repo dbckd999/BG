@@ -53,26 +53,5 @@ public class LoginController {
 			  
 			
 		  
-//		  System.out.println(result);
-		
-//		  if(result != null) {
-//			  System.out.println("로그인 성공");
-//			  return "/map/map";
-//		  } else {
-//			 System.out.println("없는 아이디 또는 비밀번호");
-//			 return "/login";
-//		  }
-		
-		  
-//		  if("Success".equals(result)) {
-//			  HttpSession session = request.getSession();
-//			  session.setAttribute("user_id",dto.getUser_id());
-//			  System.out.println("로그인 성공");
-//			  return "map/map";
-//		  } else {
-//			  rttr.addFlashAttribute("msg", false);
-//			  System.out.println("로그인 실패");
-//			  return "redirect:/login";
-//		  }
 	  }
 }
