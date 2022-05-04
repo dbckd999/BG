@@ -1,12 +1,6 @@
-/* @charset "UTF-8"; */
-
-
-
 
 .Logo {
 	font-size: 2cm;
-	
-
 }
 
 .headMain {
@@ -53,17 +47,6 @@ margin-bottom: 2%;
 }
 
 
-
- 
-
-
-
-
-
-
-
-
-
 #centertable{
 	height: 100%;
     width: 100%; 
@@ -95,6 +78,14 @@ th{
 
 form{
 	height: 70%;
+}
+
+#user_pw, #user_id{
+	width:  80%;
+}
+
+#login{
+	margin-left: 30%;
 }
 
 #user_pw, #user_id{

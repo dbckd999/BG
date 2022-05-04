@@ -10,11 +10,6 @@ public class MapController {
 	public String mainMap() {
 		return "/map/map";
 	}
-	
-//	@GetMapping("/myPage")
-//	public String myPage() {
-//		return "/map/myPage";
-//	}
 
 	@GetMapping("/regist")
 	public String regist() {
