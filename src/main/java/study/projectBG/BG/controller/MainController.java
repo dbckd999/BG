@@ -9,6 +9,6 @@ public class MainController {
 	@GetMapping("/")
 	public String main() {
 		System.out.println("main call");
-		return "index";
+		return "index--";
 	}
 }
