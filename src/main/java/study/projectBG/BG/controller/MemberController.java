@@ -16,15 +16,15 @@ import study.projectBG.BG.service.MemberService;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
-	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder; 
 
-	
-	  @GetMapping("/memberInsert") public String memberInsert() {
-	  System.out.println("in Memberinsert Controller"); return
-	  "member/memberInsert"; }
-	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	@GetMapping("/memberInsert")
+	public String memberInsert() {
+		System.out.println("in Memberinsert Controller");
+		return "member/memberInsert";
+	}
 
 	@PostMapping("/memberInsert")
 	public String memberInsertProcess(MemberDTO dto) {
@@ -50,15 +50,21 @@ public class MemberController {
 		checkCount = memberService.check_nick(user_nick);
 		return checkCount;
 	}
-	
 
 	@PostMapping("/check_email")
 	@ResponseBody
-	public int check_email(@RequestParam("user_email")String user_email) {
+	public int check_email(@RequestParam("user_email") String user_email) {
 		int checkCount = 0;
 		checkCount = memberService.check_email(user_email);
 		return checkCount;
 	}
-	
 
+	@GetMapping("/delete")
+	public String memberDelete(@RequestParam("user_no") String user_no) {
+
+		System.out.println("user_no");
+		memberService.memberDelete(user_no);
+
+		return "map/map";
+	}
 }

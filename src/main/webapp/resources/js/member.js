@@ -85,7 +85,30 @@ $(function() {
 	});
 
 
-
+$('#emailCheckBtn').click(function() {
+		user_email = $('#user_email').val();
+		$.ajax({
+			url: '/check_email',
+			type: 'post',
+			data: {
+				user_email: user_email
+			},
+			success: function(data) {
+				console.log(data);
+				if (data > 0) {
+					alert('이메일 중복');
+				} else {
+					alert('이메일 사용 가능');
+					email_check = true;
+				}
+			},
+			error: function(request, status, error) {
+				console.log("code:" + request.status + "\n" +
+					"message:" + request.responseText + "\n" +
+					"error:" + error);
+			}
+		});
+	});
 
 
 
@@ -172,7 +195,28 @@ $(function() {
 
 })
 
-
-
+$('#nickCheckBtn').click(function() {
+		var user_nick = $('#user_nick').val();
+		$.ajax({
+			url: "/check_nick",
+			type: 'POST',
+			data: { user_nick },
+			success: function(data) {
+				if (data > 0) {
+					alert('별명 중복');
+				} else {
+					alert('별명 사용 가능');
+				}
+			},
+			error: function(request, status, error) {
+				console.log("code:" + request.status + "\n" +
+					"message:" + request.responseText + "\n" +
+					"error:" + error);
+			}
+		});
+		
+		
+		
+	});	
 
 

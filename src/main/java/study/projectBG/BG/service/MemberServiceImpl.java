@@ -12,8 +12,6 @@ import study.projectBG.BG.model.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	
-	
 
 	@Autowired
 	private MemberMapper mapper;
@@ -38,11 +36,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int check_email(String user_email) {
-		return mapper.check_email(user_email);
-	}
-	
-	@Override
 	public int login(MemberDTO dto) {
 		List<MemberDTO> list = new ArrayList<MemberDTO>();
 		list = mapper.login(dto);
@@ -65,16 +58,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO memberRead(String user_id) {
 		return mapper.memberRead(user_id);
-		
+	}
+	
+	@Override
+	public int check_email(String user_email) {
+		return mapper.check_email(user_email);
 	}
 
-
-	
-		
-		
-	
-		
+	@Override
+	public void memberDelete(String user_no) {
+		mapper.memberDelete(user_no);
 	}
+}
 
 	
 
