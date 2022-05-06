@@ -16,4 +16,21 @@
 		SELECT count(*) cnt FROM memberTBL WHERE user_nick = #{user_nick}
 	</select>
 	
+	<select id="check_email" parameterType="string" resultType="Integer">
+		SELECT count(*) cnt FROM memberTBL WHERE user_email = #{user_email}
+	</select>
+	
+	<select id="login" resultType="study.projectBG.BG.model.MemberDTO">
+		select * from memberTBL where user_id = #{user_id}
+	</select>
+	
+	<select id="getRealPassword" resultType="String">
+		select user_pw from memberTBL where user_id=#{user_id}
+	</select>
+	
+	<select id="memberRead" resultType="study.projectBG.BG.model.MemberDTO">
+		SELECT * FROM memberTBL WHERE user_id = #{user_id}
+	</select>
+	
+
 </mapper>

@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +14,9 @@
 <title>Map</title>
 </head>
 <body>
-
+11
+${dto}
+22
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -25,8 +27,8 @@
 		<h2 class="BGateLogo">BGate</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href="login"> 로그인 </a></li>
-				<li><a href="">회원가입</a></li>
+				<li><a href="/login"> 로그인 </a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
 				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
 		</div>
@@ -50,11 +52,12 @@
 			</div>
 
 			<!-- 계정정보 수정 테이블 -->
-			<form action="#">
+			
+			<form action="/memberRead" method ="post">
 				<table id="centertable">
 					<tr>
-						<td>아이디</td>
-						<td><input type="text" id="user_id" name="user_id" class="mod_input"></td>
+						<th>아이디</th>
+						<td><input type="text" name="user_id" id="user_id" value="${dto.user_id}" readonly> </td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
@@ -65,26 +68,27 @@
 						<td><input type="text" id="user_Rpw" name="user_Rpw" class="mod_input"></td>
 					</tr>
 					<tr>
-						<td>별명</td>
-						<td>
-							<input type="text" id="user_nick" name="user_nick">
-							<input type="button" value="중복확인" id="nickBtn" name="nickBtn">
-						</td>
+						<th>별명</th>
+						<td><input type="text" id="user_nick" name="user_nick"  value="${dto.user_nick}">
+							<input type="button" value="중복확인" id="nickCheckBtn"
+							name="nickCheckBtn"></td>
 					</tr>
 					<tr>
-						<td>주소</td>
-						<td><input type="text" id="user_addr" name="user_addr" class="mod_input"></td>
+						<th>주소</th>
+						<td><input type="text" id="user_addr" name="user_addr"  value="${dto.user_addr}"></td>
 					</tr>
 					<tr>
-						<td>email</td>
-						<td><input type="email" id="user_email" name="user_email" class="mod_input"></td>
+						<th>email</th>
+						<td><input type="email" id="user_email" name="user_email" value="${ dto.user_email }" readonly ></td>
 					</tr>
 				</table>
-				<input type="submit" id="update" name="update" value="수정하기">
-				<input type="button" id="delete" name="delete" value="삭제하기">
+					<button type="button" id="update" name="update"
+						value="memberUpdate?user_id=${dto.user_id}">수정하기</button>
+					<button type="button" id="delete" name="delete"
+						value="memberDelete?user_id=${dto.user_id}">삭제하기</button>
 			</form>
 		</div>
-		
+
 		<!-- footer -->
 		<ul class="footer_list">
 			<li>
@@ -98,7 +102,7 @@
 			<li id="liemail">https://gitdub.com/dbckd999/BG/issues</li>
 		</ul>
 	</div>
-
-	<script src="${patd}/resources/js/myPage.js"></script>
+	<script src="${path}/resources/js/member.js"></script>
+	<script src="${path}/resources/js/myPage.js"></script>
 </body>
 </html>

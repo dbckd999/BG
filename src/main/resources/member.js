@@ -6,10 +6,6 @@ $(function() {
 	var user_nick = "";
 	var user_email = "";
 	var user_addr = "";
-	var id_check = false;
-	var nick_check = false;
-	var email_check = false;
-	var registForm = "";
 
 	$('#idCheckBtn').click(function() {
 		user_id = $('#user_id').val();
@@ -25,7 +21,6 @@ $(function() {
 					alert('아이디 중복');
 				} else {
 					alert('아이디 사용 가능');
-					id_check = true;
 				}
 			},
 			error: function(request, status, error) {
@@ -47,7 +42,6 @@ $(function() {
 					alert('별명 중복');
 				} else {
 					alert('별명 사용 가능');
-					nick_check = true;
 				}
 			},
 			error: function(request, status, error) {
@@ -57,8 +51,8 @@ $(function() {
 			}
 		});
 	});
-
-
+	
+	
 	$('#emailCheckBtn').click(function() {
 		user_email = $('#user_email').val();
 		$.ajax({
@@ -73,7 +67,6 @@ $(function() {
 					alert('이메일 중복');
 				} else {
 					alert('이메일 사용 가능');
-					email_check = true;
 				}
 			},
 			error: function(request, status, error) {
@@ -98,7 +91,6 @@ $(function() {
 		user_nick = $('#user_nick').val();
 		user_email = $('#user_email').val();
 		user_addr = $('#user_addr').val();
-		registForm = $('#registForm').val();
 
 
 		var pwCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
@@ -143,32 +135,11 @@ $(function() {
 			alert('주소를 입력해주세요');
 			return false;
 		}
-		
-		if (id_check == false) {
-			alert('아이디 중복체크 버튼을 누르셔야 합니다.');
-			return false;
-		}
-		
-		if (nick_check == false) {
-			alert('별명 중복체크 버튼을 누르셔야 합니다.');
-			return false;
-		}
-		
-		if (email_check == false) {
-			alert('이메일 중복체크 버튼을 누르셔야 합니다.');
-			return false;
-		}
-		
-		
-		if (id_check == true && nick_check == true && email_check == true) {
-			registForm.submit();
-		} else {
-			registForm.reset();
-		}
+
+
 
 
 	})
-
 
 })
 

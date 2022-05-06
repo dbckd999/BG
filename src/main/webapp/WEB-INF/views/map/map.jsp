@@ -30,7 +30,7 @@
 			<ul class="ulmenuList">
 				<li><a href="/login"> 로그인 </a></li>
 				<li><a href="/memberInsert">회원가입</a></li>
-				<li><a href="/myPage">마이페이지</a></li>
+				<li><a href="/myPage?user_id=test123">마이페이지</a></li>
 			</ul>
 		</div>
 		<div class="btn"></div>
@@ -43,8 +43,8 @@
 			<div class="menuList">
 				<ul class="ulmenuList">
 					<li><a href="/login"> 로그인 </a></li>
-					<li><a href="/regist">회원가입</a></li>
-					<li><a href="/myPage">마이페이지</a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
+					<li><a href="/myPage?user_id=test123">마이페이지</a></li>
 				</ul>
 			</div>
 			<div onclick="history.back();" class="close"></div>

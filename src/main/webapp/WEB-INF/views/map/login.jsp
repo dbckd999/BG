@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,6 +12,9 @@
 <title>Map</title>
 </head>
 <body>
+
+
+
 
 	<div id="menu">
 		<div class="close"></div>
@@ -25,7 +29,7 @@
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<li><a href="/login"> 로그인 </a></li>
-				<li><a href="/regist">회원가입</a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
 				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
 		</div>
@@ -50,7 +54,7 @@
 				<span id="centerspan"> 기본정보 </span>
 			</div>
 
-			<form action="">
+			<form action="login" method="Post">
 				<table id="centertable">
 
 					<tr>
@@ -66,7 +70,7 @@
 				</table>
 				<input type="submit" id="login" name="login" value="로그인하기">
 				<input type="button" id="regist" name="regist" value="회원가입"
-					onclick="location.href='/regist'">
+					onclick="location.href='/memberInsert'">
 			</form>
 		</div>
 
@@ -84,6 +88,17 @@
 			</ul>
 		</div>
 	</div>
+
+<script type="text/javascript">
+
+		<c:if test="${msgID==false}">
+			alert('없는 아이디입니다.');
+		</c:if>
+		
+		<c:if test="${msgPW==false}">
+			alert('비밀번호가 다릅니다.');
+		</c:if>
+	</script>
 
 	<script src="${path}/resources/js/myPage.js"></script>
 	<script src="${path}/resources/js/login.js"></script>
