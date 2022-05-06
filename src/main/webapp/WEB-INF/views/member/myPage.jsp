@@ -93,7 +93,7 @@
 					</tr>
 				</table>
 				<input type="submit" id="update" name="update" value="수정하기">
-				<input type="button" id="delete" name="delete" value="삭제하기">
+				<input type="button" id="delete" name="delete" value="탈퇴하기">
 			</form>
 		</div>
 		

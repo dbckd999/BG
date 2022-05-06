@@ -140,6 +140,9 @@ $('#nickCheckBtn').click(function() {
 					"error:" + error);
 			}
 		});
+		
+		
+		
 	});	
 
 

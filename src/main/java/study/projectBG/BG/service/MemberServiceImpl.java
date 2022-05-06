@@ -59,6 +59,11 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.check_email(user_email);
 	}
 
+	@Override
+	public void memberDelete(String user_no) {
+		mapper.memberDelete(user_no);
+	}
+
 
 	
 		
