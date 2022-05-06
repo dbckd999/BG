@@ -59,6 +59,6 @@ public class MemberController {
 		checkCount = memberService.check_email(user_email);
 		return checkCount;
 	}
-	
+
 
 }

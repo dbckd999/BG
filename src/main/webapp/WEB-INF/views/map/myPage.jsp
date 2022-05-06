@@ -27,9 +27,15 @@ ${dto}
 		<h2 class="BGateLogo">BGate</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href="/login"> 로그인 </a></li>
-				<li><a href="/memberInsert">회원가입</a></li>
-				<li><a href="/myPage">마이페이지</a></li>
+				<c:if test="${empty sessionScope.user_id}">
+					<li><a href="/login?user_id=${user_id}"> 로그인 </a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
+				</c:if>
+
+				<c:if test="${not empty sessionScope.user_id}">
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+				</c:if>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>
@@ -55,7 +61,8 @@ ${dto}
 
 			<!-- 계정정보 수정 테이블 -->
 			
-			<form action="/memberRead" method ="post">
+			<form action="/memberUpdate" method ="post">
+			<input type="hidden" name="user_no" value="${dto.user_no}">
 				<table id="centertable">
 					<tr>
 						<th>아이디</th>
@@ -74,13 +81,13 @@ ${dto}
 					</tr>
 					<tr>
 						<th>별명</th>
-						<td><input type="text" id="user_nick" name="user_nick"  value="${dto.user_nick}">
+						<td><input type="text" id="user_nick" name="user_nick" value="${dto.user_nick}">
 							<input type="button" value="중복확인" id="nickCheckBtn"
 							name="nickCheckBtn"></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr"  value="${dto.user_addr}"></td>
+						<td><input type="text" id="user_addr" name="user_addr" value="${dto.user_addr}"></td>
 					</tr>
 					<tr>
 						<th>email</th>
@@ -88,10 +95,10 @@ ${dto}
 							value="${ dto.user_email }" readonly ></td>
 					</tr>
 				</table>
-					<button type="button" id="update" name="update"
-						value="memberUpdate?user_id=${dto.user_id}">수정하기</button>
+				 
+					<input type="submit" id="memberUpdate" name="memberUpdate" value="수정하기">
 					<button type="button" id="delete" name="delete"
-						value="memberDelete?user_id=${dto.user_id}">삭제하기</button>
+						value="memberDelete?user_id=${dto.user_id}">탈퇴하기</button>
 			</form>
 		</div>
 

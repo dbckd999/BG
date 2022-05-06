@@ -9,4 +9,8 @@ public interface MemberService {
 	int check_email(String user_email);
 	int login(MemberDTO dto);
 	MemberDTO memberRead(String user_id);
+	void memberUpdate(MemberDTO dto);
+	void memberDelete(String user_id);
+
+
 }

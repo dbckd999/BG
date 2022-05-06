@@ -15,5 +15,8 @@ public interface MemberMapper {
 	public List<MemberDTO> login(MemberDTO dto);
 	public String getRealPassword(String user_id);
 	public MemberDTO memberRead(String user_id);
+	public void memberUpdate(MemberDTO dto);
+	public void memberDelete(String user_id);
+
 
 }

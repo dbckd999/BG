@@ -85,7 +85,55 @@ $(function() {
 	});
 
 
+	/*$('#emailCheckBtn').click(function() {
+		user_email = $('#user_email').val();
+		$.ajax({
+			url: '/check_email',
+			type: 'post',
+			data: {
+				user_email: user_email
+			},
+			success: function(data) {
+				console.log(data);
+				if (data > 0) {
+					alert('이메일 중복');
+				} else {
+					alert('이메일 사용 가능');
+					email_check = true;
+				}
+			},
+			error: function(request, status, error) {
+				console.log("code:" + request.status + "\n" +
+					"message:" + request.responseText + "\n" +
+					"error:" + error);
+			}
+		});
+	});*/
 
+	$('#delete').click(function() {
+		user_id = $('#user_id').val();
+		$.ajax({
+			url: '/memberDelete',
+			type: 'post',
+			data: {
+				user_id: user_id
+			},
+			success: function(data) {
+				if (data != null) {
+					alert('회원 탈퇴 완료');
+					location.href='/map';
+				}
+				else{
+					alert('회원 탈퇴 불가');
+				}
+				
+			},
+			error: function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+					+ request.responseText + "\n" + "error:" + error);
+			}
+		})
+	})
 
 
 
@@ -143,23 +191,23 @@ $(function() {
 			alert('주소를 입력해주세요');
 			return false;
 		}
-		
+
 		if (id_check == false) {
 			alert('아이디 중복체크 버튼을 누르셔야 합니다.');
 			return false;
 		}
-		
+
 		if (nick_check == false) {
 			alert('별명 중복체크 버튼을 누르셔야 합니다.');
 			return false;
 		}
-		
+
 		if (email_check == false) {
 			alert('이메일 중복체크 버튼을 누르셔야 합니다.');
 			return false;
 		}
-		
-		
+
+
 		if (id_check == true && nick_check == true && email_check == true) {
 			registForm.submit();
 		} else {
@@ -168,6 +216,9 @@ $(function() {
 
 
 	})
+
+
+
 
 
 })

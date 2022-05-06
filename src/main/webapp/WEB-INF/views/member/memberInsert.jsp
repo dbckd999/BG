@@ -31,7 +31,6 @@
 			<ul class="ulmenuList">
 				<li><a href="login"> 로그인 </a></li>
 				<li><a href="">회원가입</a></li>
-				<li><a href="/myPage">마이페이지</a></li>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>

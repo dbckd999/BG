@@ -50,8 +50,18 @@ public class LoginController {
 			  } else {
 				  return "redirect:/login";
 			  }
-			  
-			
 		  
 	  }
+	  
+	  
+	  @GetMapping("/logout")
+		public String logout(HttpServletRequest request) {
+			
+			HttpSession session = request.getSession();
+			session.invalidate();
+			
+			return "map/map";
+			
+		}
+	  
 }
