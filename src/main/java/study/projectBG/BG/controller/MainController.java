@@ -11,6 +11,6 @@ public class MainController {
 		System.out.println("aaa");
 		System.out.println("main call");
 		System.out.println("bbb");
-		return "index--";
+		return "index";
 	}
 }

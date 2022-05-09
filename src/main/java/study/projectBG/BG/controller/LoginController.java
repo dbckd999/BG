@@ -16,52 +16,52 @@ import study.projectBG.BG.service.MemberService;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@GetMapping("/login")
 	public String login() {
-		
-		return "/map/login";
+
+		return "/member/login";
 	}
-	
-	  @PostMapping("/login")
-	 public String login(MemberDTO dto, HttpServletRequest request, RedirectAttributes rttr) {
-	  
-		  System.out.println(dto.getUser_id());
-		  System.out.println(dto.getUser_pw());
-		  
-		  int result = memberService.login(dto);
-		  if(result == 1) {
-			  HttpSession session = request.getSession();
-				session.setAttribute("user_id", dto.getUser_id());
-			  return "map/map";
-		  }; 
-			  
-		  if(result == 0){
-			  rttr.addFlashAttribute("msgID", false);
-			  return "redirect:/login";
-		  }; 
-		  
-		  if(result == -1) {
-			  rttr.addFlashAttribute("msgPW", false);
-			  return "redirect:/login";
-			  } else {
-				  return "redirect:/login";
-			  }
-		  
-	  }
-	  
-	  
-	  @GetMapping("/logout")
-		public String logout(HttpServletRequest request) {
-			
+
+	@PostMapping("/login")
+	public String login(MemberDTO dto, HttpServletRequest request, RedirectAttributes rttr) {
+
+		System.out.println(dto.getUser_id());
+		System.out.println(dto.getUser_pw());
+
+		int result = memberService.login(dto);
+		if(result == 1) {
 			HttpSession session = request.getSession();
-			session.invalidate();
-			
+			session.setAttribute("user_id", dto.getUser_id());
 			return "map/map";
-			
+		}; 
+
+		if(result == 0){
+			rttr.addFlashAttribute("msgID", false);
+			return "redirect:/login";
+		}; 
+
+		if(result == -1) {
+			rttr.addFlashAttribute("msgPW", false);
+			return "redirect:/login";
+		} else {
+			return "redirect:/login";
 		}
-	  
+
+	}
+
+
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+		session.invalidate();
+
+		return "map/map";
+
+	}
+
 }

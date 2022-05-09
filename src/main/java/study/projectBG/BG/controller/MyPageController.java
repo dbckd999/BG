@@ -15,15 +15,16 @@ public class MyPageController {
 	@Autowired
 	private MemberService memberService;
 
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@GetMapping("/myPage")
 	public String myPage(String user_id, Model model) {
 		System.out.println("11111");
 		MemberDTO dto = memberService.memberRead(user_id);
+		System.out.println("dto: " + dto);
 		model.addAttribute("dto", dto);
-		return "/map/myPage";
+		return "/member/myPage";
 
 	}
 
