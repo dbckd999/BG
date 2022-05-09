@@ -10,4 +10,5 @@ public interface MemberService {
 	MemberDTO memberRead(String user_id);
 	int check_email(String user_email);
 	void memberDelete(String user_no);
+	void memberUpdate(MemberDTO dto);
 }

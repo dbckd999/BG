@@ -8,15 +8,15 @@
 	</insert>
 	
 	<!-- study.projectBG.BG.model.MemberDTO -->
-	<select id="check_id" parameterType="string" resultType="Integer">
+	<select id="check_id" parameterType="String" resultType="Integer">
 		SELECT count(*) cnt FROM memberTBL WHERE user_id = #{user_id}
 	</select>
 	
-	<select id="check_nick" parameterType="string" resultType="Integer">
+	<select id="check_nick" parameterType="String" resultType="Integer">
 		SELECT count(*) cnt FROM memberTBL WHERE user_nick = #{user_nick}
 	</select>
 	
-	<select id="check_email" parameterType="string" resultType="Integer">
+	<select id="check_email" parameterType="String" resultType="Integer">
 		SELECT count(*) cnt FROM memberTBL WHERE user_email = #{user_email}
 	</select>
 	
@@ -31,6 +31,14 @@
 	<select id="memberRead" resultType="study.projectBG.BG.model.MemberDTO">
 		SELECT * FROM memberTBL WHERE user_id = #{user_id}
 	</select>
+	
+	<update id="memberUpdate">
+		UPDATE memberTBL SET user_pw = #{user_pw}, user_Rpw = #{user_Rpw}, user_nick = #{user_nick}, user_addr = #{user_addr} WHERE user_id = #{user_id}
+	</update>
+	
+	<delete id="memberDelete">
+		DELETE FROM memberTBL WHERE user_id = #{user_id}
+	</delete>
 	
 
 </mapper>

@@ -31,13 +31,13 @@
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<c:if test="${empty sessionScope.user_id}">
-					<li><a href="/login"> 로그인 </a></li>
+					<li><a href="/login?user_id=${user_id}"> 로그인 </a></li>
 					<li><a href="/memberInsert">회원가입</a></li>
 				</c:if>
 
 				<c:if test="${not empty sessionScope.user_id}">
 					<li><a href="/logout"> 로그아웃 </a></li>
-					<li><a href="/myPage"> 마이페이지 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -51,12 +51,12 @@
 			<div class="menuList">
 				<ul class="ulmenuList">
 					<c:if test="${empty sessionScope.user_id}">
-						<li><a href="/login"> 로그인 </a></li>
+						<li><a href="/login?user_id=${user_id}"> 로그인 </a></li>
 						<li><a href="/memberInsert">회원가입</a></li>
 					</c:if>
 					<c:if test="${not empty sessionScope.user_id}">
 						<li><a href="/logout"> 로그아웃 </a></li>
-						<li><a href="/myPage"> 마이페이지 </a></li>
+						<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -66,7 +66,7 @@
 
 	<!-- 지도 -->
 	<div id="map"></div>
-	
+
 	<!-- 지도 위 ui -->
 	<!-- 1. n미터 리스트 제작(최초기준은 1000미터) -->
 	<!-- 2. 1키로미터 반경 원 띄우기 -->

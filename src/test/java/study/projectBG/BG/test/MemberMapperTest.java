@@ -1,6 +1,5 @@
 package study.projectBG.BG.test;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,7 +22,7 @@ public class MemberMapperTest {
 	@Autowired
 	private MemberService memberService;
 	
-	@Test
+//	@Test
 	public void loginTest() {
 		log.info("Login 시작");
 		MemberDTO dto = new MemberDTO();
@@ -33,8 +32,6 @@ public class MemberMapperTest {
 //		mapper.login(dto);
 		memberService.login(dto);
 		log.info("Login 끝");
-		
 	}
-	
 	
 }
