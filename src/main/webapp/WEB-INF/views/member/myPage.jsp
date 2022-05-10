@@ -92,7 +92,7 @@
 						<td colspan="2"><input type="submit" id="memberUpdate" name="memberUpdate" class="w-btn w-btn-indigo inputSize" value="수정하기"></td>
 					</tr>
 				</table>
-				<button type="button" id="delete" name="delete" class="w-btn w-btn-indigo inputSize" value="memberDelete?user_id=${dto.user_id}">탈퇴하기</button>
+				<button type="button" id="delete" name="delete" class="w-btn w-btn-indigo inputSize" <%-- value="memberDelete?user_id=${dto.user_id}" --%>>탈퇴하기</button>
 				<!-- 모달창 -->
  				<div class="black_bg"></div>
  				<div class="modal_wrap">
@@ -125,6 +125,7 @@
 	</div>
 
 	<script src="${path}/resources/js/myPage.js"></script>
+	<script src="${path}/resources/js/member.js"></script>
 
 </body>
 </html>
