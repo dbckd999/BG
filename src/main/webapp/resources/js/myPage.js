@@ -12,7 +12,6 @@ $(".btn").click(function() {
 });
 
 window.onhashchange = function() {
-	console.log('wokr');
 	if (location.hash != "#open") {
 		$("#menu,.page_cover,html").removeClass("open");
 	}

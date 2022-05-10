@@ -33,9 +33,15 @@ public class MapMapperTest {
 	public void mapTest() {
 		List<SimpleRestroomDTO> list = mapper.callPins(new BigDecimal(35.857491811695375), new BigDecimal(35.86503042481595), new BigDecimal(128.5502099990845), new BigDecimal(128.56179714202884));
 	}
-	@Test
+//	@Test
 	public void mapTest2() {
 		List<Restroom_SampleDTO> list2 = mapper.callPins2(new BigDecimal(35.857491811695375), new BigDecimal(35.86503042481595), new BigDecimal(128.5502099990845), new BigDecimal(128.56179714202884));
 		log.info(list2);
+	}
+	
+	@Test
+	public void shorestTest() {
+		int res = mapper.shortestByMe();
+		log.info("res: " + res);
 	}
 }
