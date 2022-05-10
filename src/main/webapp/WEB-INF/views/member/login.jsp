@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<c:if test="${empty sessionScope.user_id}">
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -39,7 +38,6 @@
 		</div>
 		<div onclick="history.back();" class="close"></div>
 	</div>
-</c:if>
 
 	<div class="headMain">
 		<h1 class="Logo">

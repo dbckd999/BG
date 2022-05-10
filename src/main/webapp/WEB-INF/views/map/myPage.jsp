@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/myPage.css" />
 <link rel="stylesheet" href="${path}/resources/css/footer.css" />
+<link rel="stylesheet" href="${path}/resources/css/modal.css" />
 <title>Map</title>
 </head>
 <body>
@@ -105,7 +106,9 @@
 				<div class="modal_wrap">
 					
 					<div id="delete_cont">
-						<div>탈퇴하시겠습니까?</div>
+						<div> <h1> 탈퇴하시겠습니까? </h1></div>
+					비밀번호 확인 <br>
+					 <input type="password" id="password_con" value=""> <br>
 						<button type="button" id="delete_fin" name="delete_fin">
 							탈퇴하기</button>
 						<button type="button" id="cancel">취소</button>
@@ -139,6 +142,7 @@
 		</ul>
 	</div>
 
+	<script src="${path}/resources/js/modal.js"></script>
 	<script src="${path}/resources/js/member.js"></script>
 	<script src="${path}/resources/js/myPage.js"></script>
 </body>
