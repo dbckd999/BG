@@ -12,5 +12,6 @@ $(function() {
 
 	document.getElementById('delete').addEventListener('click', onClick);
 	document.querySelector('#cancel').addEventListener('click', offClick);
+	document.querySelector('.black_bg').addEventListener('click', offClick);
 
 });

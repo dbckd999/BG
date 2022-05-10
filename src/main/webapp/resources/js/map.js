@@ -5,7 +5,7 @@ var map = L.map('map').setView([35.892805, 128.525276], 13);
 var restRooms;
 
 //지도타일 생성
-var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
 	maxZoom: 22,
@@ -13,20 +13,20 @@ var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y
 	accessToken: 'vAMEUGsqvj1NebwCreykRA1ZKXEVzyyRsUX7d0Il5wnGXe2BoJPTtUAVBaTjYGEB'
 }).addTo(map);
 
-//지도클릭 이벤트
+//지도클릭 이벤트(미사용중)
 function onMapClick(e) {
-    L.popup()
-	    .setLatLng(e.latlng)
-	    .setContent('You clicked the map at ' + e.latlng.toString())
-	    .openOn(map);
+	L.popup()
+		.setLatLng(e.latlng)
+		.setContent('You clicked the map at ' + e.latlng.toString())
+		.openOn(map);
 }
 //지도 클릭이벤트 등록
 //map.on('click', onMapClick);
 
 //현재위치 저장
-var myLocationMarker;
+//var myLocationMarker;
 
-//현재위치 표시버튼 누르면 실시간 업데이트
+//현재위치 표시버튼 누르면 실시간 업데이트(미사용중)
 function updateMyLocation(){
 	navigator.geolocation.getCurrentPosition(
 		function(location) {
@@ -37,63 +37,44 @@ function updateMyLocation(){
 }
 //updateMyLocation();
 
-var lc;
 // create control and add to map
 //var lc = L.control.locate().addTo(map);
+var lc = L.control.locate({
+	locateOptions: {
+		enableHighAccuracy: true
+		, maxZoom: 17
+	}
+}).addTo(map);
 
-map.addControl(lc = L.control.locate({
-       locateOptions: {
-               enableHighAccuracy: true
-}}));
-
-// request location update and set location
+// 현재위치를 불러오고 실시간으로 현위치를 보여줍니다.
 lc.start();
+map.addControl(lc = L.control.locate({
+	locateOptions: {
+		enableHighAccuracy: true
+	}
+}));
 
-
-//아이콘 설정
-var leafletIcon = L.icon ({
-	iconUrl :  "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
-	iconSize : [48,70],
-	iconAnchor : [22,94],
-	popupAnchor : [0,-90]
-})
-
-
-//마커찍기
-
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
-
-var marker = new Array();
-
-/*marker[0] = L.marker([35.86640941204, 128.55946277496], {icon : leafletIcon}).addTo(map);
-marker[1] = L.marker([35.866685,	128.558208], {icon : leafletIcon}).addTo(map);
-marker[2] = L.marker([35.8663,128.558235], {icon : leafletIcon}).addTo(map);*/
-
-for(var i=0; i<marker.length;i++){
+var mapMove = ()=>{
+	southWest = map.getBounds()._southWest;
+	northEast = map.getBounds()._northEast;
+	console.log('북동: ', southWest, '\n남서: ', northEast);
+	console.log('now loc: ', map.locate()._lastCenter);
 	
+	east = northEast.lng;
+	west = southWest.lng;
+	south = southWest.lat;
+	north = northEast.lat;
 }
 
-for(var i = 0; i < marker.length; i++){
-	marker[i].bindPopup("<b>마커표시했다.</b><br>여기 정보 넣는다").openPopup();
-}
+var east;	//동
+var west;	//서
+var south;	//남
+var north;	//북
 
+//지도 움직임 이벤트
+map.on('moveend', mapMove);
 
-
-
-map.on('click', onMapClick);
-
-/*
-marker1.bindPopup("<b>마커표시했다.</b><br>여기 정보 넣는다").openPopup();
-marker2.bindPopup("<b>마커표시했다.</b><br>여기 정보 넣는다").openPopup();
-marker3.bindPopup("<b>마커표시했다.</b><br>여기 정보 넣는다").openPopup();*/
-
-
-
-
+//북동
+//lat: 35.85345701141678, lng: 128.54499578475955
+//남서
+//lat: 35.86853428808735, lng: 128.56817007064822

@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import study.projectBG.BG.model.MemberDTO;
@@ -22,7 +20,6 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String login() {
-
 		return "/member/login";
 	}
 
@@ -50,16 +47,12 @@ public class LoginController {
 		} else {
 			return "redirect:/login";
 		}
-
 	}
-
 
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
-
 		HttpSession session = request.getSession();
 		session.invalidate();
-
 		return "map/map";
 
 	}

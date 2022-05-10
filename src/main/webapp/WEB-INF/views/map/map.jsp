@@ -18,7 +18,6 @@
 </head>
 <body>
 
-
 	<!-- 좌측상단 메뉴 아이콘 -->
 	<div class="btn"></div>
 	<!--  슬라이드 메뉴 -->
@@ -51,6 +50,7 @@
 			<div class="menuList">
 				<ul class="ulmenuList">
 					<c:if test="${empty sessionScope.user_id}">
+
 						<li><a href="/login"> 로그인 </a></li>
 						<li><a href="/memberInsert">회원가입</a></li>
 					</c:if>
@@ -59,31 +59,68 @@
 						<li><a href="/logout"> 로그아웃 </a></li>
 						<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 					</c:if>
+
+				<c:if test="${sessionScope.user_id eq 'admin'}">
+					<%-- <li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li> --%>
+					<li><a href="/admin"> 어드민페이지 </a></li>
+				</c:if>
 				</ul>
 			</div>
 			<div onclick="history.back();" class="close"></div>
 		</div>
 	</div>
-
+	<div class="boolean2">
+		<br>
+		<p>귀저귀교환대</p>
+		
+		<br>
+		 <select id="changeTest" >
+			<option value="">유,무</option>
+			<option value="1">유</option>
+			<option value="2">무</option>
+		</select>
+	</div>
+	<div class="boolean3">
+		<br>
+		<p>비상벨설치</p>
+		<br> <select name="g" id="g">
+			<option value="">유,무</option>
+			<option value="1">유</option>
+			<option value="2">무</option>
+		</select>
+	</div>
 	<!-- 지도 -->
 	<div id="map"></div>
 
 	<!-- 지도 위 ui -->
 	<!-- 1. n미터 리스트 제작(최초기준은 1000미터) -->
-	<!-- 2. 1키로미터 반경 원 띄우기 -->
 	<script>
-	function measure(lat1, lon1, lat2, lon2){  // generally used geo measurement function
-	    const R = 6378.137; // Radius of earth in KM
-	    var dLat = lat2 * Math.PI / 180 - lat1 * Math.PI / 180;
-	    var dLon = lon2 * Math.PI / 180 - lon1 * Math.PI / 180;
-	    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-	    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-	    Math.sin(dLon/2) * Math.sin(dLon/2);
-	    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-	    var d = R * c;
-	    return d * 1000; // meters
+	//var restroomList;
+	function callPins(){
+		restroomList = new Array();
+		$.ajax({
+			type: 'post'
+			, url: '/showRestrooms'
+			, async: true
+			, dataType: 'json'
+			, data: {"north": north,
+					"south": south,
+					"east": east,
+					"west": west
+					}
+			, success: (data)=>{
+				console.log('len: ', data.length);
+				data.forEach(element=>{
+					console.log(element.wgs84_longitude);
+					L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map);
+				});
+			}
+			, error: (request, status, error)=>{
+				console.log(error);
+			}
+		});
 	}
-	
 	</script>
 
 	<script src="${path}/resources/js/leaflet.js"></script>
