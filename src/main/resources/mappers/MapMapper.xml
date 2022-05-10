@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.projectBG.BG.mapper.MapMapper">
+
+	<select id="callPins" parameterType="java.math.BigDecimal" resultType="study.projectBG.BG.model.SimpleRestroomDTO">
+		select id, restroom_name, wgs84_latitude, wgs84_longitude from restroom where wgs84_latitude between #{south} and #{north} and wgs84_longitude between #{west} and #{east};
+	</select>
+	
+</mapper>
