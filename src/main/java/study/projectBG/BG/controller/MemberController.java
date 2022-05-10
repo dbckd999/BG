@@ -31,7 +31,7 @@ public class MemberController {
 		dto.setUser_pw(bCryptPasswordEncoder.encode(dto.getUser_pw()));
 		dto.setUser_Rpw(bCryptPasswordEncoder.encode(dto.getUser_Rpw()));
 		memberService.memberInsert(dto);
-		return "redirect:/memberInsert";
+		return "redirect:/map";
 	}
 
 	@PostMapping("/check_id")

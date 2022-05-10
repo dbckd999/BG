@@ -11,8 +11,4 @@ public class MapController {
 		return "/map/map";
 	}
 
-//	@GetMapping("/regist")
-//	public String regist() {
-//		return "map/regist";
-//	}
 }

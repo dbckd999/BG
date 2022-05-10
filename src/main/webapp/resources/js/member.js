@@ -82,6 +82,7 @@ $(function() {
 					"error:" + error);
 			}
 		});
+		
 	});
 
 
@@ -192,8 +193,7 @@ $('#emailCheckBtn').click(function() {
 
 	})
 
-
-})
+	})
 
 $('#nickCheckBtn').click(function() {
 		var user_nick = $('#user_nick').val();
