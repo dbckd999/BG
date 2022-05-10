@@ -16,7 +16,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<MemberDTO> memberList() {
-		return mapper.memberList();
+		List<MemberDTO> list = mapper.memberList(); 
+		System.out.println(list);
+		return list;
 		
 	}
 

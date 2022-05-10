@@ -26,7 +26,7 @@ public class MemberController {
 	@GetMapping("/memberInsert")
 	public String memberInsert() {
 		System.out.println("in Memberinsert Controller");
-		return "map/map";
+		return "member/memberInsert";
 	}
 	
 	@PostMapping("/memberInsert")

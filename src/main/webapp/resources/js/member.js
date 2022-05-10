@@ -1,6 +1,4 @@
 $(function() {
-
-
 	var user_id = "";
 	var user_pw = "";
 	var user_Rpw = "";
