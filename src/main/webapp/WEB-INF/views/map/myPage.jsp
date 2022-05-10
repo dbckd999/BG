@@ -14,9 +14,7 @@
 <title>Map</title>
 </head>
 <body>
-11
-${dto}
-22
+
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -60,14 +58,14 @@ ${dto}
 			</div>
 
 			<!-- 계정정보 수정 테이블 -->
-			
-			<form action="/memberUpdate" method ="post">
-			<input type="hidden" name="user_no" value="${dto.user_no}">
+
+			<form action="/memberUpdate" method="post">
+				<input type="hidden" name="user_no" value="${dto.user_no}">
 				<table id="centertable">
 					<tr>
 						<th>아이디</th>
 						<td><input type="text" name="user_id" id="user_id"
-							value="${dto.user_id}" readonly> </td>
+							value="${dto.user_id}" readonly></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -81,26 +79,51 @@ ${dto}
 					</tr>
 					<tr>
 						<th>별명</th>
-						<td><input type="text" id="user_nick" name="user_nick" value="${dto.user_nick}">
-							<input type="button" value="중복확인" id="nickCheckBtn"
-							name="nickCheckBtn"></td>
+						<td><input type="text" id="user_nick" name="user_nick"
+							value="${dto.user_nick}"> <input type="button"
+							value="중복확인" id="nickCheckBtn" name="nickCheckBtn"></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr" value="${dto.user_addr}"></td>
+						<td><input type="text" id="user_addr" name="user_addr"
+							value="${dto.user_addr}"></td>
 					</tr>
 					<tr>
 						<th>email</th>
 						<td><input type="email" id="user_email" name="user_email"
-							value="${ dto.user_email }" readonly ></td>
+							value="${ dto.user_email }" readonly></td>
 					</tr>
 				</table>
-				 
-					<input type="submit" id="memberUpdate" name="memberUpdate" value="수정하기">
-					<button type="button" id="delete" name="delete"
-						value="memberDelete?user_id=${dto.user_id}">탈퇴하기</button>
+
+				<input type="submit" id="memberUpdate" name="memberUpdate"
+					value="수정하기">
+				<button type="button" id="delete" name="delete"<%-- value="memberDelete?user_id=${dto.user_id}" --%>
+					>탈퇴하기</button>
+					
+				<!-- 모달창 -->
+				<div class="black_bg"></div>
+				<div class="modal_wrap">
+					
+					<div id="delete_cont">
+						<div>탈퇴하시겠습니까?</div>
+						<button type="button" id="delete_fin" name="delete_fin">
+							탈퇴하기</button>
+						<button type="button" id="cancel">취소</button>
+					</div>
+				</div>
 			</form>
 		</div>
+
+		<!-- <button type='button' id="modal_btn">모달창아 나와랏</button>
+		<div class="black_bg"></div>
+		<div class="modal_wrap">
+			<div class="modal_close">
+				<a href="#">close</a>
+			</div>
+			<div>탈퇴할래? 뒤질래?</div>
+		</div> -->
+
+
 
 		<!-- footer -->
 		<ul>

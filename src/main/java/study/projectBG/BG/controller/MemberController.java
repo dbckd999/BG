@@ -1,5 +1,8 @@
 package study.projectBG.BG.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -23,7 +26,7 @@ public class MemberController {
 	@GetMapping("/memberInsert")
 	public String memberInsert() {
 		System.out.println("in Memberinsert Controller");
-		return "member/memberInsert";
+		return "map/map";
 	}
 
 	@PostMapping("/memberInsert")
@@ -59,11 +62,13 @@ public class MemberController {
 		return checkCount;
 	}
 
-	@GetMapping("/delete")
-	public String memberDelete(@RequestParam("user_no") String user_no) {
+	@GetMapping("/delete_fin")
+	public String memberDelete(@RequestParam("user_no") String user_no, HttpServletRequest request) {
 
 		System.out.println("user_no");
 		memberService.memberDelete(user_no);
+		HttpSession session = request.getSession();
+		session.invalidate();
 
 		return "map/map";
 	}
