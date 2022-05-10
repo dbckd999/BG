@@ -2,7 +2,6 @@ package study.projectBG.BG.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
 import lombok.Data;
 
 @Data

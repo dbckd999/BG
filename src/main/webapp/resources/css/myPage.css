@@ -1,6 +1,5 @@
  @charset "UTF-8"; 
 
-
 .Logo {
 	font-size: 2cm;
 }
@@ -24,7 +23,6 @@
 	width: 100%;
 	justify-content: center;
 	display: flex;
-
 }
 
 #centerMain{
@@ -87,6 +85,7 @@ inputSize{
 th{
 	font-size: 35px;
 }
+
 tr{
 	border-bottom: 1px dotted black;
 
@@ -155,10 +154,11 @@ button {
 
 #memberUpdate , #delete{
 	width: 100%;
-font-size: 30px;
-height: 70px;
-color: black;
+	font-size: 30px;
+	height: 70px;
+	color: black;
 }
+
 #memberUpdate{margin-top: 2%}
 
 
@@ -166,3 +166,68 @@ color: black;
  margin: 0;
  margin-top: 2%}
 
+ul{
+	list-style: none;
+}
+
+#liemail{
+	font-size: 40px;
+}
+
+#updateChang{
+	height: 50px;
+	width: 80%;
+	margin-left: 100px;
+}
+
+#updateBtn{
+	margin-left: 550px;
+}
+
+#delete{
+	margin-left: 10%;
+}
+
+/* 여기서부터 모달창 css */
+.modal_wrap {
+	display: none;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -250px 0 0 -250px;
+	background: #eee;
+	z-index: 2;
+	
+}
+
+.black_bg {
+	display: none;
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.modal_close {
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	top: -30px;
+	right: 0;
+}
+
+.modal_close>a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(https://img.icons8.com/metro/26/000000/close-window.png);
+	text-indent: -9999px;
+}
+
+/* 모달창 css fin */

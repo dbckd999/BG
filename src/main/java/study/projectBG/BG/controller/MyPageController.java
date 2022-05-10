@@ -25,7 +25,6 @@ public class MyPageController {
 		MemberDTO dto = memberService.memberRead(user_id);
 		System.out.println("dto: " + dto);
 		model.addAttribute("dto", dto);
-		System.out.println(dto);
 		return "/member/myPage";
 	}
 

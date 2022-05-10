@@ -15,7 +15,7 @@
 </head>
 <body>
 
-		<div id="menu">
+	<div id="menu">
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
@@ -57,15 +57,12 @@
 	<div id=center>
 		<div id="centerMain">
 			<div id="centerLogo"></div>
-
-	<form action="/memberUpdate" method ="post" id="memberUpdateForm" name="memberUpdateForm">
-	
-			<input type="hidden" name="user_no" value="${dto.user_no}">
-				<table id="centertable" >
+			<form action="/memberUpdate" method="post" id="memberUpdateForm" name="memberUpdateForm">
+				<input type="hidden" name="user_no" value="${dto.user_no}">
+				<table id="centertable">
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="user_id" id="user_id"
-							value="${dto.user_id}" readonly> </td>
+						<td><input type="text" name="user_id" id="user_id" value="${dto.user_id}" readonly></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -79,33 +76,28 @@
 					</tr>
 					<tr>
 						<th>별명</th>
-						<td><input type="text" id="user_nick" name="user_nick" value="${dto.user_nick}">
-								<button type="button" class="w-btn w-btn-indigo inputSize"
-								id="nickCheckBtn">중복확인</button> <br></td>
+						<td><input type="text" id="user_nick" name="user_nick"
+							value="${dto.user_nick}">
+							<button type="button" class="w-btn w-btn-indigo inputSize" id="nickCheckBtn">중복확인</button> <br></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr" ></td>
+						<td><input type="text" id="user_addr" name="user_addr"></td>
 					</tr>
 					<tr>
 						<th>email</th>
 						<td><input type="email" id="user_email" name="user_email" value="${dto.user_email}" readonly></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" id="memberUpdate" name="memberUpdate"  class="w-btn w-btn-indigo inputSize" value="수정하기"></td>
+						<td colspan="2"><input type="submit" id="memberUpdate" name="memberUpdate" class="w-btn w-btn-indigo inputSize" value="수정하기"></td>
 					</tr>
 				</table>
-				 
-				
-				<button type="button" id="delete" name="delete" class="w-btn w-btn-indigo inputSize"
-						value="memberDelete?user_id=${dto.user_id}">탈퇴하기</button>
+				<button type="button" id="delete" name="delete" class="w-btn w-btn-indigo inputSize" value="memberDelete?user_id=${dto.user_id}">탈퇴하기</button>
 			</form>
-			
 		</div>
-
 	</div>
 
-				
+
 
 
 	<div id="footer">
@@ -120,8 +112,8 @@
 			</li>
 		</ul>
 	</div>
-	
+
 	<script src="${path}/resources/js/myPage.js"></script>
-	
+
 </body>
 </html>

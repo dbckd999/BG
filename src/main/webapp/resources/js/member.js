@@ -1,5 +1,6 @@
 $(function() {
 
+
 	var user_id = "";
 	var user_pw = "";
 	var user_Rpw = "";
@@ -85,33 +86,24 @@ $(function() {
 		
 	});
 
+	onClick();
+	offClick();
 
-	/*$('#emailCheckBtn').click(function() {
-		user_email = $('#user_email').val();
-		$.ajax({
-			url: '/check_email',
-			type: 'post',
-			data: {
-				user_email: user_email
-			},
-			success: function(data) {
-				console.log(data);
-				if (data > 0) {
-					alert('이메일 중복');
-				} else {
-					alert('이메일 사용 가능');
-					email_check = true;
-				}
-			},
-			error: function(request, status, error) {
-				console.log("code:" + request.status + "\n" +
-					"message:" + request.responseText + "\n" +
-					"error:" + error);
-			}
-		});
-	});*/
+	function onClick() {
+		document.querySelector('.modal_wrap').style.display = 'block';
+		document.querySelector('.black_bg').style.display = 'block';
+	}
+	
+	function offClick() {
+		document.querySelector('.modal_wrap').style.display = 'none';
+		document.querySelector('.black_bg').style.display = 'none';
+	}
 
-	$('#delete').click(function() {
+	document.getElementById('delete').addEventListener('click', onClick);
+	document.querySelector('#cancel').addEventListener('click', offClick);
+	
+
+	$('#delete_fin').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
 			url: '/memberDelete',
@@ -122,12 +114,12 @@ $(function() {
 			success: function(data) {
 				if (data != null) {
 					alert('회원 탈퇴 완료');
-					location.href='/map';
+					location.href = '/map';
 				}
-				else{
+				else {
 					alert('회원 탈퇴 불가');
 				}
-				
+
 			},
 			error: function(request, status, error) {
 				alert("code:" + request.status + "\n" + "message:"
@@ -135,7 +127,6 @@ $(function() {
 			}
 		})
 	})
-
 
 
 
@@ -283,27 +274,32 @@ $(function() {
 	})
 
 $('#nickCheckBtn').click(function() {
-		var user_nick = $('#user_nick').val();
-		$.ajax({
-			url: "/check_nick",
-			type: 'POST',
-			data: { user_nick },
-			success: function(data) {
-				if (data > 0) {
-					alert('별명 중복');
-				} else {
-					alert('별명 사용 가능');
-				}
-			},
-			error: function(request, status, error) {
-				console.log("code:" + request.status + "\n" +
-					"message:" + request.responseText + "\n" +
-					"error:" + error);
+	var user_nick = $('#user_nick').val();
+	$.ajax({
+		url: "/check_nick",
+		type: 'POST',
+		data: { user_nick },
+		success: function(data) {
+			if (data > 0) {
+				alert('별명 중복');
+			} else {
+				alert('별명 사용 가능');
 			}
-		});
-		
-		
-		
-	});	
+		},
+		error: function(request, status, error) {
+			console.log("code:" + request.status + "\n" +
+				"message:" + request.responseText + "\n" +
+				"error:" + error);
+		}
+	});
+
+	$('#cancel')
+
+});
+
+
+
+
+
 
 

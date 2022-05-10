@@ -39,10 +39,6 @@
 	<delete id="memberDelete">
 		DELETE FROM memberTBL WHERE user_id = #{user_id}
 	</delete>
-<<<<<<< HEAD
-	
-=======
->>>>>>> refs/remotes/origin/JHS
 
 </mapper>
 
