@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,23 +46,19 @@
 	<div id="titleArea">
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
+<<<<<<< HEAD
 	
 	
 	<div id="adminCenter">
 <h1>회원목록</h1>
 <table border="1" id="admintable">
+=======
+>>>>>>> refs/remotes/origin/LSJ
 
- <tr>
- <td>회원번호</td>
- <td>회원아이디</td>
- <td>회원별명</td>
- <td>회원주소</td>
- <td>회원가입일</td>
- <td>삭제하기</td>
- 
- 
- </tr>
+	<h1>회원목록</h1>
+	<table border="1">
 
+<<<<<<< HEAD
  
   <c:forEach var="list" items="${list }">
    <tr>
@@ -84,5 +80,35 @@
  </div>
 	
 	<script src="${path}/resources/js/admin.js"></script>
+=======
+		<tr>
+			<td>회원번호</td>
+			<td>회원아이디</td>
+			<td>회원별명</td>
+			<td>회원주소</td>
+			<td>회원가입일</td>
+			<td>삭제하기</td>
+
+		</tr>
+
+		<c:forEach var="list" items="${list }">
+			<tr>
+				<td>${list.user_no}</td>
+				<td>${list.user_id}</td>
+				<td>${list.user_nick}</td>
+				<td>${list.user_addr}</td>
+				<td><fmt:formatDate value="${list.user_regDate}"
+						pattern="yyyy-MM-dd HH:mm:ss" /></td>
+				<td><a href="/adminDelete?user_no=${list.user_no}">삭제</a></td>
+
+			</tr>
+
+		</c:forEach>
+
+	</table>
+
+
+
+>>>>>>> refs/remotes/origin/LSJ
 </body>
 </html>

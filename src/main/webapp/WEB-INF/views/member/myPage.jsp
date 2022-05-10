@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${patd}/resources/css/myPage.css" />
 <link rel="stylesheet" href="${patd}/resources/css/footer.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
+<link rel="stylesheet" href="${patd}/resources/css/modal.css" />
 <title>Map</title>
 </head>
 <body>
@@ -58,12 +59,14 @@
 	<div id=center>
 		<div id="centerMain">
 			<div id="centerLogo"></div>
-			<form action="/memberUpdate" method="post" id="memberUpdateForm" name="memberUpdateForm">
+			<form action="/memberUpdate" method="post" id="memberUpdateForm"
+				name="memberUpdateForm">
 				<input type="hidden" name="user_no" value="${dto.user_no}">
 				<table id="centertable">
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="user_id" id="user_id" value="${dto.user_id}" readonly></td>
+						<td><input type="text" name="user_id" id="user_id"
+							value="${dto.user_id}" readonly></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -79,7 +82,8 @@
 						<th>별명</th>
 						<td><input type="text" id="user_nick" name="user_nick"
 							value="${dto.user_nick}">
-							<button type="button" class="w-btn w-btn-indigo inputSize" id="nickCheckBtn">중복확인</button> <br></td>
+							<button type="button" class="w-btn w-btn-indigo inputSize"
+								id="nickCheckBtn">중복확인</button> <br></td>
 					</tr>
 					<tr>
 						<th>주소</th>
@@ -87,24 +91,30 @@
 					</tr>
 					<tr>
 						<th>email</th>
-						<td><input type="email" id="user_email" name="user_email" value="${dto.user_email}" readonly></td>
+						<td><input type="email" id="user_email" name="user_email"
+							value="${dto.user_email}" readonly></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" id="memberUpdate" name="memberUpdate" class="w-btn w-btn-indigo inputSize" value="수정하기"></td>
+						<td colspan="2"><input type="submit" id="memberUpdate"
+							name="memberUpdate" class="w-btn w-btn-indigo inputSize"
+							value="수정하기"></td>
 					</tr>
 				</table>
-				<button type="button" id="delete" name="delete" class="w-btn w-btn-indigo inputSize" <%-- value="memberDelete?user_id=${dto.user_id}" --%>>탈퇴하기</button>
+				<button type="button" id="delete" name="delete"
+					class="w-btn w-btn-indigo inputSize"
+					<%-- value="memberDelete?user_id=${dto.user_id}" --%>>탈퇴하기</button>
+				
 				<!-- 모달창 -->
- 				<div class="black_bg"></div>
- 				<div class="modal_wrap">
+				<div class="black_bg"></div>
+				<div class="modal_wrap">
 
- 					<div id="delete_cont">
- 						<div>탈퇴하시겠습니까?</div>
- 						<button type="button" id="delete_fin" name="delete_fin">
- 							탈퇴하기</button>
- 						<button type="button" id="cancel">취소</button>
- 					</div>
- 				</div>
+					<div id="delete_cont">
+						<div>탈퇴하시겠습니까?</div>
+						<button type="button" id="delete_fin" name="delete_fin">
+							탈퇴하기</button>
+						<button type="button" id="cancel">취소</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -125,6 +135,7 @@
 		</ul>
 	</div>
 
+	<script src="${path}/resources/js/modal.js"></script>
 	<script src="${path}/resources/js/myPage.js"></script>
 	<script src="${path}/resources/js/member.js"></script>
 

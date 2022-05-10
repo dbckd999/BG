@@ -36,7 +36,7 @@ public class MyPageController {
 		memberService.memberUpdate(dto);
 		return "redirect:/map";
 	}
-
+	
 	@PostMapping("/memberDelete")
 	public String memberDelete(@RequestParam("user_id") String user_id) {
 		memberService.memberDelete(user_id);

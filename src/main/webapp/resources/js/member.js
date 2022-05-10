@@ -224,14 +224,13 @@ $(function() {
 		} else {
 			memberUpdateForm.reset();
 		}
-
-
 	})
+});
 
 
 
+	
 
-	})
 
 
 

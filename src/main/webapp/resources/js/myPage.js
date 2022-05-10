@@ -18,7 +18,7 @@ window.onhashchange = function() {
 	
 };
 
-$('#delete').click(function() {
+/*$('#delete').click(function() {
 	user_id = $('#user_id').val();
 	$.ajax({
 		url: '/memberDelete',
@@ -41,7 +41,7 @@ $('#delete').click(function() {
 				+ request.responseText + "\n" + "error:" + error);
 		}
 	})
-});
+});*/
 
 $('#memberUpdate').click(function() {
 	   

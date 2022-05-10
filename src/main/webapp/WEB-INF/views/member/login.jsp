@@ -61,7 +61,7 @@
 		<div id="centerMain">
 			<div id="centerLogo"></div>
 
-			<form action="login" method="Post">
+			<form action="login" method="Post" id="loginForm" name="loginForm">
 				<table id="centertable">
 
 					<tr>
