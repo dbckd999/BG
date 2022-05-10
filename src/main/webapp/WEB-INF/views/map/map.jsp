@@ -50,13 +50,14 @@
 			<div class="menuList">
 				<ul class="ulmenuList">
 					<c:if test="${empty sessionScope.user_id}">
-						<li><a href="/login?user_id=${user_id}"> 로그인 </a></li>
-						<li><a href="/memberInsert">회원가입</a></li>
-					</c:if>
-					<c:if test="${not empty sessionScope.user_id}">
-						<li><a href="/logout"> 로그아웃 </a></li>
-						<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
-					</c:if>
+					<li><a href="/login"> 로그인 </a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
+				</c:if>
+				<c:if test="${not empty sessionScope.user_id}">
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+					<li><a href="/admin"> 어드민페이지 </a></li>
+				</c:if>
 				</ul>
 			</div>
 			<div onclick="history.back();" class="close"></div>

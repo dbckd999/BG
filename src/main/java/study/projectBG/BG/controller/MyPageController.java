@@ -17,23 +17,25 @@ public class MyPageController {
 	@Autowired
 	private MemberService memberService;
 
-//	@Autowired
-//	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@GetMapping("/myPage")
 	public String myPage(String user_id, Model model) {
 		MemberDTO dto = memberService.memberRead(user_id);
 		System.out.println("dto: " + dto);
 		model.addAttribute("dto", dto);
+		System.out.println(dto);
 		return "/member/myPage";
-
 	}
 
 	@PostMapping("/memberUpdate")
 	public String memberUpdateProcess(MemberDTO dto) {
 		System.out.println(dto.toString());
+		dto.setUser_pw(bCryptPasswordEncoder.encode(dto.getUser_pw()));
+		dto.setUser_Rpw(bCryptPasswordEncoder.encode(dto.getUser_Rpw()));
 		memberService.memberUpdate(dto);
-		return "redirect:/myPage";
+		return "redirect:/map";
 	}
 
 	@PostMapping("/memberDelete")

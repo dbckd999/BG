@@ -68,10 +68,9 @@ public class MemberServiceImpl implements MemberService {
 	public void memberUpdate(MemberDTO dto) {
 		mapper.memberUpdate(dto);
 	}
-	
+
 	@Override
 	public void memberDelete(String user_id) {
 		mapper.memberDelete(user_id);
 	}
-
 }
