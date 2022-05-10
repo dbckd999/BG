@@ -21,9 +21,11 @@ public class MemberController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder; 
 
 	
-	  @GetMapping("/memberInsert") public String memberInsert() {
+	  @GetMapping("/memberInsert") 
+	  public String memberInsert() {
 	  System.out.println("in Memberinsert Controller"); return
-	  "member/memberInsert"; }
+	  "member/memberInsert"; 
+	  }
 	
 
 	@PostMapping("/memberInsert")

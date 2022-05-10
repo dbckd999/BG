@@ -14,10 +14,10 @@ var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y
 
 //지도클릭 이벤트
 function onMapClick(e) {
-    L.popup()
-	    .setLatLng(e.latlng)
-	    .setContent('You clicked the map at ' + e.latlng.toString())
-	    .openOn(map);
+	L.popup()
+		.setLatLng(e.latlng)
+		.setContent('You clicked the map at ' + e.latlng.toString())
+		.openOn(map);
 }
 //지도 클릭이벤트 등록
 //map.on('click', onMapClick);
@@ -26,7 +26,7 @@ function onMapClick(e) {
 var myLocationMarker;
 
 //현재위치 표시버튼 누르면 실시간 업데이트
-function updateMyLocation(){
+function updateMyLocation() {
 	navigator.geolocation.getCurrentPosition(
 		function(location) {
 			var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
@@ -41,9 +41,11 @@ var lc;
 //var lc = L.control.locate().addTo(map);
 
 map.addControl(lc = L.control.locate({
-       locateOptions: {
-               enableHighAccuracy: true
-}}));
+	locateOptions: {
+		enableHighAccuracy: true
+	}
+}));
 
 // request location update and set location
 lc.start();
+

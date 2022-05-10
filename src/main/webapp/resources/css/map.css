@@ -12,3 +12,21 @@ html, body {
 	height: 100%;
 	position: fixed;
 }
+
+#boolean2{
+	display : inline-block;
+	font-size: xx-large;
+}
+#boolean3{
+	display : inline-block;
+	font-size: xx-large;
+}
+p{
+	font-size: xx-large;
+}
+
+select{
+	width: 100px;
+	height: 50px;
+	font-size : x-large;
+}

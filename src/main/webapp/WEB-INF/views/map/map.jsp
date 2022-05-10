@@ -55,24 +55,43 @@
 					<!-- <li><a href="/login"> 로그인 </a></li>
 					<li><a href="/memberInsert">회원가입</a></li>
 					<li><a href="/myPage">마이페이지</a></li> -->
-					
+
 					<c:if test="${empty sessionScope.user_id}">
-					<li><a href="/login?user_id=${user_id}"> 로그인 </a></li>
-					<li><a href="/memberInsert">회원가입</a></li>
+						<li><a href="/login?user_id=${user_id}"> 로그인 </a></li>
+						<li><a href="/memberInsert">회원가입</a></li>
 
-				</c:if>
+					</c:if>
 
-				<c:if test="${not empty sessionScope.user_id}">
-					<li><a href="/logout"> 로그아웃 </a></li>
-					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
-				</c:if>
+					<c:if test="${not empty sessionScope.user_id}">
+						<li><a href="/logout"> 로그아웃 </a></li>
+						<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+					</c:if>
 
 				</ul>
 			</div>
 			<div onclick="history.back();" class="close"></div>
 		</div>
 	</div>
-
+	<div class="boolean2">
+		<br>
+		<p>귀저귀교환대</p>
+		
+		<br>
+		 <select id="changeTest" >
+			<option value="">유,무</option>
+			<option value="1">유</option>
+			<option value="2">무</option>
+		</select>
+	</div>
+	<div class="boolean3">
+		<br>
+		<p>비상벨설치</p>
+		<br> <select name="g" id="g">
+			<option value="">유,무</option>
+			<option value="1">유</option>
+			<option value="2">무</option>
+		</select>
+	</div>
 	<!-- 지도 -->
 	<div id="map"></div>
 

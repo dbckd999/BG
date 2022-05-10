@@ -61,7 +61,7 @@ ${dto}
 
 			<!-- 계정정보 수정 테이블 -->
 			
-			<form action="/memberUpdate" method ="post">
+			<form action="/memberUpdate" method ="post" id="memberUpdateForm">
 			<input type="hidden" name="user_no" value="${dto.user_no}">
 				<table id="centertable">
 					<tr>
