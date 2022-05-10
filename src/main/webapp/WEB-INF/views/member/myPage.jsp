@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${patd}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${patd}/resources/css/myPage.css" />
 <link rel="stylesheet" href="${patd}/resources/css/footer.css" />
+<link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <title>Map</title>
 </head>
 <body>

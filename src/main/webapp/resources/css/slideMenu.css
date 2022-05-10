@@ -158,3 +158,23 @@ li { margin-top: 50px;
 a{text-decoration: none;
 	color:  black;
 }
+
+
+.BGateLogo > a:hover {
+	color: black;
+}
+.BGateLogo > a:link {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.BGateLogo > a:visited {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.BGateLogo > a:active, .BGateLogo > a:hover {
+	color: black;
+	text-decoration: underline;
+}
+

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -63,26 +63,7 @@
 			<div onclick="history.back();" class="close"></div>
 		</div>
 	</div>
-	<div class="boolean2">
-		<br>
-		<p>귀저귀교환대</p>
-		
-		<br>
-		 <select id="changeTest" >
-			<option value="">유,무</option>
-			<option value="1">유</option>
-			<option value="2">무</option>
-		</select>
-	</div>
-	<div class="boolean3">
-		<br>
-		<p>비상벨설치</p>
-		<br> <select name="g" id="g">
-			<option value="">유,무</option>
-			<option value="1">유</option>
-			<option value="2">무</option>
-		</select>
-	</div>
+	
 	<!-- 지도 -->
 	<div id="map"></div>
 
