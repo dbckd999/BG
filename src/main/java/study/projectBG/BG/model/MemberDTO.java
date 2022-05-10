@@ -13,4 +13,6 @@ public class MemberDTO {
 	private String user_email;
 	private String user_addr;
 	private Timestamp user_regDate;
+	
+	
 }

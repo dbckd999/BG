@@ -1,21 +1,5 @@
  @charset "UTF-8"; 
 
-.Logo {
-	font-size: 2cm;
-}
-
-.headMain {
-	border-bottom: 1px solid black;
-	height: 200px;
-	width: 100%;
-	justify-content: center;
-	display: flex;
-}
-
-#titleArea{
-	justify-content: center;
-	display: flex;
-}
 
 #center{
    margin-top : 10%;
@@ -162,6 +146,12 @@ button {
 #memberUpdate{margin-top: 2%}
 
 
+<<<<<<< HEAD
+=======
+ #delete{
+ margin: 0;
+ margin-top: 2%}
+>>>>>>> refs/remotes/origin/JHS
  
 
 ul{
@@ -182,10 +172,13 @@ ul{
 	margin-left: 550px;
 }
 
+<<<<<<< HEAD
 #delete{
 	margin-left: 10%;
 	margin: 0;
 }
+=======
+>>>>>>> refs/remotes/origin/JHS
 
 /* 여기서부터 모달창 css */
 .modal_wrap {

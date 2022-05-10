@@ -1,0 +1,38 @@
+ @charset "UTF-8"; 
+
+.Logo {
+	font-size: 2cm;
+}
+
+.headMain {
+	border-bottom: 1px solid black;
+	height: 200px;
+	width: 100%;
+	justify-content: center;
+	display: flex;
+}
+
+#titleArea{
+	justify-content: center;
+	display: flex;
+}
+
+
+.Logo a:hover {
+	color: black;
+}
+.Logo a:link {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.Logo a:visited {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.Logo a:active, .Logo a:hover {
+	color: black;
+	text-decoration: underline;
+}
+

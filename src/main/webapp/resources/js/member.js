@@ -63,8 +63,6 @@ $(function() {
 		
 	});
 
-	
-
 	$('#delete_fin').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
@@ -235,29 +233,6 @@ $(function() {
 
 	})
 
-$('#nickCheckBtn').click(function() {
-	var user_nick = $('#user_nick').val();
-	$.ajax({
-		url: "/check_nick",
-		type: 'POST',
-		data: { user_nick },
-		success: function(data) {
-			if (data > 0) {
-				alert('별명 중복');
-			} else {
-				alert('별명 사용 가능');
-			}
-		},
-		error: function(request, status, error) {
-			console.log("code:" + request.status + "\n" +
-				"message:" + request.responseText + "\n" +
-				"error:" + error);
-		}
-	});
-
-	$('#cancel')
-
-});
 
 
 
