@@ -14,6 +14,7 @@ import lombok.extern.log4j.Log4j;
 import study.projectBG.BG.mapper.MapMapper;
 import study.projectBG.BG.mapper.MemberMapper;
 import study.projectBG.BG.model.MemberDTO;
+import study.projectBG.BG.model.Restroom_SampleDTO;
 import study.projectBG.BG.model.SimpleRestroomDTO;
 import study.projectBG.BG.service.MemberService;
 
@@ -28,8 +29,13 @@ public class MapMapperTest {
 	//@Autowired
 	//private MemberService memberService;
 	
-	@Test
+	//@Test
 	public void mapTest() {
 		List<SimpleRestroomDTO> list = mapper.callPins(new BigDecimal(35.857491811695375), new BigDecimal(35.86503042481595), new BigDecimal(128.5502099990845), new BigDecimal(128.56179714202884));
+	}
+	@Test
+	public void mapTest2() {
+		List<Restroom_SampleDTO> list2 = mapper.callPins2(new BigDecimal(35.857491811695375), new BigDecimal(35.86503042481595), new BigDecimal(128.5502099990845), new BigDecimal(128.56179714202884));
+		log.info(list2);
 	}
 }

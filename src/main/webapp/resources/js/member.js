@@ -35,27 +35,6 @@ $(function() {
 		});
 	});
 
-	$('#nickCheckBtn').click(function() {
-		var user_nick = $('#user_nick').val();
-		$.ajax({
-			url: "/check_nick",
-			type: 'POST',
-			data: { user_nick: user_nick },
-			success: function(data) {
-				if (data > 0) {
-					alert('별명 중복');
-				} else {
-					alert('별명 사용 가능');
-					nick_check = true;
-				}
-			},
-			error: function(request, status, error) {
-				console.log("code:" + request.status + "\n" +
-					"message:" + request.responseText + "\n" +
-					"error:" + error);
-			}
-		});
-	});
 
 
 	$('#emailCheckBtn').click(function() {
@@ -84,21 +63,6 @@ $(function() {
 		
 	});
 
-	onClick();
-	offClick();
-
-	function onClick() {
-		document.querySelector('.modal_wrap').style.display = 'block';
-		document.querySelector('.black_bg').style.display = 'block';
-	}
-	
-	function offClick() {
-		document.querySelector('.modal_wrap').style.display = 'none';
-		document.querySelector('.black_bg').style.display = 'none';
-	}
-
-	document.getElementById('delete').addEventListener('click', onClick);
-	document.querySelector('#cancel').addEventListener('click', offClick);
 	
 
 	$('#delete_fin').click(function() {
