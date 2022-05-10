@@ -25,7 +25,7 @@ public class MemberController {
 		System.out.println("in Memberinsert Controller");
 		return "member/memberInsert";
 	}
-
+	
 	@PostMapping("/memberInsert")
 	public String memberInsertProcess(MemberDTO dto) {
 		dto.setUser_pw(bCryptPasswordEncoder.encode(dto.getUser_pw()));

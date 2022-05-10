@@ -12,10 +12,10 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-tok
 
 //지도클릭 이벤트(미사용중)
 function onMapClick(e) {
-    L.popup()
-	    .setLatLng(e.latlng)
-	    .setContent('You clicked the map at ' + e.latlng.toString())
-	    .openOn(map);
+	L.popup()
+		.setLatLng(e.latlng)
+		.setContent('You clicked the map at ' + e.latlng.toString())
+		.openOn(map);
 }
 //지도 클릭이벤트 등록
 //map.on('click', onMapClick);
@@ -45,6 +45,11 @@ var lc = L.control.locate({
 
 // 현재위치를 불러오고 실시간으로 현위치를 보여줍니다.
 lc.start();
+map.addControl(lc = L.control.locate({
+	locateOptions: {
+		enableHighAccuracy: true
+	}
+}));
 
 var mapMove = ()=>{
 	southWest = map.getBounds()._southWest;
