@@ -106,7 +106,7 @@
 				console.log('len: ', data.length);
 				data.forEach(element=>{
 					console.log(element.wgs84_longitude);
-					L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map);
+					L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup("msg").openPopup();
 				});
 			}
 			, error: (request, status, error)=>{
