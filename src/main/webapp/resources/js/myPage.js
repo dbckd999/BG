@@ -12,36 +12,37 @@ $(".btn").click(function() {
 });
 
 window.onhashchange = function() {
+	console.log('wokr');
 	if (location.hash != "#open") {
 		$("#menu,.page_cover,html").removeClass("open");
 	}
 	
-	$('#delete').click(function() {
-		user_id = $('#user_id').val();
-		$.ajax({
-			url: '/memberDelete',
-			type: 'post',
-			data: {
-				user_id: user_id
-			},
-			success: function(data) {
-				if (data != null) {
-					alert('회원 탈퇴 가능');
-					location.href='/map';
-				}
-				else{
-					alert('회원 탈퇴 불가');
-				}
-				
-			},
-			error: function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-					+ request.responseText + "\n" + "error:" + error);
-			}
-		})
-		
-	})
 };
+
+$('#delete').click(function() {
+	user_id = $('#user_id').val();
+	$.ajax({
+		url: '/memberDelete',
+		type: 'post',
+		data: {
+			user_id: user_id
+		},
+		success: function(data) {
+			if (data != null) {
+				alert('회원 탈퇴 가능');
+				location.href='/logout';
+			}
+			else{
+				alert('회원 탈퇴 불가');
+			}
+			
+		},
+		error: function(request, status, error) {
+			alert("code:" + request.status + "\n" + "message:"
+				+ request.responseText + "\n" + "error:" + error);
+		}
+	})
+});
 
 $('#memberUpdate').click(function() {
 	   
@@ -107,7 +108,7 @@ $('#memberUpdate').click(function() {
 		memberUpdateForm.reset();
 	}
 });
-	
+
 $('#nickCheckBtn').click(function() {
 	var user_nick = $('#user_nick').val();
 	$.ajax({
