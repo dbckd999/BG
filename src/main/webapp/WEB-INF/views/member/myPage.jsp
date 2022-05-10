@@ -93,6 +93,17 @@
 					</tr>
 				</table>
 				<button type="button" id="delete" name="delete" class="w-btn w-btn-indigo inputSize" value="memberDelete?user_id=${dto.user_id}">탈퇴하기</button>
+				<!-- 모달창 -->
+ 				<div class="black_bg"></div>
+ 				<div class="modal_wrap">
+
+ 					<div id="delete_cont">
+ 						<div>탈퇴하시겠습니까?</div>
+ 						<button type="button" id="delete_fin" name="delete_fin">
+ 							탈퇴하기</button>
+ 						<button type="button" id="cancel">취소</button>
+ 					</div>
+ 				</div>
 			</form>
 		</div>
 	</div>
