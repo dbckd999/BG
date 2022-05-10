@@ -129,7 +129,6 @@
 		</ul>
 	</div>
 	<script src="${path}/resources/js/member.js"></script>
-	<script src="${path}/resources/js/myPage.js"></script>
 	<script src="${path}/resources/js/login.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import study.projectBG.BG.model.SimpleRestroomDTO;
 import study.projectBG.BG.model.MapDTO;
+import study.projectBG.BG.model.Restroom_SampleDTO;
 import study.projectBG.BG.service.MapService;
 
 @Controller
@@ -55,4 +56,21 @@ public class MapController {
 		System.out.println(list);
 		return list;
 	}
+	
+	
+	@RequestMapping(value = "/showRestrooms2", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Restroom_SampleDTO> callPins2(
+			@Param("south") BigDecimal south,
+			@Param("north") BigDecimal north,
+			@Param("west") BigDecimal west,
+			@Param("east") BigDecimal east
+			){
+		System.out.println(south + ", " + north + ", " + west + ", " + east);
+		List<Restroom_SampleDTO> list = service.callPins2(south, north, west, east);
+		System.out.println(list);
+		return list;
+	}
+	
+	
 }

@@ -14,4 +14,8 @@ $(function() {
 	document.querySelector('#cancel').addEventListener('click', offClick);
 	document.querySelector('.black_bg').addEventListener('click', offClick);
 
+
+	
 });
+
+

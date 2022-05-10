@@ -7,4 +7,7 @@
 		select id, restroom_name, wgs84_latitude, wgs84_longitude from restroom where wgs84_latitude between #{south} and #{north} and wgs84_longitude between #{west} and #{east};
 	</select>
 	
+	<select id="callPins2" parameterType="java.math.BigDecimal" resultType="study.projectBG.BG.model.Restroom_SampleDTO">
+		select * from restroom where wgs84_latitude between #{south} and #{north} and wgs84_longitude between #{west} and #{east};
+	</select>
 </mapper>

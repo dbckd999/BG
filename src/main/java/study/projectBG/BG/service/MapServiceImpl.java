@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import study.projectBG.BG.mapper.MapMapper;
 import study.projectBG.BG.model.SimpleRestroomDTO;
 import study.projectBG.BG.model.MapDTO;
+import study.projectBG.BG.model.Restroom_SampleDTO;
 
 @Service
 public class MapServiceImpl implements MapService {
@@ -24,5 +25,11 @@ public class MapServiceImpl implements MapService {
 	@Override
 	public List<MapDTO> markerShow() {
 		return mapper.markerShow();
+	}
+
+	@Override
+	public List<Restroom_SampleDTO> callPins2(BigDecimal south, BigDecimal north, BigDecimal west, BigDecimal east) {
+		List<Restroom_SampleDTO> list = mapper.callPins2(south, north, west, east);
+		return list;
 	}
 }
