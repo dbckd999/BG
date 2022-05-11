@@ -29,32 +29,13 @@ var east;	//동
 var west;	//서
 var south;	//남
 var north;	//북
+
 //지도 움직임 이벤트 함수
 var mapMove = ()=>{
-	callPins();
-	//southWest = map.getBounds()._southWest;
-	//northEast = map.getBounds()._northEast;
+	southWest = map.getBounds()._southWest;
+	northEast = map.getBounds()._northEast;
 	//console.log('북동: ', southWest, '\n남서: ', northEast);
 	//console.log('now loc: ', map.locate()._lastCenter);
-	
-	//east = northEast.lng;
-	//west = southWest.lng;
-	//south = southWest.lat;
-	//north = northEast.lat;
-	
-	//myLocationMarker = map.locate()._lastCenter;
-}
-
-//지도 움직임 이벤트 등록
-map.on('moveend', mapMove);
-
-//화장실 배열.
-var restroomList = new Array();
-
-//현 지도의 위치에 있는 화장실 정보를 불러옵니다.
-var callPins = (_east, _west, _south, _north)=>{
-	var southWest = map.getBounds()._southWest;
-	var northEast = map.getBounds()._northEast;
 	
 	east = northEast.lng;
 	west = southWest.lng;
@@ -63,7 +44,21 @@ var callPins = (_east, _west, _south, _north)=>{
 	
 	myLocationMarker = map.locate()._lastCenter;
 	
+	callPins(east, west, south, north);
+}
+
+//지도 움직임 이벤트 등록
+map.on('moveend', mapMove);
+
+//화장실 배열.
+var restroomList = new Array();
+var markLineList = new Array();
+
+//현 지도의 위치에 있는 화장실 정보를 불러옵니다.
+var callPins = (_east, _west, _south, _north)=>{
+	
 	removeRestroomList();
+	
 	$.ajax({
 		type: 'post'
 		, url: '/showRestrooms2'
@@ -151,7 +146,17 @@ function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
 
+//현위치부터 목표 마크까지 줄을 긋습니다.
+function setMarkLine(singMark){
+	markLine = L.polygon([
+		[myLocationMarker.lat,myLocationMarker.lng],
+		[singMark._latlng.lat,singMark._latlng.lng]
+	]).addTo(map);
+}
 
+function removeMarkLine(){
+	map.removeLayer(markLine)
+}
 
 
 
