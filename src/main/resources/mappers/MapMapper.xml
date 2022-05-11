@@ -11,7 +11,7 @@
 		select * from restroom where wgs84_latitude between #{south} and #{north} and wgs84_longitude between #{west} and #{east};
 	</select>
 	
-	<select id="shortestByMe" resultType="Integer">
+	<select id="shortestForMe" resultType="Integer">
 		select id from
 		(select id, sqrt(pow(wgs84_latitude - #{latitude}, 2) + pow(wgs84_longitude - #{longitude}, 2)) as len from restroom)
 		as tt where len is not null order by len limit 1;

@@ -31,17 +31,18 @@ var south;	//남
 var north;	//북
 //지도 움직임 이벤트 함수
 var mapMove = ()=>{
-	southWest = map.getBounds()._southWest;
-	northEast = map.getBounds()._northEast;
+	callPins();
+	//southWest = map.getBounds()._southWest;
+	//northEast = map.getBounds()._northEast;
 	//console.log('북동: ', southWest, '\n남서: ', northEast);
 	//console.log('now loc: ', map.locate()._lastCenter);
 	
-	east = northEast.lng;
-	west = southWest.lng;
-	south = southWest.lat;
-	north = northEast.lat;
+	//east = northEast.lng;
+	//west = southWest.lng;
+	//south = southWest.lat;
+	//north = northEast.lat;
 	
-	myLocationMarker = map.locate()._lastCenter;
+	//myLocationMarker = map.locate()._lastCenter;
 }
 
 //지도 움직임 이벤트 등록
@@ -52,6 +53,16 @@ var restroomList = new Array();
 
 //현 지도의 위치에 있는 화장실 정보를 불러옵니다.
 var callPins = (_east, _west, _south, _north)=>{
+	var southWest = map.getBounds()._southWest;
+	var northEast = map.getBounds()._northEast;
+	
+	east = northEast.lng;
+	west = southWest.lng;
+	south = southWest.lat;
+	north = northEast.lat;
+	
+	myLocationMarker = map.locate()._lastCenter;
+	
 	removeRestroomList();
 	$.ajax({
 		type: 'post'
@@ -74,13 +85,10 @@ var callPins = (_east, _west, _south, _north)=>{
 			console.log(error);
 		}
 	});
-	
-	//가장 가까운 화장실 쿼리해야됨
-	//calcDistance(myLocationMarker.lat, myLocationMarker.lng, 
 }
 
 //callPins 호출 시 모든 핀을 없엘 필요가 있다. 그냥 불러오면 같은핀이 겹침
-var removeRestroomList = ()=>{
+function removeRestroomList(){
 	restroomList.forEach(marker=>{
 		map.removeLayer(marker);
 	});
@@ -88,30 +96,76 @@ var removeRestroomList = ()=>{
 	restroomList = new Array();
 }
 
-//lat lon 1: 나의 위치
-//lat lon 2: 목표 위치
-function calcDistance(lat1, lon1, lat2, lon2) {
-	var EARTH_R, Rad, radLat1, radLat2, radDist;
-	var distance, ret;
-	
-	EARTH_R = 6371000.0;
-	Rad = Math.PI / 180;
-	radLat1 = Rad * lat1;
-	radLat2 = Rad * lat2;
-	radDist = Rad * (lon1 - lon2);
-	
-	distance = Math.sin(radLat1) * Math.sin(radLat2);
-	distance = distance	+ Math.cos(radLat1)
-						* Math.cos(radLat2)
-						* Math.cos(radDist);
-	ret = EARTH_R * Math.acos(distance);
-	
-	var rtn = Math.round(Math.round(ret) / 1000);
-	
-	console.log(rtn);
-	
-	rtn = (rtn <= 0)?(Math.round(ret) + " m"):(rtn+" km")
-
-	//return rtn;
-	return Math.round(ret);
+//최단거리 화장실 찾고 현위치-화장실 선 긋고 실 거리 표시
+function shortestRestroom(_latitude, _longitude){
+	$.ajax({
+		type: 'post'
+		, url: '/shortestForMe'
+		, data: {
+					//현위치 위도 경도
+					"latitude": _latitude,
+					"longitude": _longitude,
+				}
+		, success: (data)=>{
+			console.log(data);
+		}
+		, error: (request, status, error)=>{
+			console.log(error);
+		}
+	});
 }
+
+//최단거리 화장실 핀을 반환합니다.
+function shortestRestroom_js(_myLocationMarker, _restroomList){
+	var shortestRestroomLength = 100;
+	var shortestRestroomIndex;
+	
+	for(var index = 0; index < _restroomList.length; index++){
+		let len = Math.sqrt(Math.pow(_myLocationMarker.lat - _restroomList[index].getLatLng().lat, 2) 
+					+ Math.pow(_myLocationMarker.lng - _restroomList[index].getLatLng().lng, 2));
+
+		if(shortestRestroomLength > len){
+			shortestRestroomLength = len;
+			shortestRestroomIndex = index;
+			//console.log("index: ", index);
+		}
+	}
+	return _restroomList[shortestRestroomIndex];
+}
+
+//두 좌표간 거리를 km로 변환합니다.	
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+	Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

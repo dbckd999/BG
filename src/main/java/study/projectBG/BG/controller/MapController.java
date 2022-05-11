@@ -73,4 +73,12 @@ public class MapController {
 	}
 	
 	
+	@RequestMapping(value = "/shortestForMe", method = RequestMethod.POST)
+	@ResponseBody
+	public int shortestForMe(@Param("latitude") BigDecimal latitude, @Param("longitude") BigDecimal longitude){
+		System.out.println(latitude + ", " + longitude);
+		int id = service.shortestForMe(latitude, longitude);
+		return id;
+	}
+	
 }
