@@ -32,4 +32,10 @@ public class MapServiceImpl implements MapService {
 		List<Restroom_SampleDTO> list = mapper.callPins2(south, north, west, east);
 		return list;
 	}
+
+	@Override
+	public MapDTO restroomRead(String id) {
+
+		return mapper.restroomRead(id);
+	}
 }

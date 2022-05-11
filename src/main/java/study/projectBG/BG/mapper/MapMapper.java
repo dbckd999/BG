@@ -19,6 +19,8 @@ public interface MapMapper {
 	List<MapDTO> markerShow();
 	
 	//현 위치에서 가장 가까운 위치를 쿼리
-	public int shortestByMe(); 
+	public int shortestByMe();
+	
+	public MapDTO restroomRead(String id); 
 }
 

@@ -81,6 +81,10 @@
 		</div>
 			
 		<div id="more_info"> 
+			<input type="text" id="resultID"> <br>
+			<input type="text" id="result_address_load"> <br>
+			<div ></div>
+			
 			
 		 </div>
 		

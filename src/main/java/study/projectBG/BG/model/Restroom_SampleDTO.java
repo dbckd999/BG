@@ -12,4 +12,7 @@ public class Restroom_SampleDTO {
 	private BigDecimal wgs84_longitude;
 	private Time opening_time;
 	private Time closing_time;
+	private int c_man_closet;
+	private int c_woman_closet;
+	private String open_day_info;
 }

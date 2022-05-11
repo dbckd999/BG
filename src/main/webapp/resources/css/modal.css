@@ -74,11 +74,10 @@
 .modal_wrapper {
 	display: none;
 	width: 500px;
-	height: 300px;
+	height: 80%;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -250px 0 0 -250px;
+	 margin-left : 25%;
+	 margin-top : 10%;
 	background: #eee;
 	z-index: 2;
 	

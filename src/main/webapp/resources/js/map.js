@@ -71,8 +71,21 @@ var callPins = (_east, _west, _south, _north) => {
 			console.log('콘솔값 확인 : ' + data.length);
 			// element -> this로 변경
 			$(data).each(function() {
+
+				var day = "";
+
+				if (this.open_day_info != null) {
+					day = "<br><h3> 개방요일 : " + this.open_day_info + "'</h3>";
+				}
+
+				/*<br><h3> 개방요일 : ' + this.open_day_info*/
+
 				L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup('<h1>' + this.restroom_name +
-					'</h1><br><h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time + '</h3><br><button onclick="Info()" type="button" id="moreInfo_' + this.id + '" name="moreInfo">	상세정보보기 </button>').openPopup();
+					'</h1><br><h3> 남성용 대변기수 : ' + this.c_man_closet + '</h3><br><h3> 여성용 대변기수 : ' + this.c_woman_closet +
+					'</h3>' + day +
+					'</h3><br><h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time +
+					'</h3><br><button onclick="Info(' + this.id + ')" type="button" id="moreInfo_' + this.id +
+					'" name="moreInfo">	상세정보보기 </button>').openPopup();
 			})
 		}
 		, error: (request, status, error) => {
