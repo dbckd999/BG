@@ -90,6 +90,7 @@
 	<script>
 	//var restroomList;
 	function callPins(){
+		var result_id;
 		restroomList = new Array();
 		$.ajax({
 			type: 'post'
@@ -106,36 +107,37 @@
 				$(data).each(function() {
 					L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup('<h1>'+this.restroom_name+
 							'</h1><br><h3>'+this.opening_time+'~'+this.closing_time+'</h3><br><button type="button" id="moreInfo_'+this.id+'" name="moreInfo">	상세정보보기 </button>').openPopup();
+					result_id = data.id;
 				})
 				
-				
-				
-			},
-				
-				
-				
-				/* (data)=>{
-				console.log('len: ', data.length);
-				data.forEach(element=>{
-					console.log(element.wgs84_longitude);
-					L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup('<h1>'+element.restroom_name+
-							'</h1><br><h3>'+element.opening_time+'~'+element.closing_time+'</h3><br><button type="button" id="moreInfo" name="moreInfo"> 상세정보보기 </button>').openPopup();
-				});
-				
-				$('#moreInfo').click(function(){
-					alert(1);
-				}) */
-				
+				$('#moreinfo_' + this.id).click(function(){
+					
+					console.log(this.id);
+					
+					});
+				},
 			
-			 error: (request, status, error)=>{
+			
+			 error: function(request, status, error){
 				console.log(error);
 			}
 		});
 	}
 	
+	/* (data)=>{
+	console.log('len: ', data.length);
+	data.forEach(element=>{
+		console.log(element.wgs84_longitude);
+		L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup('<h1>'+element.restroom_name+
+				'</h1><br><h3>'+element.opening_time+'~'+element.closing_time+'</h3><br><button type="button" id="moreInfo" name="moreInfo"> 상세정보보기 </button>').openPopup();
+	});
+	
+	$('#moreInfo').click(function(){
+		alert(1);
+	}) */
 	
 	</script>
-	
+
 	<script src="${path}/resources/js/info_modal.js"></script>
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>
