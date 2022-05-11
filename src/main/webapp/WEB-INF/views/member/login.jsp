@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/login.css" />
 <link rel="stylesheet" href="${path}/resources/css/footer.css" />
+<link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <title>Map</title>
 </head>
 <body>

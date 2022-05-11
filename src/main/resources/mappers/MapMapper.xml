@@ -10,4 +10,8 @@
 	<select id="callPins2" parameterType="java.math.BigDecimal" resultType="study.projectBG.BG.model.Restroom_SampleDTO">
 		select * from restroom where wgs84_latitude between #{south} and #{north} and wgs84_longitude between #{west} and #{east};
 	</select>
+	
+	<select id="shortestByMe" resultType="Integer">
+		select id from (select id, sqrt(pow(wgs84_latitude - 35.86125470017899, 2) + pow(wgs84_longitude - 128.55601490000004, 2)) as len from restroom order by len limit 1) as t;
+	</select>
 </mapper>

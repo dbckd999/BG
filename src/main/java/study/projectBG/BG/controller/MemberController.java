@@ -72,4 +72,12 @@ public class MemberController {
 
 		return "map/map";
 	}
+	
+	@GetMapping("/findIdView")
+	public String findIdView() throws Exception{
+		return"/member/findIdView";
+	}
+	
+	
+
 }

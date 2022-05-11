@@ -35,7 +35,14 @@ public class adminController {
 		return "redirect:/admin";
 	}
 
-	
+	@GetMapping("/userDelete")
+	public String userDelete(@RequestParam("user_id") String user_id) {
+		
+		adminService.userDelete(user_id);
+		
+		return "redirect:/admin";
+		
+	}
 	
 }
 

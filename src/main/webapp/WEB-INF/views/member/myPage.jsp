@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${patd}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${patd}/resources/css/myPage.css" />
 <link rel="stylesheet" href="${patd}/resources/css/footer.css" />
+<link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <link rel="stylesheet" href="${patd}/resources/css/modal.css" />
 <title>Map</title>
 </head>
@@ -134,7 +135,7 @@
 		</ul>
 	</div>
 
-	<script src="${path}/resources/js/modal.js"></script>
+	<script src="${path}/resources/js/mypage_modal.js"></script>
 	<script src="${path}/resources/js/myPage.js"></script>
 	<script src="${path}/resources/js/member.js"></script>
 

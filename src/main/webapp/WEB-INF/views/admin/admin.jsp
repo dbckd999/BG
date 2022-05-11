@@ -10,8 +10,9 @@
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${patd}/resources/css/slideMenu.css" />
-<link rel="stylesheet" href="${patd}/resources/css/myPage.css" />
 <link rel="stylesheet" href="${patd}/resources/css/footer.css" />
+<link rel="stylesheet" href="${patd}/resources/css/admin.css" />
+<link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <title>Map</title>
 </head>
 <body>
@@ -46,36 +47,48 @@
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 
-	<h1>회원목록</h1>
-	<table border="1">
 
-		<tr>
-			<td>회원번호</td>
-			<td>회원아이디</td>
-			<td>회원별명</td>
-			<td>회원주소</td>
-			<td>회원가입일</td>
-			<td>삭제하기</td>
 
-		</tr>
+	<div id="adminCenter">
+		<h1>회원목록</h1>
 
-		<c:forEach var="list" items="${list }">
+		<form action="/userDelete">
+			<div>
+				아이디 : <input type="text" id="user_id" name="user_id">
+				<button type="submit" id="userDelete" name="userDelete">삭제</button>
+			</div>
+		</form>
+
+		<table border="1" id="admintable">
+
 			<tr>
-				<td>${list.user_no}</td>
-				<td>${list.user_id}</td>
-				<td>${list.user_nick}</td>
-				<td>${list.user_addr}</td>
-				<td><fmt:formatDate value="${list.user_regDate}"
-						pattern="yyyy-MM-dd HH:mm:ss" /></td>
-				<td><a href="/adminDelete?user_no=${list.user_no}">삭제</a></td>
-
+				<td>회원번호</td>
+				<td>회원아이디</td>
+				<td>회원별명</td>
+				<td>회원주소</td>
+				<td>회원가입일</td>
+				<td>삭제하기</td>
 			</tr>
 
-		</c:forEach>
 
-	</table>
+			<c:forEach var="list" items="${list }">
+				<tr>
+					<td>${list.user_no}</td>
+					<td>${list.user_id}</td>
+					<td>${list.user_nick}</td>
+					<td>${list.user_addr}</td>
+					<td><fmt:formatDate value="${list.user_regDate}"
+							pattern="yyyy-MM-dd" /></td>
+					<td><a href="/adminDelete?user_no=${list.user_no}"
+						id="confirmStart">삭제</a></td>
 
+				</tr>
 
+			</c:forEach>
+		</table>
 
+	</div>
+
+	<script src="${path}/resources/js/admin.js"></script>
 </body>
 </html>
