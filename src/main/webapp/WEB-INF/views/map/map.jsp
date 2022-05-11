@@ -82,36 +82,6 @@
 
 		<div id="more_info"></div>
 	</div>
-
-	<!-- 지도 위 ui -->
-	<!-- 1. n미터 리스트 제작(최초기준은 1000미터) -->
-	<script>
-	//var restroomList;
-	function callPins(){
-		restroomList = new Array();
-		$.ajax({
-			type: 'post'
-			, url: '/showRestrooms2'
-			, async: true
-			, dataType: 'json'
-			, data: {"north": north,
-					"south": south,
-					"east": east,
-					"west": west
-					}
-			, success: function(data) {
-				console.log('콘솔값 확인 : '+data.length);
-				$(data).each(function() {
-					L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup('<h1>'+this.restroom_name+
-							'</h1><br><h3>'+this.opening_time+'~'+this.closing_time+'</h3><br><button type="button" id="moreInfo_'+this.id+'" name="moreInfo">	상세정보보기 </button>').openPopup();
-				})
-			},
-			 error: (request, status, error)=>{
-				console.log(error);
-			}
-		});
-	}
-	</script>
 	<script src="${path}/resources/js/info_modal.js"></script>
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>
