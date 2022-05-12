@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -79,14 +80,20 @@
 		<div class="modal_close">
 			<a href="#">close</a>
 		</div>
+		
+		
+		<div id="test">
+		
+		</div>
 			
-		<div id="more_info"> 
-			<input type="text" id="resultID"> <br>
-			<input type="text" id="result_address_load"> <br>
-			<div ></div>
+		<!-- <div id="more_info"> 
+			<input type="text" id="resultID" readonly="readonly"> <br>
+			소재지도로명주소 : <input type="text" id="result_address_load" readonly="readonly"> <br>
+			남성용-대변기수 : <input type="text" id="result_c_man_closet" readonly="readonly"> <br>
 			
-			
-		 </div>
+		</div> -->
+		
+		
 		
 	</div>
 

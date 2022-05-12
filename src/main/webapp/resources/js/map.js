@@ -32,6 +32,7 @@ var east;	//동
 var west;	//서
 var south;	//남
 var north;	//북
+
 //지도 움직임 이벤트 함수
 var mapMove = () => {
 	southWest = map.getBounds()._southWest;
@@ -77,8 +78,6 @@ var callPins = (_east, _west, _south, _north) => {
 				if (this.open_day_info != null) {
 					day = "<br><h3> 개방요일 : " + this.open_day_info + "'</h3>";
 				}
-
-				/*<br><h3> 개방요일 : ' + this.open_day_info*/
 
 				L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup('<h1>' + this.restroom_name +
 					'</h1><br><h3> 남성용 대변기수 : ' + this.c_man_closet + '</h3><br><h3> 여성용 대변기수 : ' + this.c_woman_closet +
@@ -131,5 +130,5 @@ function calcDistance(lat1, lon1, lat2, lon2) {
 	rtn = (rtn <= 0) ? (Math.round(ret) + " m") : (rtn + " km")
 
 	//return rtn;
-	return Math.round(ret);
+	return Math.round(ret); 
 }
