@@ -20,5 +20,8 @@ public interface MapMapper {
 	
 	//현 위치에서 가장 가까운 위치를 쿼리
 	public int shortestByMe(@Param("latitude")BigDecimal latitude, @Param("longitude")BigDecimal longitude); 
+	public int shortestByMe();
+	
+	public MapDTO restroomRead(String id); 
 }
 

@@ -16,4 +16,9 @@
 		(select id, sqrt(pow(wgs84_latitude - #{latitude}, 2) + pow(wgs84_longitude - #{longitude}, 2)) as len from restroom)
 		as tt where len is not null order by len limit 1;
 	</select>
+	
+	<select id="restroomRead" resultType="study.projectBG.BG.model.MapDTO">
+		select * from restroom where id = #{id};
+	</select>
+	
 </mapper>

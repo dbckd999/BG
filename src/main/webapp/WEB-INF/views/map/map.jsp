@@ -79,10 +79,17 @@
 		<div class="modal_close">
 			<a href="#">close</a>
 		</div>
-
-		<div id="more_info"></div>
+			
+		<div id="more_info"> 
+			<input type="text" id="resultID"> <br>
+			<input type="text" id="result_address_load"> <br>
+			<div ></div>
+			
+			
+		 </div>
+		
 	</div>
-	<script src="${path}/resources/js/info_modal.js"></script>
+	<script src="${path}/resources/js/map_modal.js"></script>
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>
 	<script src="${path}/resources/js/map.js"></script>

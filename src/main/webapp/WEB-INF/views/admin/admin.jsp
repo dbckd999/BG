@@ -46,12 +46,9 @@
 	<div id="titleArea">
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
-	
-	
 	<div id="adminCenter">
 <h1>회원목록</h1>
 <table border="1" id="admintable">
-
  <tr>
  <td>회원번호</td>
  <td>회원아이디</td>
@@ -62,6 +59,12 @@
  
  
  </tr>
+		<form action="/userDelete">
+			<div>
+				아이디 : <input type="text" id="user_id" name="user_id">
+				<button type="submit" id="userDelete" name="userDelete">삭제</button>
+			</div>
+		</form>
 
  
   <c:forEach var="list" items="${list }">
@@ -82,7 +85,6 @@
  
  </table>
  </div>
-	
 	<script src="${path}/resources/js/admin.js"></script>
 </body>
 </html>
