@@ -78,6 +78,7 @@ public class MapController {
 		
 		System.out.println("id 값 확인 : " + id);
 		MapDTO dto = mapService.restroomRead(id);
+		model.addAttribute("dto", dto);
 		
 		return dto;
 		

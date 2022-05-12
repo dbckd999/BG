@@ -81,8 +81,26 @@
 		</div>
 			
 		<div id="more_info"> 
-			<input type="text" id="resultID"> <br>
-			<input type="text" id="result_address_load"> <br>
+			<input type="hidden" id="result_id"> <br>
+		화장실 종류:	<input type="text" id="result_category"> <br>
+		화장실명	: <input type="text" id="result_restroom_name"> <br>
+		소재지도로명주소: 	<input type="text" id="result_address_load"> <br>
+		소재지지번주소: 	<input type="text" id="result_address_location"> <br>
+		남녀공용화장실여부: 	<input type="text" id="result_is_public_gender"> <br>
+		대변기수	: <input type="text" id="result_c_man_closet"> <br>
+		소변기수	: <input type="text" id="result_c_man_urinal"> <br>
+		남성용-장애인용대변기수: 	<input type="text" id="result_c_man_disable_person_closet"> <br>
+		남성용-장애인용소변기수: 	<input type="text" id="result_c_man_disable_person_urinal"> <br>
+		남성용-어린이용대변기수: 	<input type="text" id="result_c_man_child_closet"> <br>
+		남성용-어린이용소변기수: 	 <input type="text" id="result_c_man_child_urinal"> <br>
+		여성용-대변기수: 	<input type="text" id="result_c_woman_closet"> <br>
+		여성용-장애인용대변기수: 	<input type="text" id="result_c_woman_disable_person_urinal"> <br>
+		여성용-어린이용대변기수:  <input type="text" id="result_c_woman_child_closet"> <br>
+		관리기관명: 	<input type="text" id="result_manage_group_name"> <br>
+		전화번호	:  <input type="text" id="result_call_number"> <br>
+	     개방 요일: 	<input type="text" id="result_open_day_info"> <br>
+		설치연월	: <input type="text" id="result_installation_date"> <br>
+			
 			<div ></div>
 			
 			

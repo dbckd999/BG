@@ -75,7 +75,7 @@ var callPins = (_east, _west, _south, _north) => {
 				var day = "";
 
 				if (this.open_day_info != null) {
-					day = "<br><h3> 개방요일 : " + this.open_day_info + "'</h3>";
+					day = "<br><h3> 개방요일 : " + this.open_day_info + "</h3>";
 				}
 
 				/*<br><h3> 개방요일 : ' + this.open_day_info*/
