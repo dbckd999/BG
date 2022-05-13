@@ -100,7 +100,7 @@
 
  input{
 	border: none;
-	width: 50%;
+	width: 60%;
 	font-size: 15px;
     margin-top: 10%;
 	    
@@ -108,7 +108,7 @@
 
 #modalList{
 
-	width: 70%;
+	width: 100%;
 	 margin-left: 15%;
     margin-top: 5%;
     font-size: 20px;
