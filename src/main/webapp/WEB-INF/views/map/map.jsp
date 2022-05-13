@@ -10,8 +10,7 @@
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${path}/resources/css/leaflet.css" />
-<link rel="stylesheet"
-	href="${path}/resources/css/L.Control.Locate.min.css" />
+<link rel="stylesheet" 	href="${path}/resources/css/L.Control.Locate.min.css" />
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/modal.css" />
@@ -81,6 +80,7 @@
 		</div>
 			
 		<div id="more_info"> 
+		<div id="modalList">
 			<input type="hidden" id="result_id"> <br>
 		화장실 종류:	<input type="text" id="result_category"> <br>
 		화장실명	: <input type="text" id="result_restroom_name"> <br>
@@ -101,7 +101,7 @@
 	     개방 요일: 	<input type="text" id="result_open_day_info"> <br>
 		설치연월	: <input type="text" id="result_installation_date"> <br>
 			
-			<div ></div>
+		</div>
 			
 			
 		 </div>
