@@ -54,8 +54,18 @@ map.on('moveend', mapMove);
 var restroomList = new Array();
 var markLineList = null;
 
+var polygon = null;
 //현 지도의 위치에 있는 화장실 정보를 불러옵니다.
-var callPins = (_east, _west, _south, _north)=>{
+var callPins = (_east, _west, _south, _north) => {
+	var southWest = map.getBounds()._southWest;
+	var northEast = map.getBounds()._northEast;
+
+	east = northEast.lng;
+	west = southWest.lng;
+	south = southWest.lat;
+	north = northEast.lat;
+
+	myLocationMarker = map.locate()._lastCenter;
 	
 	removeRestroomList();
 	
@@ -65,22 +75,30 @@ var callPins = (_east, _west, _south, _north)=>{
 		, async: true
 		, dataType: 'json'
 		, data: {
-					"north": _north,
-					"south": _south,
-					"east": _east,
-					"west": _west
-				}
-		, success: (data)=>{
+			"north": _north,
+			"south": _south,
+			"east": _east,
+			"west": _west
+		}
+		, success: (data) => {
 			console.log('len: ', data.length);
-			data.forEach(element=>{
-				restroomList.push(L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup(
-					"<h1>"+element.restroom_name+"</h1><br>"
-					+"<h3>"+element.opening_time+"~"+element.closing_time+"</h3><br>"
-					+"<input type='button' value='상세정보보기'></button>"
-					));
+
+			data.forEach(element => {
+				restroomList.push(L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup("<h1>" + element.restroom_name + "</h1><br><h3>"
+					+ element.opening_time + "~" + element.closing_time
+					+ "</h3><br><input type='button' value='상세정보보기'></button>").on('click', function(e) {
+						if (polygon != null) {
+							map.removeLayer(polygon);
+						}
+						polygon = L.polygon([
+							[element.wgs84_latitude, element.wgs84_longitude],
+							[myLocationMarker.lat, myLocationMarker.lng]
+						]).addTo(map);
+						getDistanceFromLatLonInKm(element.restroom_name, element.wgs84_latitude, element.wgs84_longitude, myLocationMarker.lat, myLocationMarker.lng);
+					}));
 			});
 		}
-		, error: (request, status, error)=>{
+		, error: (request, status, error) => {
 			console.log(error);
 		}
 	});
@@ -91,39 +109,39 @@ function removeRestroomList(){
 	restroomList.forEach(marker=>{
 		map.removeLayer(marker);
 	});
-	
+
 	restroomList = new Array();
 }
 
 //최단거리 화장실 찾고 현위치-화장실 선 긋고 실 거리 표시
-function shortestRestroom(_latitude, _longitude){
+function shortestRestroom(_latitude, _longitude) {
 	$.ajax({
 		type: 'post'
 		, url: '/shortestForMe'
 		, data: {
-					//현위치 위도 경도
-					"latitude": _latitude,
-					"longitude": _longitude,
-				}
-		, success: (data)=>{
+			//현위치 위도 경도
+			"latitude": _latitude,
+			"longitude": _longitude,
+		}
+		, success: (data) => {
 			console.log(data);
 		}
-		, error: (request, status, error)=>{
+		, error: (request, status, error) => {
 			console.log(error);
 		}
 	});
 }
 
 //최단거리 화장실 핀을 반환합니다.
-function shortestRestroom_js(_myLocationMarker, _restroomList){
+function shortestRestroom_js(_myLocationMarker, _restroomList) {
 	var shortestRestroomLength = 100;
 	var shortestRestroomIndex;
-	
-	for(var index = 0; index < _restroomList.length; index++){
-		let len = Math.sqrt(Math.pow(_myLocationMarker.lat - _restroomList[index].getLatLng().lat, 2) 
-					+ Math.pow(_myLocationMarker.lng - _restroomList[index].getLatLng().lng, 2));
 
-		if(shortestRestroomLength > len){
+	for (var index = 0; index < _restroomList.length; index++) {
+		let len = Math.sqrt(Math.pow(_myLocationMarker.lat - _restroomList[index].getLatLng().lat, 2)
+			+ Math.pow(_myLocationMarker.lng - _restroomList[index].getLatLng().lng, 2));
+
+		if (shortestRestroomLength > len) {
 			shortestRestroomLength = len;
 			shortestRestroomIndex = index;
 			//console.log("index: ", index);
@@ -133,21 +151,26 @@ function shortestRestroom_js(_myLocationMarker, _restroomList){
 }
 
 //두 좌표간 거리를 km로 변환합니다.	
-function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1); 
-  var a = 
-	Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-    Math.sin(dLon/2) * Math.sin(dLon/2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c; // Distance in km
-  return d;
+function getDistanceFromLatLonInKm(name, lat1, lon1, lat2, lon2) {
+	var R = 6371; // Radius of the earth in km
+	var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+	var dLon = deg2rad(lon2 - lon1);
+	var a =
+		Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+		Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = (R * c) * 1000; // Distance in km
+	if (d < 1000) {
+		alert('"' + name + '"까지의 직선 거리는[' + Math.round(d) + 'm] 입니다.');
+	} else {
+		alert('"' + name + '"까지의 직선 거리는[' + (d/1000).toFixed(1) + 'km] 입니다.');
+	}
+	return d;
 }
 
 function deg2rad(deg) {
-  return deg * (Math.PI/180)
+	return deg * (Math.PI / 180)
 }
 
 //현위치부터 목표 마크까지 줄을 긋습니다.

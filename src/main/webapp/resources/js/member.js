@@ -60,8 +60,37 @@ $(function() {
 					"error:" + error);
 			}
 		});
-		
+
 	});
+
+	$('#nickCheckBtn').click(function() {
+		user_nick = $('#user_nick').val();
+		$.ajax({
+			url: '/check_nick',
+			type: 'post',
+			data: {
+				user_nick: user_nick
+			},
+			success: function(data) {
+				console.log(data);
+				if (data > 0) {
+					alert('별명 중복');
+				} else {
+					alert('별명 사용 가능');
+					nick_check = true;
+				}
+			},
+			error: function(request, status, error) {
+				console.log("code:" + request.status + "\n" +
+					"message:" + request.responseText + "\n" +
+					"error:" + error);
+			}
+		});
+
+	});
+
+
+
 
 	$('#delete_fin').click(function() {
 		user_id = $('#user_id').val();
@@ -168,7 +197,7 @@ $(function() {
 
 
 	})
-	
+
 	$('#memberUpdate').click(function() {
 
 		user_id = $('#user_id').val();
@@ -229,7 +258,7 @@ $(function() {
 
 
 
-	
+
 
 
 
