@@ -17,10 +17,8 @@ public interface MapMapper {
 	public List<Restroom_SampleDTO> callPins2(@Param("south")BigDecimal south, @Param("north")BigDecimal north, @Param("west")BigDecimal west, @Param("east")BigDecimal east);
 	//전체 데이터를 가져옵니다.
 	List<MapDTO> markerShow();
-	
 	//현 위치에서 가장 가까운 위치를 쿼리
 	public int shortestForMe(@Param("latitude")BigDecimal latitude, @Param("longitude")BigDecimal longitude);
-	public int shortestByMe(BigDecimal bigDecimal, BigDecimal bigDecimal2); 
 	public MapDTO restroomRead(String id);
 }
 

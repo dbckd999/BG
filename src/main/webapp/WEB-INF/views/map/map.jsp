@@ -11,8 +11,7 @@
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${path}/resources/css/leaflet.css" />
-<link rel="stylesheet"
-	href="${path}/resources/css/L.Control.Locate.min.css" />
+<link rel="stylesheet" 	href="${path}/resources/css/L.Control.Locate.min.css" />
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/modal.css" />
@@ -62,8 +61,6 @@
 					</c:if>
 
 					<c:if test="${sessionScope.user_id eq 'admin'}">
-					<%-- <li><a href="/logout"> 로그아웃 </a></li>
-					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li> --%>
 						<li><a href="/admin"> 어드민페이지 </a></li>
 					</c:if>
 				</ul>
@@ -82,18 +79,7 @@
 		</div>
 		
 		
-		<div id="test">
-		
-		</div>
-			
-		<!-- <div id="more_info"> 
-			<input type="text" id="resultID" readonly="readonly"> <br>
-			소재지도로명주소 : <input type="text" id="result_address_load" readonly="readonly"> <br>
-			남성용-대변기수 : <input type="text" id="result_c_man_closet" readonly="readonly"> <br>
-			
-		</div> -->
-		
-		
+		<div id="test"></div>
 		
 	</div>
 	<script src="${path}/resources/js/map_modal.js"></script>

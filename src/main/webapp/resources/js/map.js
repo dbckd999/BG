@@ -1,6 +1,9 @@
 //cdn으로 불러온 L객체에서 지도 로드.
 var map = L.map('map').setView([35.892805, 128.525276], 13);
 
+//주변 화장실을 배열로 담게 됩니다.
+var restRooms;
+
 //지도타일 생성
 L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -88,7 +91,7 @@ var callPins = (_east, _west, _south, _north) => {
 				var day = "";
 
 				if (this.open_day_info != null) {
-					day = "<br><h3> 개방요일 : " + this.open_day_info + "'</h3>";
+					day = "<br><h3> 개방요일 : " + this.open_day_info + "</h3>";
 				}
 
 				L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup('<h1>' + this.restroom_name +
