@@ -42,7 +42,7 @@ var mapMove = ()=>{
 	south = southWest.lat;
 	north = northEast.lat;
 	
-	myLocationMarker = map.locate()._lastCenter;
+	myLocationMarker = lc._event.latlng;
 	
 	callPins(east, west, south, north);
 }
@@ -52,7 +52,7 @@ map.on('moveend', mapMove);
 
 //화장실 배열.
 var restroomList = new Array();
-var markLineList = new Array();
+var markLineList = null;
 
 //현 지도의 위치에 있는 화장실 정보를 불러옵니다.
 var callPins = (_east, _west, _south, _north)=>{
@@ -73,7 +73,11 @@ var callPins = (_east, _west, _south, _north)=>{
 		, success: (data)=>{
 			console.log('len: ', data.length);
 			data.forEach(element=>{
-				restroomList.push(L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup("<h1>"+element.restroom_name+"</h1><br><h3>"+element.opening_time+"~"+element.closing_time+"</h3><br><input type='button' value='상세정보보기'></button>"));
+				restroomList.push(L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup(
+					"<h1>"+element.restroom_name+"</h1><br>"
+					+"<h3>"+element.opening_time+"~"+element.closing_time+"</h3><br>"
+					+"<input type='button' value='상세정보보기'></button>"
+					));
 			});
 		}
 		, error: (request, status, error)=>{
@@ -82,7 +86,7 @@ var callPins = (_east, _west, _south, _north)=>{
 	});
 }
 
-//callPins 호출 시 모든 핀을 없엘 필요가 있다. 그냥 불러오면 같은핀이 겹침
+//기존 핀들을 삭제하고 초기화 합니다.
 function removeRestroomList(){
 	restroomList.forEach(marker=>{
 		map.removeLayer(marker);
@@ -147,6 +151,7 @@ function deg2rad(deg) {
 }
 
 //현위치부터 목표 마크까지 줄을 긋습니다.
+var markLine;
 function setMarkLine(singMark){
 	markLine = L.polygon([
 		[myLocationMarker.lat,myLocationMarker.lng],
@@ -155,10 +160,17 @@ function setMarkLine(singMark){
 }
 
 function removeMarkLine(){
-	map.removeLayer(markLine)
+	if(markLine != null){
+		map.removeLayer(markLine)
+	}
 }
 
-
+var aRestroomPhin = null;
+function shortestRestroomdrawLine(){
+	aRestroomPhin = shortestRestroom_js(lc._event.latlng, restroomList);
+	removeMarkLine();
+	setMarkLine(aRestroomPhin);
+}
 
 
 
