@@ -28,6 +28,13 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public void userDelete(String user_id) {
+
+		mapper.userDelete(user_id);
+		
+	}
+
 	
 	
 }

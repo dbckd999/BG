@@ -38,4 +38,7 @@ public class MapServiceImpl implements MapService {
 		// TODO Auto-generated method stub
 		return mapper.shortestForMe(latitude, longitude);
 	}
+	public MapDTO restroomRead(String id) {
+		return mapper.restroomRead(id);
+	}
 }

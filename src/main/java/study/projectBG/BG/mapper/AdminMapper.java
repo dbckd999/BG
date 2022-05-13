@@ -12,6 +12,8 @@ public interface AdminMapper {
 	List<MemberDTO> memberList();
 
 	void adminDelete(String user_no);
+
+	void userDelete(String user_id);
 	
 	
 }

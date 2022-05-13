@@ -2,21 +2,21 @@ package study.projectBG.BG.controller;
 
 import java.math.BigDecimal;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import study.projectBG.BG.model.SimpleRestroomDTO;
 import study.projectBG.BG.model.MapDTO;
 import study.projectBG.BG.model.Restroom_SampleDTO;
+import study.projectBG.BG.model.SimpleRestroomDTO;
 import study.projectBG.BG.service.MapService;
 
 @Controller
@@ -70,6 +70,18 @@ public class MapController {
 		List<Restroom_SampleDTO> list = service.callPins2(south, north, west, east);
 		System.out.println(list);
 		return list;
+	}
+	
+	@PostMapping("/restroomRead")
+	@ResponseBody
+	public MapDTO restroomRead(@RequestParam("id") String id, Model model) {
+		
+		System.out.println("id 값 확인 : " + id);
+		MapDTO dto = mapService.restroomRead(id);
+		model.addAttribute("dto", dto);
+		
+		return dto;
+		
 	}
 	
 	

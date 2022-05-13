@@ -11,4 +11,9 @@
 		DELETE FROM memberTBL WHERE user_no = #{user_no}
 	</delete>
 	
+	
+	<delete id="userDelete">
+		DELETE FROM memberTBL WHERE user_id = #{user_id}
+	</delete>
+	
 </mapper>

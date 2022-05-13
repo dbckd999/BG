@@ -31,17 +31,17 @@ var south;	//남
 var north;	//북
 
 //지도 움직임 이벤트 함수
-var mapMove = ()=>{
+var mapMove = () => {
 	southWest = map.getBounds()._southWest;
 	northEast = map.getBounds()._northEast;
 	//console.log('북동: ', southWest, '\n남서: ', northEast);
 	//console.log('now loc: ', map.locate()._lastCenter);
-	
+
 	east = northEast.lng;
 	west = southWest.lng;
 	south = southWest.lat;
 	north = northEast.lat;
-	
+
 	myLocationMarker = lc._event.latlng;
 	
 	callPins(east, west, south, north);
@@ -80,23 +80,24 @@ var callPins = (_east, _west, _south, _north) => {
 			"east": _east,
 			"west": _west
 		}
-		, success: (data) => {
-			console.log('len: ', data.length);
+		, success: function(data) {
+			console.log('콘솔값 확인 : ' + data.length);
+			// element -> this로 변경
+			$(data).each(function() {
 
-			data.forEach(element => {
-				restroomList.push(L.marker([element.wgs84_latitude, element.wgs84_longitude]).addTo(map).bindPopup("<h1>" + element.restroom_name + "</h1><br><h3>"
-					+ element.opening_time + "~" + element.closing_time
-					+ "</h3><br><input type='button' value='상세정보보기'></button>").on('click', function(e) {
-						if (polygon != null) {
-							map.removeLayer(polygon);
-						}
-						polygon = L.polygon([
-							[element.wgs84_latitude, element.wgs84_longitude],
-							[myLocationMarker.lat, myLocationMarker.lng]
-						]).addTo(map);
-						getDistanceFromLatLonInKm(element.restroom_name, element.wgs84_latitude, element.wgs84_longitude, myLocationMarker.lat, myLocationMarker.lng);
-					}));
-			});
+				var day = "";
+
+				if (this.open_day_info != null) {
+					day = "<br><h3> 개방요일 : " + this.open_day_info + "'</h3>";
+				}
+
+				L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup('<h1>' + this.restroom_name +
+					'</h1><br><h3> 남성용 대변기수 : ' + this.c_man_closet + '</h3><br><h3> 여성용 대변기수 : ' + this.c_woman_closet +
+					'</h3>' + day +
+					'</h3><br><h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time +
+					'</h3><br><button onclick="Info(' + this.id + ')" type="button" id="moreInfo_' + this.id +
+					'" name="moreInfo">	상세정보보기 </button>').openPopup();
+			})
 		}
 		, error: (request, status, error) => {
 			console.log(error);
@@ -130,6 +131,32 @@ function shortestRestroom(_latitude, _longitude) {
 			console.log(error);
 		}
 	});
+}
+//lat lon 1: 나의 위치
+//lat lon 2: 목표 위치
+function calcDistance(lat1, lon1, lat2, lon2) {
+	var EARTH_R, Rad, radLat1, radLat2, radDist;
+	var distance, ret;
+
+	EARTH_R = 6371000.0;
+	Rad = Math.PI / 180;
+	radLat1 = Rad * lat1;
+	radLat2 = Rad * lat2;
+	radDist = Rad * (lon1 - lon2);
+
+	distance = Math.sin(radLat1) * Math.sin(radLat2);
+	distance = distance + Math.cos(radLat1)
+		* Math.cos(radLat2)
+		* Math.cos(radDist);
+	ret = EARTH_R * Math.acos(distance);
+
+	var rtn = Math.round(Math.round(ret) / 1000);
+
+	console.log(rtn);
+
+	rtn = (rtn <= 0) ? (Math.round(ret) + " m") : (rtn + " km");
+		//return rtn;
+	return Math.round(ret); 
 }
 
 //최단거리 화장실 핀을 반환합니다.
@@ -194,18 +221,3 @@ function shortestRestroomdrawLine(){
 	removeMarkLine();
 	setMarkLine(aRestroomPhin);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

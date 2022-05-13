@@ -12,4 +12,5 @@ public interface MapService {	//south, north, west, east
 	List<MapDTO> markerShow();
 	public List<Restroom_SampleDTO> callPins2(BigDecimal south, BigDecimal north, BigDecimal west, BigDecimal east);
 	public int shortestForMe(BigDecimal latitude, BigDecimal longitude);
+	public MapDTO restroomRead(String id);
 }
