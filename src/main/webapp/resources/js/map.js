@@ -84,7 +84,7 @@ var callPins = (_east, _west, _south, _north) => {
 					'</h3>' + day +
 					'</h3><br><h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time +
 					'</h3><br><button onclick="Info(' + this.id + ')" type="button" id="moreInfo_' + this.id +
-					'" name="moreInfo">	상세정보보기 </button>').openPopup();
+					'" name="moreInfo">	상세정보보기 </button>' ).openPopup();
 			})
 		}
 		, error: (request, status, error) => {

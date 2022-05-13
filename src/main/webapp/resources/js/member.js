@@ -59,8 +59,6 @@ $(function() {
 	});
 
 
-	
-
 
 	$('#emailCheckBtn').click(function() {
 		user_email = $('#user_email').val();
@@ -87,7 +85,7 @@ $(function() {
 		});
 	});
 
-	$('#delete').click(function() {
+	$('#delete_fin').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
 			url: '/memberDelete',
