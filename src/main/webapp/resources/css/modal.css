@@ -27,8 +27,8 @@
 }
 
 .modal_close {
-	width: 26px;
-	height: 26px;
+	width: 25px;
+	height: 30px;
 	position: absolute;
 	top: -30px;
 	right: 0;
@@ -73,13 +73,14 @@
 
 .modal_wrapper {
 	display: none;
-	width: 500px;
+	width: 700px;
 	height: 80%;
 	position: absolute;
-	 margin-left : 25%;
-	 margin-top : 10%;
-	background: #eee;
+	 margin-left : 14%;
+	 margin-top : 14%;
+	background: rgb(255, 255, 255);
 	z-index: 2;
+	
 	
 }
 
@@ -96,3 +97,21 @@
 	background-color : white ;
 }
 
+
+ input{
+	border: none;
+	width: 50%;
+	font-size: 15px;
+    margin-top: 10%;
+	    
+}
+
+#modalList{
+
+	width: 70%;
+	 margin-left: 15%;
+    margin-top: 5%;
+    font-size: 20px;
+	 
+	
+}

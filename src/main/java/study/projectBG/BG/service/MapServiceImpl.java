@@ -34,8 +34,11 @@ public class MapServiceImpl implements MapService {
 	}
 
 	@Override
+	public int shortestForMe(BigDecimal latitude, BigDecimal longitude) {
+		// TODO Auto-generated method stub
+		return mapper.shortestForMe(latitude, longitude);
+	}
 	public MapDTO restroomRead(String id) {
-
 		return mapper.restroomRead(id);
 	}
 }

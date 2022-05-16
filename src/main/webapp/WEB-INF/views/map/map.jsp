@@ -11,8 +11,7 @@
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${path}/resources/css/leaflet.css" />
-<link rel="stylesheet"
-	href="${path}/resources/css/L.Control.Locate.min.css" />
+<link rel="stylesheet" 	href="${path}/resources/css/L.Control.Locate.min.css" />
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/modal.css" />
@@ -62,8 +61,6 @@
 					</c:if>
 
 					<c:if test="${sessionScope.user_id eq 'admin'}">
-					<%-- <li><a href="/logout"> 로그아웃 </a></li>
-					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li> --%>
 						<li><a href="/admin"> 어드민페이지 </a></li>
 					</c:if>
 				</ul>
@@ -81,24 +78,32 @@
 			<a href="#">close</a>
 		</div>
 		
-		
-		<div id="test">
-		
-		</div>
-			
-		<!-- <div id="more_info"> 
-			<input type="text" id="resultID" readonly="readonly"> <br>
-			소재지도로명주소 : <input type="text" id="result_address_load" readonly="readonly"> <br>
-			남성용-대변기수 : <input type="text" id="result_c_man_closet" readonly="readonly"> <br>
-			
-		</div> -->
-		
-		
+		<div id="more_info"> 
+			<input type="text" id="resultID"> <br>
+			<input type="text" id="result_address_load"> <br>
+			<input type="hidden" id="result_id"> <br>
+			화장실 종류:	<input type="text" id="result_category"> <br>
+			화장실명	: <input type="text" id="result_restroom_name"> <br>
+			소재지도로명주소: 	<input type="text" id="result_address_load"> <br>
+			소재지지번주소: 	<input type="text" id="result_address_location"> <br>
+			남녀공용화장실여부: 	<input type="text" id="result_is_public_gender"> <br>
+			대변기수	: <input type="text" id="result_c_man_closet"> <br>
+			소변기수	: <input type="text" id="result_c_man_urinal"> <br>
+			남성용-장애인용대변기수: 	<input type="text" id="result_c_man_disable_person_closet"> <br>
+			남성용-장애인용소변기수: 	<input type="text" id="result_c_man_disable_person_urinal"> <br>
+			남성용-어린이용대변기수: 	<input type="text" id="result_c_man_child_closet"> <br>
+			남성용-어린이용소변기수: 	 <input type="text" id="result_c_man_child_urinal"> <br>
+			여성용-대변기수: 	<input type="text" id="result_c_woman_closet"> <br>
+			여성용-장애인용대변기수: 	<input type="text" id="result_c_woman_disable_person_urinal"> <br>
+			여성용-어린이용대변기수:  <input type="text" id="result_c_woman_child_closet"> <br>
+			관리기관명: <input type="text" id="result_manage_group_name"> <br>
+			전화번호	:<input type="text" id="result_call_number"> <br>
+		    개방 요일: <input type="text" id="result_open_day_info"> <br>
+			설치연월	: <input type="text" id="result_installation_date"> <br>
+			<div></div>
+		 </div>
 		
 	</div>
-
-	
-
 	<script src="${path}/resources/js/map_modal.js"></script>
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>

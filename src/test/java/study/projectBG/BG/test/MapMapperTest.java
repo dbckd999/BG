@@ -39,9 +39,9 @@ public class MapMapperTest {
 		log.info(list2);
 	}
 	
-	@Test
-	public void shorestTest() {
-		int res = mapper.shortestByMe();
-		log.info("res: " + res);
-	}
+	/*
+	 * @Test public void shorestTest() { int res = mapper.shortestByMe(new
+	 * BigDecimal(35.86121690020703), new BigDecimal(128.55605569999997));
+	 * log.info("res: " + res); }
+	 */
 }

@@ -96,7 +96,7 @@ $(function() {
 			success: function(data) {
 				if (data != null) {
 					alert('회원 탈퇴 완료');
-					location.href='/map';
+					location.href='/logout';
 				}
 				else{
 					alert('회원 탈퇴 불가');
@@ -191,11 +191,6 @@ $(function() {
 
 
 	})
-
-
-
-
-
 })
 
 

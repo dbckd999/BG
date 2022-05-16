@@ -8,7 +8,7 @@ import lombok.Data;
 public class Restroom_SampleDTO {
 	private int id;
 	private String restroom_name;
-	private BigDecimal wgs84_latitude;	
+	private BigDecimal wgs84_latitude;
 	private BigDecimal wgs84_longitude;
 	private Time opening_time;
 	private Time closing_time;
