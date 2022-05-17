@@ -31,8 +31,10 @@ public class LoginController {
 
 		int result = memberService.login(dto);
 		if(result == 1) {
+			dto = memberService.memberRead(dto.getUser_id());
 			HttpSession session = request.getSession();
 			session.setAttribute("user_id", dto.getUser_id());
+			session.setAttribute("user_no", dto.getUser_no());
 			return "map/map";
 		}; 
 
@@ -54,7 +56,6 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		return "map/map";
-
 	}
 
 }

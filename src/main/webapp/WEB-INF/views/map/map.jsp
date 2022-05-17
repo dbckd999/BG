@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/modal.css" />
+<link rel="stylesheet" href="${path}/resources/css/mapComment.css" />
 <title>Map</title>
 </head>
 <body>
@@ -68,6 +69,7 @@
 			<div onclick="history.back();" class="close"></div>
 		</div>
 	</div>
+	
 	<!-- 지도 -->
 	<div id="map"></div>
 
@@ -102,13 +104,33 @@
 			설치연월	: <input type="text" id="result_installation_date"> <br>
 			<div></div>
 		 </div>
+	</div>
+	
+	<div class="cmt_modal_wrap">
+		<div class="modal_close">
+			<a id="cmt_modal_close" href="#">close</a>
+		</div>
+		<c:if test="${not empty sessionScope.user_id}">
+		<!-- 댓글창 -->
+		<div>
+			<!-- 화장실번호, 유저번호, 댓글 -->
+				<span><c:out value="${user_id}"></c:out></span><br>
+				<input type="hidden" name="c_user_no" value="${user_no}" />
+				<textarea class="cmt_area" id="cmt_content" style="margin-left:1px;"></textarea>
+				<button onclick="groupingInsertRestroomComment()">댓글 입력</button>
+		</div>
 		
+		</c:if>
+		<c:if test="${empty sessionScope.user_id}">
+		<span>===로그인 후 댓글작성이 가능합니다.===</span>
+		</c:if>
+		<table id="restroom_comment_modal"></table>
 	</div>
 	<script src="${path}/resources/js/map_modal.js"></script>
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>
 	<script src="${path}/resources/js/map.js"></script>
 	<script src="${path}/resources/js/myPage.js"></script>
+	<script src="${path}/resources/js/mapComment.js"></script>
 </body>
-
 </html>

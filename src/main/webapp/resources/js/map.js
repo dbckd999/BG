@@ -89,7 +89,7 @@ var callPins = (_east, _west, _south, _north) => {
 			// element -> this로 변경
 			$(data).each(function() {
 				var day = "";
-				if (this.open_day_info.trim() !== '') {
+				if (this.open_day_info !== null) {
 					day = "<h3> 개방요일 : " + this.open_day_info + "</h3><br>";
 				}
 
@@ -102,7 +102,9 @@ var callPins = (_east, _west, _south, _north) => {
 					+ '<button onclick="Info(' + this.id + ')" '
 							+'type="button" '
 							+'id="moreInfo_' + this.id +'" '
-							+'name="moreInfo">상세정보보기</button>'))
+							+'name="moreInfo">상세정보보기</button>'
+					+ '<button onclick="aRestroomComment('+ this.id +')">댓글보기</button>'
+					));
 			})
 		}
 		, error: (request, status, error) => {
