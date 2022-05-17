@@ -27,8 +27,8 @@
 }
 
 .modal_close {
-	width: 26px;
-	height: 26px;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	top: -30px;
 	right: 0;
@@ -40,6 +40,7 @@
 	height: 100%;
 	background: url(https://img.icons8.com/metro/26/000000/close-window.png);
 	text-indent: -9999px;
+	
 }
 
 #delete_cont{
@@ -73,10 +74,10 @@
 
 .modal_wrapper {
 	display: none;
-	width: 700px;
-	height: 80%;
+	width: 100%;
+	height: 60%;
 	position: absolute;
-	 margin-left : 14%;
+	 
 	 margin-top : 14%;
 	background: rgb(255, 255, 255);
 	z-index: 2;
@@ -85,33 +86,42 @@
 }
 
 .modal_close>a {
-	display: block;
+/* 	display: block; */
 	width: 100%;
 	height: 100%;
 	background: url(https://img.icons8.com/metro/26/000000/close-window.png);
 	text-indent: -9999px;
+	  background-size: contain;
 }
 
 #more_info{
 	height : 100%;
 	background-color : white ;
+	
 }
 
 
- input{
+
+ #modalList > input{
 	border: none;
-	width: 60%;
-	font-size: 15px;
-    margin-top: 10%;
-	    
+	font-size: 23px;
+  
+ }
+ 
+#modalList >  #result_address_load  , #result_address_location{
+		width: 70%;
 }
+	    
+
 
 #modalList{
 
 	width: 100%;
-	 margin-left: 15%;
+  
     margin-top: 5%;
     font-size: 20px;
-	 
 	
-}
+
+  
+ }	 
+	

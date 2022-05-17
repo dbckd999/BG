@@ -26,14 +26,20 @@ public class LoginController {
 	@PostMapping("/login")
 	public String login(MemberDTO dto, HttpServletRequest request, RedirectAttributes rttr) {
 
-		System.out.println(dto.getUser_id());
-		System.out.println(dto.getUser_pw());
-
+		//System.out.println(dto.getUser_id());
+		//System.out.println(dto.getUser_pw());
+		System.out.println("로그인 할떄 불러오는 dto = "+dto);
 		int result = memberService.login(dto);
+                        		             
+		
 		if(result == 1) {
 			HttpSession session = request.getSession();
+		   dto = memberService.memberRead(dto.getUser_id());
 			session.setAttribute("user_id", dto.getUser_id());
-			return "map/map";
+	       session.setAttribute("user_nick", dto.getUser_nick());
+	     
+	       return "map/map";
+			
 		}; 
 
 		if(result == 0){
@@ -47,6 +53,7 @@ public class LoginController {
 		} else {
 			return "redirect:/login";
 		}
+	
 	}
 
 	@GetMapping("/logout")

@@ -1,4 +1,4 @@
-/*function userDelete(){
+function userDelete(){
 	
 	$('#userDelete').click(function(){
 		
@@ -7,5 +7,5 @@
 		
 	});
 	
-}*/
+}
 

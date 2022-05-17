@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#b_title
+{
+	width: 50%;
+	height: 40px;
+	font-size: 40px;
+}
+
+#b_content
+{
+	font-size: 40px;
+	border: 1px solid black;
+}
+
+#b_writer
+{height: 50px;
+font-size: 50px;
+border: none;
+
+}
+
+input{
+	border: 1px solid black;
+}

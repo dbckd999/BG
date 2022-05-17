@@ -19,15 +19,15 @@
 </head>
 <body>
 
-	<!-- 좌측상단 메뉴 아이콘 -->
-	<div class="btn"></div>
-	<!--  슬라이드 메뉴 -->
 	<div id="menu">
 		<div class="close"></div>
 	</div>
+	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
-		<h2 class="BGateLogo">BGate</h2>
+		<h2 class="BGateLogo">
+		<a href="/map">BGate</a>
+		</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<c:if test="${empty sessionScope.user_id}">
@@ -39,35 +39,14 @@
 					<li><a href="/logout"> 로그아웃 </a></li>
 					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
-			</ul>
-		</div>
-		<div class="btn"></div>
-		<div onclick="history.back();" class="page_cover"></div>
-
-		<div id="menu">
-			<h2 class="BGateLogo">
-				<a href="/map">BGate</a>
-			</h2>
-			<div class="menuList">
-				<ul class="ulmenuList">
-					<c:if test="${empty sessionScope.user_id}">
-						<li><a href="/login"> 로그인 </a></li>
-						<li><a href="/memberInsert">회원가입</a></li>
-					</c:if>
-
-					<c:if test="${not empty sessionScope.user_id}">
-						<li><a href="/logout"> 로그아웃 </a></li>
-						<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
-					</c:if>
-
-					<c:if test="${sessionScope.user_id eq 'admin'}">
+				<c:if test="${sessionScope.user_id eq 'admin'}">
 						<li><a href="/admin"> 어드민페이지 </a></li>
 					</c:if>
-				</ul>
-			</div>
-			<div onclick="history.back();" class="close"></div>
+					<li><a href="/boardList">게시판</a></li>
+			</ul>
 		</div>
-	</div>
+		<div onclick="history.back();" class="close"></div>
+		</div>
 	<!-- 지도 -->
 	<div id="map"></div>
 
@@ -79,28 +58,28 @@
 		</div>
 		
 		<div id="more_info"> 
-			<input type="text" id="resultID"> <br>
-			<input type="text" id="result_address_load"> <br>
-			<input type="hidden" id="result_id"> <br>
-			화장실 종류:	<input type="text" id="result_category"> <br>
-			화장실명	: <input type="text" id="result_restroom_name"> <br>
-			소재지도로명주소: 	<input type="text" id="result_address_load"> <br>
-			소재지지번주소: 	<input type="text" id="result_address_location"> <br>
-			남녀공용화장실여부: 	<input type="text" id="result_is_public_gender"> <br>
-			대변기수	: <input type="text" id="result_c_man_closet"> <br>
-			소변기수	: <input type="text" id="result_c_man_urinal"> <br>
-			남성용-장애인용대변기수: 	<input type="text" id="result_c_man_disable_person_closet"> <br>
-			남성용-장애인용소변기수: 	<input type="text" id="result_c_man_disable_person_urinal"> <br>
-			남성용-어린이용대변기수: 	<input type="text" id="result_c_man_child_closet"> <br>
-			남성용-어린이용소변기수: 	 <input type="text" id="result_c_man_child_urinal"> <br>
-			여성용-대변기수: 	<input type="text" id="result_c_woman_closet"> <br>
-			여성용-장애인용대변기수: 	<input type="text" id="result_c_woman_disable_person_urinal"> <br>
-			여성용-어린이용대변기수:  <input type="text" id="result_c_woman_child_closet"> <br>
-			관리기관명: <input type="text" id="result_manage_group_name"> <br>
-			전화번호	:<input type="text" id="result_call_number"> <br>
-		    개방 요일: <input type="text" id="result_open_day_info"> <br>
-			설치연월	: <input type="text" id="result_installation_date"> <br>
-			<div></div>
+			
+			   <div id="modalList">
+			<input type="hidden" id="result_id" readonly="readonly"> <br>
+			화장실 종류:	<input type="text" id="result_category" readonly="readonly"> <br>
+			화장실명	: <input type="text" id="result_restroom_name" readonly="readonly"> <br>
+			소재지도로명주소: 	<input type="text" id="result_address_load" readonly="readonly"> <br>
+			소재지지번주소: 	<input type="text" id="result_address_location" readonly="readonly"> <br>
+			남녀공용화장실여부: 	<input type="text" id="result_is_public_gender" readonly="readonly"> <br>
+			대변기수	: <input type="text" id="result_c_man_closet" readonly="readonly"> <br>
+			소변기수	: <input type="text" id="result_c_man_urinal"readonly="readonly">  <br>
+			남성용-장애인용대변기수: 	<input type="text" id="result_c_man_disable_person_closet" readonly="readonly"> <br>
+			남성용-장애인용소변기수: 	<input type="text" id="result_c_man_disable_person_urinal" readonly="readonly"> <br>
+			남성용-어린이용대변기수: 	<input type="text" id="result_c_man_child_closet" readonly="readonly"> <br>
+			남성용-어린이용소변기수: 	 <input type="text" id="result_c_man_child_urinal" readonly="readonly"> <br>
+			여성용-대변기수: 	<input type="text" id="result_c_woman_closet" readonly="readonly"> <br>
+			여성용-장애인용대변기수: 	<input type="text" id="result_c_woman_disable_person_urinal" readonly="readonly"> <br>
+			여성용-어린이용대변기수:  <input type="text" id="result_c_woman_child_closet" readonly="readonly"> <br>
+			관리기관명: <input type="text" id="result_manage_group_name" readonly="readonly"> <br>
+			전화번호	:<input type="text" id="result_call_number" readonly="readonly"> <br>
+		    개방 요일: <input type="text" id="result_open_day_info" readonly="readonly"> <br>
+			설치연월	: <input type="text" id="result_installation_date" readonly="readonly"> <br>
+			</div>
 		 </div>
 		
 	</div>
@@ -108,7 +87,7 @@
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>
 	<script src="${path}/resources/js/map.js"></script>
-	<script src="${path}/resources/js/myPage.js"></script>
+	<script src="${path}/resources/js/slide.js"></script>
 </body>
 
 </html>

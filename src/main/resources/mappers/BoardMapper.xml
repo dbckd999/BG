@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.projectBG.BG.mapper.BoardMapper">
+	
+	
+	<insert id="boardInsert">
+		INSERT INTO boardTBL(b_title, b_content, b_writer) VALUES(#{b_title}, #{b_content}, #{b_writer})
+	</insert>
+ 
+   <select id="boardList" resultType="study.projectBG.BG.model.BoardDTO">
+      select * from boardTBL;
+   
+   </select>
+   
+   <!-- MySQL-->
+    <!-- 게시물 목록(페이징) -->
+    <select id="getListPaging" resultType="study.projectBG.BG.model.BoardDTO">
+    
+        select * from boardTBL order by b_no desc
+        <!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
+        limit #{skip},#{amount}
+    
+    </select>
+    
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from boardTBL
+    
+    </select>
+   
+</mapper>
+
+
+

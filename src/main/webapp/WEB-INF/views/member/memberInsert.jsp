@@ -63,6 +63,9 @@
 
 			<form action="/memberInsert" method="post" id="registForm">
 				<table id="centertable">
+                 
+                 
+                 
 
 					<tr>
 
@@ -70,8 +73,6 @@
 						<td><input type="text" id="user_id" name="user_id">
 							<button type="button" class="w-btn w-btn-indigo inputSize"
 								id="idCheckBtn">중복확인</button> <br></td>
-
-
 					</tr>
 					<tr>
 						<th>비밀번호</th>

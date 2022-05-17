@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,13 +10,11 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${patd}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${patd}/resources/css/footer.css" />
-<link rel="stylesheet" href="${patd}/resources/css/admin.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
+<link rel="stylesheet" href="${path}/resources/css/boardInsert.css" />
 <title>Map</title>
 </head>
 <body>
-
-
 
 	<div id="menu">
 		<div class="close"></div>
@@ -52,47 +49,52 @@
 			<a href="/map">BGate</a>
 		</h1>
 	</div>
+	<br>
+	<br>
 
 	<div id="titleArea">
-		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
+		<h1>
+			<span id="titleh1">[ 게시글 작성 ]</span>
+		</h1>
 	</div>
-	<div id="adminCenter">
-		<h1>회원목록</h1>
-		<form action="/userDelete">
-			<div>
-				아이디 : <input type="text" id="user_id" name="user_id">
-				<button type="submit" id="userDelete" name="userDelete">삭제</button>
-			</div>
-		</form>
-		<table border="1" id="admintable">
-			<tr>
-				<td>회원번호</td>
-				<td>회원아이디</td>
-				<td>회원별명</td>
-				<td>회원주소</td>
-				<td>회원가입일</td>
-				<td>삭제하기</td>
-			</tr>
+	<br>
 
 
+	<form action="/boardInsert" id="boardInsertForm" method="post">
+		<div>
+			<input type="text" id="b_title" name="b_title"
+				placeholder="글 제목을 적어주세요">
+		</div>
+		<div>
+		<textarea id="b_content" name="b_content" rows="20" cols="30
+		" placeholder="글 내용을 적어주세요"></textarea>	
+			
+		</div>
+		<div>
+		 <input type="text" id="b_writer" name="b_writer"
+				value="${sessionScope.user_nick}" readonly="readonly">  
+				<button type="submit" id="boardBtn">글쓰기</button>
+		</div>
+	
+		
+	</form>
 
 
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td>${list.user_no}</td>
-					<td>${list.user_id}</td>
-					<td>${list.user_nick}</td>
-					<td>${list.user_addr}</td>
-					<td><fmt:formatDate value="${list.user_regDate}"
-							pattern="yyyy-MM-dd" /></td>
-					<td><a href="/adminDelete?user_no=${list.user_no}"
-						id="confirmStart">삭제</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-
+	<div id="footer">
+		<ul>
+			<li>
+				<h3>BGate</h3>
+			</li>
+			<li>문의 사항 <br> 문의: 게시판 혹은 email <br> OPEN : MON-FRI
+				09:00-24:00 <br> EVERY WEEKEND, HOLIDAY OFF
+			</li>
+			<li id="liemail">https://github.com/dbckd999/BG/issues <br>
+			</li>
+		</ul>
 	</div>
-	<script src="${path}/resources/js/myPage.js"></script>
-	<script src="${path}/resources/js/admin.js"></script>
+
+	<script src="${path}/resources/js/board.js"></script>
+
+
 </body>
 </html>
