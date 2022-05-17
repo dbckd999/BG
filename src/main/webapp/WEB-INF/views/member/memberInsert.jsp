@@ -5,16 +5,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-
-
-
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="${path}/resources/css/memberInsert.css" />
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <link rel="stylesheet" href="${path}/resources/css/footer.css" />
-
 <title>Map</title>
-
 </head>
 <body>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
@@ -94,8 +90,14 @@
 
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr">
-							<br></td>
+						<td>
+						<input type="text" id="user_addr" name="user_addr" style="display:none">
+						<span id="road_addr_wrap">
+							<span id="roadAddress">도로명주소</span>
+							<input type="button" onclick="juso_execDaumPostcode()" value="도로명주소 찾기" class="w-btn w-btn-indigo inputSize">
+						</span>
+						<label for="addr_byhand">직접입력<input type="checkbox" id="addr_byhand" /></label>
+						</td>
 					</tr>
 
 					<tr>
@@ -104,11 +106,9 @@
 							<button type="button" class="w-btn w-btn-indigo inputSize"
 								id="emailCheckBtn">중복확인</button> <br></td>
 				       </tr>
-
-
 				</table>
 
-				<input class="w-btn w-btn-indigo inputSize" type="submit"		name="regist" id="regist" value="가입하기">
+				<input class="w-btn w-btn-indigo inputSize" type="submit" name="regist" id="regist" value="가입하기">
 
 			</form>
 
@@ -131,5 +131,6 @@
 	</div>
 	<script src="${path}/resources/js/member.js"></script>
 	<script src="${path}/resources/js/login.js"></script>
+	<script src="${path}/resources/js/juso.js"></script>
 </body>
 </html>
