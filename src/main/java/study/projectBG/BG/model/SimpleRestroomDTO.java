@@ -1,15 +1,11 @@
 package study.projectBG.BG.model;
 
-import java.math.BigDecimal;
-
 import lombok.Data;
-
+//!!!!!!!!!사용금지!!!!!!!!!!망가졌음!!!!!!!!!!!!!!!!!!
 @Data
 public class SimpleRestroomDTO {
-	private int id;
-	private String name;
-	private BigDecimal wgs84_latitude; // 위도
-	private BigDecimal wgs84_longitude; // 경도
-	
-	// private BigDecimal loc; //현위치부터의 거리
+	private int c_no; //댓글고유번호
+	private String c_id;	//유저 아이디
+	private int c_content_no;	//화장실 고유번호
+	private String c_comment;	//댓글
 }
