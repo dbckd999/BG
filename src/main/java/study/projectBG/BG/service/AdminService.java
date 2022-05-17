@@ -11,6 +11,8 @@ public interface AdminService {
 	 void adminDelete(String user_no) ;
 
 	void userDelete(String user_id);
+
+	int memberCount(String user_id);
 	
 		
 

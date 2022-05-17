@@ -11,6 +11,8 @@ $(function() {
 	var email_check = false;
 	var registForm = "";
 
+
+
 	$('#idCheckBtn').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
@@ -96,12 +98,12 @@ $(function() {
 			success: function(data) {
 				if (data != null) {
 					alert('회원 탈퇴 완료');
-					location.href='/logout';
+					location.href = '/logout';
 				}
-				else{
+				else {
 					alert('회원 탈퇴 불가');
 				}
-				
+
 			},
 			error: function(request, status, error) {
 				alert("code:" + request.status + "\n" + "message:"

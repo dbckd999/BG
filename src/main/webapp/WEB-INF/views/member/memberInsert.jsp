@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -57,9 +56,7 @@
 
 	<div id=center>
 		<div id="centerMain">
-			<div id="centerLogo">
-			
-			</div>
+			<div id="centerLogo"></div>
 
 			<form action="/memberInsert" method="post" id="registForm">
 				<table id="centertable">
@@ -67,15 +64,29 @@
 					<tr>
 
 						<th>아이디</th>
-						<td><input type="text" id="user_id" name="user_id">
+						<td><input type="text" id="user_id" name="user_id"
+							onkeydown="fn_press_han(this);">
 							<button type="button" class="w-btn w-btn-indigo inputSize"
 								id="idCheckBtn">중복확인</button> <br></td>
+						<script>
+							function fn_press_han(obj) {
+								//좌우 방향키, 백스페이스, 딜리트, 탭키에 대한 예외
+								if (event.keyCode == 8 || event.keyCode == 9
+										|| event.keyCode == 37
+										|| event.keyCode == 39
+										|| event.keyCode == 46)
+									return;
+								//obj.value = obj.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+								obj.value = obj.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g,
+										'');
+							}
+						</script>
 
 
 					</tr>
 					<tr>
 						<th>비밀번호</th>
-						<td><input type="text" id="user_pw" name="user_pw" 
+						<td><input type="text" id="user_pw" name="user_pw"
 							placeholder="비밀번호는 영문자+숫자+특수문자 조합으로 8~20자리 사용해야 합니다."> <br></td>
 					</tr>
 
@@ -100,15 +111,16 @@
 
 					<tr>
 						<th>이메일</th>
-						<td><input type="email" id="user_email" name="user_email">					
+						<td><input type="email" id="user_email" name="user_email">
 							<button type="button" class="w-btn w-btn-indigo inputSize"
 								id="emailCheckBtn">중복확인</button> <br></td>
-				       </tr>
+					</tr>
 
 
 				</table>
 
-				<input class="w-btn w-btn-indigo inputSize" type="submit"		name="regist" id="regist" value="가입하기">
+				<input class="w-btn w-btn-indigo inputSize" type="submit"
+					name="regist" id="regist" value="가입하기">
 
 			</form>
 

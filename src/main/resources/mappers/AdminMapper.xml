@@ -16,4 +16,9 @@
 		DELETE FROM memberTBL WHERE user_id = #{user_id}
 	</delete>
 	
+	<select id="memberCount" resultType="int">
+		select count(*) from memberTBL WHERE user_id = #{user_id}
+	</select>
+
+	
 </mapper>
