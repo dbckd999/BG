@@ -1,5 +1,7 @@
 package study.projectBG.BG.controller;
 
+import java.net.http.HttpRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +55,13 @@ public class BoardController {
 		BoardDTO dto = boardservice.boardRead(b_no);
 		model.addAttribute("dto", dto);
 		return "board/boardRead";
+	}
+	
+	@GetMapping("/boardUpdate")
+	public String boardUpdate(@RequestParam("dto") BoardDTO dto, Model model) {
+		boardservice.boardUpdate(dto);
+		model.addAttribute(dto.getB_no());
+		return "redirect:/boardRead";
 	}
 
 }
