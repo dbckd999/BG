@@ -12,7 +12,7 @@ import study.projectBG.BG.model.MemberDTO;
 import study.projectBG.BG.service.AdminService;
 
 @Controller
-public class adminController {
+public class AdminController {
 	
 	@Autowired
 	private AdminService adminService;
