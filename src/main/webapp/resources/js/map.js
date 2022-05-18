@@ -89,7 +89,7 @@ var callPins = (_east, _west, _south, _north) => {
 			// element -> this로 변경
 			$(data).each(function() {
 				var day = "";
-				if (this.open_day_info.trim() !== '') {
+				if (this.open_day_info !== null) {
 					day = "<h3> 개방요일 : " + this.open_day_info + "</h3><br>";
 				}
 
