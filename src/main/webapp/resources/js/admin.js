@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-function userDelete(){
-	
-	$('#userDelete').click(function(){
-=======
 /*user_id = $('#user_id').val();*/
 
 /*function adminDelete() {
@@ -19,5 +14,3 @@ function userDelete(){
 }
 =======
 }*/
->>>>>>> refs/remotes/origin/LSJ
-

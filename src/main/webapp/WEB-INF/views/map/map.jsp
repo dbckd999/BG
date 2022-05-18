@@ -46,8 +46,8 @@
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
 		</div>
+		<div onclick="history.back();" class="close"></div>
 	</div>
-	<div onclick="history.back();" class="close"></div>
 	<!-- 지도 -->
 	<div id="map"></div>
 

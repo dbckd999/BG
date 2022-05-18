@@ -98,11 +98,7 @@ $(function() {
 			success: function(data) {
 				if (data != null) {
 					alert('회원 탈퇴 완료');
-<<<<<<< HEAD
-					location.href='/logout';
-=======
 					location.href = '/logout';
->>>>>>> refs/remotes/origin/LSJ
 				}
 				else {
 					alert('회원 탈퇴 불가');
