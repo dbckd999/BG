@@ -62,14 +62,15 @@
 
 	<!-- 글 수정 -->
 	<form action="/boardUpdate" id="boardInsertForm" method="post">
+		<input type="hidden" name="b_no" value="${dto.b_no}" />
 		<div>
-			<input type="text" id="b_title" name="b_title" value="${b_title}">
+			<input type="text" id="b_title" name="b_title" value="${dto.b_title}" />
 		</div>
 		<div>
-			<textarea id="b_content" name="b_content" rows="20" cols="30">${b_content}</textarea>	
+			<textarea id="b_content" name="b_content" rows="20" cols="30">${dto.b_content}</textarea>	
 		</div>
 		<div>
-		 	<input type="text" id="b_writer" name="b_writer" value="${b_writer}" readonly>  
+		 	<input type="text" id="b_writer" name="b_writer" value="${dto.b_writer}" readonly />  
 			<button type="submit" id="boardBtn">글쓰기</button>
 		</div>
 	</form>
