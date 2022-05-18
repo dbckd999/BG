@@ -87,6 +87,8 @@ var callPins = (_east, _west, _south, _north) => {
 		, success: function(data) {
 			console.log('콘솔값 확인 : ' + data.length);
 			// element -> this로 변경
+			/*alert(data[1600].open_day_info);*/
+			
 			$(data).each(function() {
 				var day = "";
 				if (this.open_day_info !== null) {

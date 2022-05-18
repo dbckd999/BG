@@ -35,6 +35,13 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public int memberCount(String user_id) {
+
+		
+		return mapper.memberCount(user_id);
+	}
+
 	
 	
 }

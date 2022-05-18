@@ -11,6 +11,8 @@ $(function() {
 	var email_check = false;
 	var registForm = "";
 
+
+
 	$('#idCheckBtn').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
@@ -59,8 +61,6 @@ $(function() {
 	});
 
 
-	
-
 
 	$('#emailCheckBtn').click(function() {
 		user_email = $('#user_email').val();
@@ -98,12 +98,16 @@ $(function() {
 			success: function(data) {
 				if (data != null) {
 					alert('회원 탈퇴 완료');
+<<<<<<< HEAD
 					location.href='/logout';
+=======
+					location.href = '/logout';
+>>>>>>> refs/remotes/origin/LSJ
 				}
-				else{
+				else {
 					alert('회원 탈퇴 불가');
 				}
-				
+
 			},
 			error: function(request, status, error) {
 				alert("code:" + request.status + "\n" + "message:"
