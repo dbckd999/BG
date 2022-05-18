@@ -60,7 +60,7 @@ public class BoardController {
 	@GetMapping("/boardUpdate")
 	public String boardUpdate(@RequestParam("dto") BoardDTO dto, Model model) {
 		boardservice.boardUpdate(dto);
-		model.addAttribute(dto.getB_no());
+		model.addAttribute("b_no", dto.getB_no());
 		return "redirect:/boardRead";
 	}
 
