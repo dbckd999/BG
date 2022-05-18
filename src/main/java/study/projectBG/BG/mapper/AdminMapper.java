@@ -15,6 +15,8 @@ public interface AdminMapper {
 	void adminDelete(String user_no);
 
 	void userDelete(String user_id);
+
+	int memberCount(String user_id);
 	
 	  /* 게시판 목록(페이징 적용) */
     public List<MemberDTO> getListPaging(Criteria cri);

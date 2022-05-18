@@ -37,6 +37,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
+
 	public List<MemberDTO> getListPaging(Criteria cri) {
 		   return mapper.getListPaging(cri);
 	}
@@ -45,6 +46,12 @@ public class AdminServiceImpl implements AdminService {
 	public int getTotal() {
 		// TODO Auto-generated method stub
 		return mapper.getTotal();
+	}
+	public int memberCount(String user_id) {
+
+		
+		return mapper.memberCount(user_id);
+
 	}
 
 	

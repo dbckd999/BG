@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import study.projectBG.BG.model.Criteria;
 import study.projectBG.BG.model.PageMakerDTO;
@@ -17,6 +18,7 @@ public class AdminController {
 	private AdminService adminService;
 
 	@GetMapping("/admin")
+
 	public String adminList(Model model, Criteria cri) {
 
 		System.out.println("adminListGET");
@@ -26,6 +28,7 @@ public class AdminController {
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 
 		model.addAttribute("pageMaker", pageMake);
+
 		return "admin/admin";
 	}
 
@@ -39,12 +42,23 @@ public class AdminController {
 	}
 
 	@GetMapping("/userDelete")
-	public String userDelete(@RequestParam("user_id") String user_id) {
 
-		adminService.userDelete(user_id);
-
+	public String userDelete(@RequestParam("user_id") String user_id, RedirectAttributes rttr) {
+		System.out.println(user_id);
+		int result = adminService.memberCount(user_id);
+		System.out.println(result);
+		
+		if(result == 1 ) {
+			adminService.userDelete(user_id);
+		} else {
+			System.out.println("없대");
+			rttr.addFlashAttribute("msgCheckID", false);
+		}
+		
 		return "redirect:/admin";
+	}
+
 
 	}
 
-}
+

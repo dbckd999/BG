@@ -34,13 +34,12 @@ public class LoginController {
 		
 		if(result == 1) {
 			HttpSession session = request.getSession();
-		   dto = memberService.memberRead(dto.getUser_id());
+			dto = memberService.memberRead(dto.getUser_id());
 			session.setAttribute("user_id", dto.getUser_id());
-	       session.setAttribute("user_nick", dto.getUser_nick());
-	     
-	       return "map/map";
-			
-		}; 
+			session.setAttribute("user_no", dto.getUser_no());
+			session.setAttribute("user_nick", dto.getUser_nick());
+			return "map/map";
+		};
 
 		if(result == 0){
 			rttr.addFlashAttribute("msgID", false);
@@ -61,7 +60,6 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		return "map/map";
-
 	}
 
 }

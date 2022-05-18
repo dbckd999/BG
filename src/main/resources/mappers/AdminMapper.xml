@@ -16,6 +16,7 @@
 		DELETE FROM memberTBL WHERE user_id = #{user_id}
 	</delete>
 	
+
     
      <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="study.projectBG.BG.model.MemberDTO">
@@ -31,5 +32,10 @@
         select count(*) from memberTBL
     
     </select>
+
+	<select id="memberCount" resultType="int">
+		select count(*) from memberTBL WHERE user_id = #{user_id}
+	</select>
+
 	
 </mapper>

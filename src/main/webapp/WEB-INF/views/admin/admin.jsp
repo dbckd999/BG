@@ -19,7 +19,6 @@
 <body>
 
 
-
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -35,7 +34,6 @@
 					<li><a href="/login"> 로그인 </a></li>
 					<li><a href="/memberInsert">회원가입</a></li>
 				</c:if>
-
 				<c:if test="${not empty sessionScope.user_id}">
 					<li><a href="/logout"> 로그아웃 </a></li>
 					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
@@ -62,7 +60,7 @@
 		<form action="/userDelete" id="userDelete">
 			<div >
 				아이디 : <input type="text" id="user_id" name="user_id">
-				<button type="submit" id="userDelete" name="userDelete">삭제</button>
+				<input type="submit" value="삭제" id="userDelete" name="userDelete">
 			</div>
 		</form>
 		<table border="1" id="admintable">
@@ -75,22 +73,18 @@
 				<th>삭제</th>
 			</tr>
 
-
-
-
 			<c:forEach var="list" items="${list}">
 				<tr>
 					<td>${list.user_no}</td>
 					<td>${list.user_id}</td>
 					<td>${list.user_nick}</td>
 					<td>${list.user_addr}</td>
-					<td><fmt:formatDate value="${list.user_regDate}"
-							pattern="yyyy-MM-dd" /></td>
-					<td><a href="/adminDelete?user_no=${list.user_no}"
-						id="confirmStart">삭제</a></td>
+					<td><fmt:formatDate value="${list.user_regDate}" pattern="yyyy-MM-dd" /></td>
+					<td><a href="/adminDelete?user_no=${list.user_no}" id="confirmStart">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</table>
+
 		<div class="pageInfo_wrap" >
         <div class="pageInfo_area">
         <ul id="pageInfo" class="pageInfo">
@@ -119,8 +113,16 @@
         <input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
 		</form>
 
+
 	</div>
-	<script src="${path}/resources/js/myPage.js"></script>
+
+	<script type="text/javascript">
+		<c:if test="${msgCheckID==false}">
+		alert('없는 아이디입니다.');
+		</c:if>
+	</script>
+
 	<script src="${path}/resources/js/admin.js"></script>
+	<script src="${path}/resources/js/map.js"></script>
 </body>
 </html>
