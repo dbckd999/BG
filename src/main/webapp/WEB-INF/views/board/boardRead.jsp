@@ -25,8 +25,7 @@
 
 
 	<br>
-	<a href="/boardList"> 목록으로 </a>   <a href="/boardDelete"> 삭제하기 </a>
-
+	<a href="/boardList"> 목록으로 </a>   
 <script type="text/javascript" src="${path}/resources/js/reply.js"></script>
 </body>
 </html>
