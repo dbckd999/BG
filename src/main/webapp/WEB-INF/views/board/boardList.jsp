@@ -56,7 +56,7 @@
 
 	<div id="titleArea">
 		<h1>
-			<span id="titleh1">[ 게시판 ]</span>
+			<span id="titleh1">[ 공지사항 및 업데이트 ]</span>
 		</h1>
 	</div>
 	<br>
@@ -68,7 +68,7 @@
 	<div id="boardCenter">
 		
 		
-		<table border="1" id="boardtable">
+		<table  id="boardtable">
 			<tr>
 				<th>번호</th>
 				<th>제목</th>

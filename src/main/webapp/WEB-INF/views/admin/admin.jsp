@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="${patd}/resources/css/footer.css" />
 <link rel="stylesheet" href="${patd}/resources/css/admin.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
+
 <title>Map</title>
 </head>
 <body>
@@ -58,20 +59,20 @@
 	</div>
 	<div id="adminCenter">
 		<h1>회원목록</h1>
-		<form action="/userDelete">
-			<div>
+		<form action="/userDelete" id="userDelete">
+			<div >
 				아이디 : <input type="text" id="user_id" name="user_id">
 				<button type="submit" id="userDelete" name="userDelete">삭제</button>
 			</div>
 		</form>
 		<table border="1" id="admintable">
 			<tr>
-				<td>회원번호</td>
-				<td>회원아이디</td>
-				<td>회원별명</td>
-				<td>회원주소</td>
-				<td>회원가입일</td>
-				<td>삭제하기</td>
+				<th>번호</th>
+				<th>아이디</th>
+				<th>별명</th>
+				<th>주소</th>
+				<th>가입일</th>
+				<th>삭제</th>
 			</tr>
 
 
@@ -90,6 +91,33 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<div class="pageInfo_wrap" >
+        <div class="pageInfo_area">
+        <ul id="pageInfo" class="pageInfo">
+   
+     <!-- 이전페이지 버튼 -->
+                <c:if test="${pageMaker.prev}">
+                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">이전</a></li>
+                </c:if>
+          <!-- 각 번호 페이지 버튼 -->
+                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+                </c:forEach>
+
+                <!-- 다음페이지 버튼 -->
+                <c:if test="${pageMaker.next}">
+                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">다음</a></li>
+                </c:if> 
+        </ul>
+        </div>
+        
+    </div>
+    
+    
+		<form id="moveForm" method="get">
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
+		</form>
 
 	</div>
 	<script src="${path}/resources/js/myPage.js"></script>
