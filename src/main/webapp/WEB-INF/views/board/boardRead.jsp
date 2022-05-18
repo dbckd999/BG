@@ -18,7 +18,7 @@
 	작성자 : ${dto.b_writer } <br>
 	작성일 : ${dto.b_regDate } <br>
 
-<c:if test="${sessionScope.m_id == dto.b_writer}">
+<c:if test="${sessionScope.user_nick == dto.b_writer}">
 	<a href="/boardUpdate?b_no=${dto.b_no}"> 수정 </a>
 	<a href="/boardDelete?b_no=${dto.b_no}"> 삭제 </a>
 </c:if>
