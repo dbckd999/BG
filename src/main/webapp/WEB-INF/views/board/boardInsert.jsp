@@ -58,27 +58,29 @@
 		</h1>
 	</div>
 	<br>
-
+  
+   <div id="center">
 
 	<form action="/boardInsert" id="boardInsertForm" method="post">
 		<div>
-			<input type="text" id="b_title" name="b_title"
+		 <br>	<input type="text" id="b_title" name="b_title"
 				placeholder="글 제목을 적어주세요">
 		</div>
+		
 		<div>
-		<textarea id="b_content" name="b_content" rows="20" cols="30
+		 <br> <textarea id="b_content" name="b_content" rows="20" cols="30
 		" placeholder="글 내용을 적어주세요"></textarea>	
 			
 		</div>
-		<div>
-		 <input type="text" id="b_writer" name="b_writer"
-				value="${sessionScope.user_nick}" readonly="readonly">  
+		
+		<div id="div_b_writer">
+		작성자 <input type="text" id="b_writer" name="b_writer"value="${sessionScope.user_nick}" readonly="readonly">   
 				<button type="submit" id="boardBtn">글쓰기</button>
 		</div>
 	
 		
 	</form>
-
+ </div>
 
 	<div id="footer">
 		<ul>
