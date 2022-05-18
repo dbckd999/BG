@@ -38,6 +38,23 @@ public class BoardServiceimpl implements BoardService {
 		 return mapper.getTotal();
 	}
 
+	@Override
+	public BoardDTO boardRead(String b_no) {
+		return mapper.boardRead(b_no);
+	}
+
+	@Override
+	public void boardUpdate(BoardDTO dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void boardDelete(String b_no) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 }

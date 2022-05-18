@@ -10,9 +10,16 @@ public interface BoardService {
 	void boardInsert(BoardDTO dto);
 
 	List<BoardDTO> boardList();
- 
-	 public List<BoardDTO> getListPaging(Criteria cri);
 
-	 /* 게시판 총 갯수 */
-	    public int getTotal();
+	public List<BoardDTO> getListPaging(Criteria cri);
+
+	/* 게시판 총 갯수 */
+	public int getTotal();
+
+	BoardDTO boardRead(String b_no);
+
+	void boardUpdate(BoardDTO dto);
+
+	void boardDelete(String b_no);
+
 }

@@ -20,10 +20,11 @@ public interface BoardMapper {
 	//게시물 페이지 
 public List<BoardDTO> getListPaging(Criteria cri);
 	
-
-
 /* 게시판 총 갯수 */
 public int getTotal();
+
+/* 게시물 상세보기 */
+	public BoardDTO boardRead(String b_no); 
 
 
 }
