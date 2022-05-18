@@ -22,7 +22,7 @@
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
-<div onclick="history.back();" class="page_cover"></div>
+	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
 		<h2 class="BGateLogo">
 			<a href="/map">BGate</a>
@@ -63,6 +63,9 @@
 
 			<form action="login" method="Post" id="loginForm" name="loginForm">
 				<table id="centertable">
+					<tr>
+						<td><input type="hidden" id="user_nick" name="user_nick"></td>
+					</tr>
 
 					<tr>
 

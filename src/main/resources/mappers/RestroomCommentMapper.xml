@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.projectBG.BG.mapper.RestroomCommentMapper">
+	
+	<select id="getAllComment" resultType="study.projectBG.BG.model.RestroomCommentDTO">
+		SELECT * FROM restroom_comment;
+	</select>
+	
+	<select id="getARestroomComment" resultType="study.projectBG.BG.model.RestroomCommentDTO">
+		SELECT * FROM restroom_comment WHERE c_restroom_no = #{c_restroom_no};
+	</select>
+	
+	<!-- 실패시 예외 반환 -->
+	<insert id="insertComment">
+		INSERT INTO restroom_comment(c_restroom_no, c_user_no, c_id, c_comment) VALUES(#{c_restroom_no}, #{c_user_no}, (select user_id from memberTBL where user_no = #{c_user_no}), #{c_comment});
+	</insert>
+	
+	<!-- update된 행 갯수를 반환 -->
+	<update id="modifyComment">
+		UPDATE restroom_comment SET c_comment = #{c_comment}, c_last_reg_date = (current_time) WHERE c_no = #{c_no};
+	</update>
+	
+	<!-- delete된 행 갯수를 반환 -->
+	<delete id="deleteComment">
+		DELETE FROM restroom_comment WHERE c_no = #{c_no};
+	</delete>
+	
+</mapper>

@@ -11,6 +11,8 @@ $(function() {
 	var email_check = false;
 	var registForm = "";
 
+
+
 	$('#idCheckBtn').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
@@ -59,8 +61,6 @@ $(function() {
 	});
 
 
-	
-
 
 	$('#emailCheckBtn').click(function() {
 		user_email = $('#user_email').val();
@@ -87,7 +87,7 @@ $(function() {
 		});
 	});
 
-	$('#delete').click(function() {
+	$('#delete_fin').click(function() {
 		user_id = $('#user_id').val();
 		$.ajax({
 			url: '/memberDelete',
@@ -98,12 +98,12 @@ $(function() {
 			success: function(data) {
 				if (data != null) {
 					alert('회원 탈퇴 완료');
-					location.href='/map';
+					location.href = '/logout';
 				}
-				else{
+				else {
 					alert('회원 탈퇴 불가');
 				}
-				
+
 			},
 			error: function(request, status, error) {
 				alert("code:" + request.status + "\n" + "message:"
