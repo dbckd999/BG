@@ -29,6 +29,18 @@
     
     </select>
    
+   	<select id="boardRead" resultType="study.projectBG.BG.model.BoardDTO">
+      select * from boardTBL where b_no = #{b_no}
+   </select>
+   
+   
+   <delete id="boardDelete">
+   
+   
+   DELETE FROM boardTBL WHERE b_no = #{b_no}
+   
+   </delete>
+   
 </mapper>
 
 
