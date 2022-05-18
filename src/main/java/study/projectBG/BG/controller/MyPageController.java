@@ -38,7 +38,7 @@ public class MyPageController {
 		dto.setUser_pw(bCryptPasswordEncoder.encode(dto.getUser_pw()));
 		dto.setUser_Rpw(bCryptPasswordEncoder.encode(dto.getUser_Rpw()));
 		memberService.memberUpdate(dto);
-		//수정했을때 로그인세션 다시 넣기 
+		//수정했을때 로그인세션 다시 넣기 //
 		HttpSession session = request.getSession();
 		dto = memberService.memberRead(dto.getUser_id());
 		session.setAttribute("user_id", dto.getUser_id());
