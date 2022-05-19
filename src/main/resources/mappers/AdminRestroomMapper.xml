@@ -11,13 +11,21 @@
 	  <!-- MySQL-->
     <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="study.projectBG.BG.model.MapDTO">
-        select * from restroom order by id desc
+        select * 
+        from restroom  
+        <if test="keyword != null">
+        <![CDATA[where restroom_name like concat('%',#{keyword},'%')]]>  
+        </if>
+        order by id desc 
         <!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
         limit #{skip},#{amount}
     </select>
     
     <select id="getTotal" resultType="int">
         select count(*) from restroom
+         <if test="keyword != null">
+        <![CDATA[where restroom_name like concat('%',#{keyword},'%')]]>  
+        </if>
     </select>
 	
 </mapper>

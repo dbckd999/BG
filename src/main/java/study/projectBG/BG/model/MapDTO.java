@@ -12,7 +12,7 @@ public class MapDTO {
 	private String restroom_name; // 화장실명
 	private String address_load; // 소재지 도로명 주소
 	private String address_location; // 소재지 지번 주소
-	private int is_public_gender; // 남녀공용화장실여부
+	private boolean is_public_gender; // 남녀공용화장실여부
 	private int c_man_closet; // 남성용-대변기수
 	private int c_man_urinal; // 남성용-소변기수
 	private int c_man_disable_person_closet; //남성용-장애인용대변기수

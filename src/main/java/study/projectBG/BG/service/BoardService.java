@@ -16,7 +16,7 @@ public interface BoardService {
 	public List<BoardDTO> getListPaging(Criteria cri);
 
 	/* 게시판 총 갯수 */
-	public int getTotal();
+	public int getTotal(Criteria cri);
 
 	BoardDTO boardRead(String b_no);
 

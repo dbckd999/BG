@@ -21,7 +21,7 @@ public interface BoardMapper {
 public List<BoardDTO> getListPaging(Criteria cri);
 	
 /* 게시판 총 갯수 */
-public int getTotal();
+public int getTotal(Criteria cri);
 
 /* 게시물 상세보기 */
 

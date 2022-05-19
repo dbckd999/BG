@@ -21,7 +21,7 @@ public class AdminRestroomController {
            
 		model.addAttribute("list", adminrestroomService.getListPaging(cri));
 		System.out.println("adminRestroomLISTGET");
-		int total = adminrestroomService.getTotal();
+		int total = adminrestroomService.getTotal(cri);
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 		 model.addAttribute("pageMaker", pageMake);
 		return "admin/adminRestroom";

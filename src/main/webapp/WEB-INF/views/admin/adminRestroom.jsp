@@ -19,29 +19,32 @@
 <body>
 
 
-	<div id="menu">
+		<div id="menu">
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
 		<h2 class="BGateLogo">
-			<a href="/map">BGate</a>
+		<a href="/map">BGate</a>
 		</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<c:if test="${empty sessionScope.user_id}">
-					<li><a href="/login"> 로그인 </a></li>
-					<li><a href="/memberInsert">회원가입</a></li>
+				<li><a href="/login"> 로그인 </a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
 				</c:if>
+
 				<c:if test="${not empty sessionScope.user_id}">
-					<li><a href="/logout"> 로그아웃 </a></li>
-					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+				<li><a href="/logout"> 로그아웃 </a></li>
+				<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
-					<li><a href="/admin"> 어드민페이지 </a></li>
-					<li><a href="/admininsert"> 어드민페이지 </a></li>
+				<li><a href="/admin"> 회원관리 페이지 </a></li>
+				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
+				<li><a href="/boardList">게시판</a></li>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>
@@ -66,33 +69,44 @@
 		</form>
 		<table border="1" id="admintable">
 			<tr>
-				<th>id</th>
+				<th>번호</th>
 				<th>화장실명</th>
 				<th>남대변기</th>
-				<th>여-대변기</th>		
+				<th>여-대변기</th>
 				<th>개방</th>
 				<th>폐쇄</th>
 				<th>설치장소</th>
 				<th>비상벨여부</th>
 				<th>CCTV</th>
-				<th>데이터기준일자</th> 
+				<th>데이터기준일자</th>
+				<th>수정</th>
+				<th>삭제</th>
+
 			</tr>
 
 			<c:forEach var="list" items="${list}">
 				<tr>
-				<td>${list.id}</td>
-					<td>${list.category}</td>
-					<td>${list.is_public_gender}</td>
+					<td>${list.id}</td>
+					<td>${list.restroom_name}</td>
 					<td>${list.c_man_closet}</td>
-					<td>${list.open_day_info}</td>
+					<td>${list.c_woman_closet}</td>
 					<td>${list.opening_time}</td>
-					<td>${list.owner_name_group}</td>
+					<td>${list.closing_time}</td>
+					<td>${list.installation_details}</td>
 					<td>${list.have_emergency_bell}</td>
 					<td>${list.have_entrance_cctv}</td>
 					<td>${list.db_update_date}</td>
-					
+					<td>수정</td>
+					<td>삭제</td>
 			</c:forEach>
 		</table>
+
+		<div class="search_wrap">
+			<div class="search_area">
+				<input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+				<button>Search</button>
+			</div>
+		</div>
 
 		<div class="pageInfo_wrap">
 			<div class="pageInfo_area">
@@ -124,6 +138,7 @@
 		<form id="moveForm" method="get">
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
 		</form>
 
 
@@ -136,6 +151,7 @@
 	</script>
 
 	<script src="${path}/resources/js/adminRestRoom.js"></script>
-	
+		<script src="${path}/resources/js/slide.js"></script>
+
 </body>
 </html>
