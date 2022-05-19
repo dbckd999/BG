@@ -65,22 +65,22 @@
 		</form>
 		<table border="1" id="admintable">
 			<tr>
-				<th>번호</th>
-				<th>아이디</th>
-				<th>별명</th>
-				<th>주소</th>
-				<th>가입일</th>
-				<th>삭제</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 
 			<c:forEach var="list" items="${list}">
 				<tr>
-					<td>${list.user_no}</td>
-					<td>${list.user_id}</td>
-					<td>${list.user_nick}</td>
-					<td>${list.user_addr}</td>
-					<td><fmt:formatDate value="${list.user_regDate}" pattern="yyyy-MM-dd" /></td>
-					<td><a href="/adminDelete?user_no=${list.user_no}" id="confirmStart">삭제</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><fmt:formatDate value="" pattern="yyyy-MM-dd" /></td>
+					<td><a href="/adminDelete?user_no=" id="confirmStart">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</table>

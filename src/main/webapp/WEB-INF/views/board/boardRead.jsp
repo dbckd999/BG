@@ -46,9 +46,6 @@ body{
 		${dto.b_content}
 	</div>
 	
-
-
-
 	<br>
 	
 	<div class="wrap_boardList">

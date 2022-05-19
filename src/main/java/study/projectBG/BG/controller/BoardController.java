@@ -57,6 +57,15 @@ public class BoardController {
 		return "board/boardRead";
 	}
 	
+
+	@GetMapping("/boardDelete")
+	public String BoardDelete(@RequestParam("b_no") String b_no) 
+	{
+	       boardservice.boardDelete(b_no);
+	       return "redirect:/boardList";
+	}
+
+
 	@GetMapping("/boardUpdate")
 	public String getBoardUpdate(@RequestParam("b_no") String b_no, Model model) {
 		BoardDTO dto = boardservice.boardRead(b_no);
@@ -71,4 +80,5 @@ public class BoardController {
 		return "redirect:/boardRead";
 	}
 	
+
 }

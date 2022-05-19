@@ -40,6 +40,7 @@
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
 					<li><a href="/admin"> 어드민페이지 </a></li>
+					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -53,11 +54,11 @@
 	</div>
 
 	<div id="titleArea">
-		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
+		<h1 id="titleh1">[ 수정 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
 		<h1>회원목록</h1>
-		<form action="/userDelete" id="userDelete">
+		<form action="/updateRestroom" id="updateRestroom">
 			<div >
 				아이디 : <input type="text" id="user_id" name="user_id">
 				<input type="submit" value="삭제" id="userDelete" name="userDelete">

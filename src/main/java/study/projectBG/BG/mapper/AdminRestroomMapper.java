@@ -15,9 +15,10 @@ public interface AdminRestroomMapper {
 	//C 새로운 화장실을 생성합니다.
 	public int insertRestroom();
 	//U 화장실 정보를 최신화합니다.
-	public int updateRestroom(MapDTO dto);
+	public void updateRestroom(String id);
 	//D 화장실 삭제합니다.
 	public int deleteRestroom(int id);
+	
 	
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.

@@ -8,7 +8,9 @@ import study.projectBG.BG.model.Criteria;
 public interface BoardService {
 
 	void boardInsert(BoardDTO dto);
-
+    
+                
+	
 	List<BoardDTO> boardList();
 
 	public List<BoardDTO> getListPaging(Criteria cri);

@@ -1,15 +1,15 @@
 package study.projectBG.BG.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import study.projectBG.BG.model.MemberDTO;
+import study.projectBG.BG.model.Criteria;
+import study.projectBG.BG.model.PageMakerDTO;
 import study.projectBG.BG.service.AdminService;
 
 @Controller
@@ -19,10 +19,16 @@ public class AdminController {
 	private AdminService adminService;
 
 	@GetMapping("/admin")
-	public String adminList(Model model) {
 
-		List<MemberDTO> list = adminService.memberList();
-		model.addAttribute("list", list);
+	public String adminList(Model model, Criteria cri) {
+
+		System.out.println("adminListGET");
+		model.addAttribute("list", adminService.getListPaging(cri));
+		int total = adminService.getTotal();
+
+		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+
+		model.addAttribute("pageMaker", pageMake);
 
 		return "admin/admin";
 	}
@@ -37,6 +43,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/userDelete")
+
 	public String userDelete(@RequestParam("user_id") String user_id, RedirectAttributes rttr) {
 		System.out.println(user_id);
 		int result = adminService.memberCount(user_id);
@@ -50,7 +57,12 @@ public class AdminController {
 		}
 		
 		return "redirect:/admin";
+	}
+ 
+	  
+	 
+	
 
 	}
 
-}
+

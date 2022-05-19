@@ -5,6 +5,15 @@
 	height: 100%;
 }
 
+.active{
+      background-color: #cdd5ec;
+  }
+
+#userDelete
+{
+	margin-bottom: 2%;
+/* 	margin-top: 2%; */
+}
 th, td {
 	text-align: center;
 }
@@ -69,7 +78,6 @@ table th {
 }
 
 table th:first-child {
-	text-align: left;
 	padding-left: 20px;
 }
 
@@ -91,7 +99,6 @@ table tr {
 }
 
 table tr td:first-child {
-	text-align: left;
 	padding-left: 20px;
 	border-left: 0;
 }
@@ -137,4 +144,18 @@ table tr:hover td {
 		to(#f0f0f0));
 	background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
+
+
+ .pageInfo{
+      list-style : none;
+      display: inline-block;
+         
+  }
+  .pageInfo li{
+      float: left;
+    font-size: 40px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
 
