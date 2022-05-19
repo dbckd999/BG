@@ -56,7 +56,7 @@
 
 	<div id="titleArea">
 		<h1>
-			<span id="titleh1">[ 공지사항 및 업데이트 ]</span>
+			<span id="titleh1">[ 공지사항 및 게시판 ]</span>
 		</h1>
 	</div>
 	<br>

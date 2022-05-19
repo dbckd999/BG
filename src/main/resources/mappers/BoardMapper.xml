@@ -33,6 +33,10 @@
       select * from boardTBL where b_no = #{b_no}
    </select>
    
+   <!-- 게시글 수정 -->
+	<update id="boardUpdate">
+		UPDATE boardTBL SET b_title = #{b_title}, b_content = #{b_content} WHERE b_no = #{b_no}
+	</update>
    
    <delete id="boardDelete">
    

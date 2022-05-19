@@ -46,6 +46,7 @@ public class BoardServiceimpl implements BoardService {
 	@Override
 	public void boardUpdate(BoardDTO dto) {
 		// TODO Auto-generated method stub
+		mapper.boardUpdate(dto);
 		
 	}
 

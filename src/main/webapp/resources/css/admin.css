@@ -12,7 +12,7 @@
 #userDelete
 {
 	margin-bottom: 2%;
-	margin-top: 2%;
+/* 	margin-top: 2%; */
 }
 th, td {
 	text-align: center;
@@ -78,7 +78,6 @@ table th {
 }
 
 table th:first-child {
-	text-align: left;
 	padding-left: 20px;
 }
 
@@ -100,7 +99,6 @@ table tr {
 }
 
 table tr td:first-child {
-	text-align: left;
 	padding-left: 20px;
 	border-left: 0;
 }
