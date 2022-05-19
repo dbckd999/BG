@@ -54,6 +54,11 @@ function groupingInsertRestroomComment(){
 	var c_restroom_no = $('input[name="c_restroom_no"]').attr('value');
 	var c_user_no = $('input[name="c_user_no"]').attr('value');
 	var cmt_content = $('textarea[id="cmt_content"]').val();
+	
+	if(cmt_content.trim() === ""){
+		return;
+	}
+	
 	insertRestroomComment(c_restroom_no, c_user_no, cmt_content);
 }
 
@@ -63,10 +68,10 @@ function insertRestroomComment(c_restroom_no, c_user_no, c_comment){
 		url: '/insertRestroomComment'
 		, type: 'post'
 		, data: {c_restroom_no: c_restroom_no
-			, c_user_no: c_user_no
+			, c_user_no: c_user_nof
 			, c_comment: c_comment}
 		, success: function(){
-			$('textarea[id="cmt_content"]')
+			$('textarea[id="cmt_content"]').val('');
 			showRestroomComments(c_restroom_no);
 		}
 		, error: function(request, status, error) {
