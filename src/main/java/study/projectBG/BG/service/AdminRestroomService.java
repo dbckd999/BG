@@ -25,6 +25,9 @@ public interface AdminRestroomService {
 	public int getTotal();
 
 	public MapDTO adminRestroom(String id);
+	 void restroomInsert(MapDTO dto);
+	//화장실 추가
+	
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 

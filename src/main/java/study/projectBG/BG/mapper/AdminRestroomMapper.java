@@ -18,7 +18,7 @@ public interface AdminRestroomMapper {
 	//C 새로운 화장실을 생성합니다.
 	public int insertRestroom();
 	//U 화장실 정보를 최신화합니다.
-	public void updateRestroom(String id);
+	public void updateRestroom(MapDTO dto);
 	//D 화장실 삭제합니다.
 	public int deleteRestroom(int id);
 	// 게시판 페이징//
@@ -30,6 +30,7 @@ public interface AdminRestroomMapper {
 
 	
 	
+	public void restroomInsert(MapDTO dto);
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 

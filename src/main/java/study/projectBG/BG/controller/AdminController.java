@@ -19,7 +19,6 @@ public class AdminController {
 	private AdminService adminService;
 
 	@GetMapping("/admin")
-
 	public String adminList(Model model, Criteria cri) {
 
 		System.out.println("adminListGET");
@@ -43,7 +42,6 @@ public class AdminController {
 	}
 
 	@GetMapping("/userDelete")
-
 	public String userDelete(@RequestParam("user_id") String user_id, RedirectAttributes rttr) {
 		System.out.println(user_id);
 		int result = adminService.memberCount(user_id);
@@ -58,10 +56,13 @@ public class AdminController {
 		
 		return "redirect:/admin";
 	}
- 
 
-	
-
+	public String userDelete(@RequestParam("user_id") String user_id) {
+		adminService.userDelete(user_id);
+		return "redirect:/admin";
 	}
+	
+	
+}
 
 

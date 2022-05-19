@@ -3,6 +3,7 @@ package study.projectBG.BG.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
+import study.projectBG.BG.model.MapDTO;
 import study.projectBG.BG.model.RestroomCommentDTO;
 
 @Mapper
@@ -17,4 +18,7 @@ public interface RestroomCommentMapper {
 	public int modifyComment(RestroomCommentDTO dto);
 	//댓글을 삭제합니다.
 	public int deleteComment(int c_no);
+	
+	public void restroomInsert(MapDTO dto);
+	//화장실 추가
 }
