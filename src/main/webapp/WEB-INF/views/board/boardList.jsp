@@ -66,65 +66,74 @@
 
 
 	<div id="boardCenter">
+<<<<<<< HEAD
 		
 		
 		<table  id="boardtable">
+=======
+
+
+		<table border="1" id="boardtable">
+>>>>>>> refs/remotes/origin/master
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
-				<th >작성자</th>
-				<th >등록시간</th>
-					</tr>
-
-
-
+				<th>작성자</th>
+				<th>등록시간</th>
+			</tr>
 
 			<c:forEach var="list" items="${list}">
 				<tr>
 					<td>${list.b_no}</td>
-					<td>${list.b_title}</td>
+					<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title} </a></td>
 					<td>${list.b_writer}</td>
 					<td><fmt:formatDate value="${list.b_regDate}"
 							pattern="yyyy-MM-dd" /></td>
-				
+
 				</tr>
 			</c:forEach>
 		</table>
-	
-		 
+
+
 	</div>
-	
+
 	<div id="boardWrite">
-	<form action="/boardInsert" id="boardInsertForm"> <input id="bwBtn" type="submit" value="글쓰기"> </form>
-</div>
-
-		  <div class="pageInfo_wrap" >
-        <div class="pageInfo_area">
-        <ul id="pageInfo" class="pageInfo">
-   
-     <!-- 이전페이지 버튼 -->
-                <c:if test="${pageMaker.prev}">
-                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">이전</a></li>
-                </c:if>
-          <!-- 각 번호 페이지 버튼 -->
-                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
-                </c:forEach>
-
-                <!-- 다음페이지 버튼 -->
-                <c:if test="${pageMaker.next}">
-                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">다음</a></li>
-                </c:if> 
-        </ul>
-        </div>
-        
-    </div>
-    
-    
-		<form id="moveForm" method="get">
-		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
-        <input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
+		<form action="/boardInsert" id="boardInsertForm">
+			<input id="bwBtn" type="submit" value="글쓰기">
 		</form>
+	</div>
+
+	<div class="pageInfo_wrap">
+		<div class="pageInfo_area">
+			<ul id="pageInfo" class="pageInfo">
+
+				<!-- 이전페이지 버튼 -->
+				<c:if test="${pageMaker.prev}">
+					<li class="pageInfo_btn previous"><a
+						href="${pageMaker.startPage-1}">이전</a></li>
+				</c:if>
+				<!-- 각 번호 페이지 버튼 -->
+				<c:forEach var="num" begin="${pageMaker.startPage}"
+					end="${pageMaker.endPage}">
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
+						href="${num}">${num}</a></li>
+				</c:forEach>
+
+				<!-- 다음페이지 버튼 -->
+				<c:if test="${pageMaker.next}">
+					<li class="pageInfo_btn next"><a
+						href="${pageMaker.endPage + 1 }">다음</a></li>
+				</c:if>
+			</ul>
+		</div>
+
+	</div>
+
+
+	<form id="moveForm" method="get">
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+	</form>
 
 
 
