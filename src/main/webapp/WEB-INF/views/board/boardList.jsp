@@ -79,7 +79,7 @@
 			<c:forEach var="list" items="${list}">
 				<tr>
 					<td>${list.b_no}</td>
-					<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title} </a></td>
+					<td><a href="/boardRead?b_no=${list.b_no}">	${list.b_title} </a></td>
 					<td>${list.b_writer}</td>
 					<td><fmt:formatDate value="${list.b_regDate}"
 							pattern="yyyy-MM-dd" /></td>

@@ -20,6 +20,7 @@
 </head>
 <body>
 
+<!-- 메뉴바 슬라이드 -->
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -48,6 +49,8 @@
 		</div>
 		<div onclick="history.back();" class="close"></div>
 	</div>
+	<!-- 메뉴바 슬라이드 fin -->
+	
 	<!-- 지도 -->
 	<div id="map"></div>
 
