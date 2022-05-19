@@ -43,6 +43,7 @@
 				<c:if test="${sessionScope.user_id eq 'admin'}">
 				<li><a href="/admin"> 회원관리 페이지 </a></li>
 				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
