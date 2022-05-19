@@ -6,9 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import study.projectBG.BG.mapper.AdminRestroomMapper;
 import study.projectBG.BG.mapper.BoardMapper;
+import org.springframework.stereotype.Service;
+
+import study.projectBG.BG.mapper.AdminMapper;
+import study.projectBG.BG.mapper.AdminRestroomMapper;
+import study.projectBG.BG.model.Criteria;
 import study.projectBG.BG.model.MapDTO;
 
 //관리자가 화장실 정보를 운영할수있도록 만드는 인터페이스입니다.
+@Service
 public class AdminRestroomServiceImpl implements AdminRestroomService {
 
 	@Autowired
@@ -16,7 +22,7 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 	
 	@Override
 	public List<MapDTO> showRestroomList(int index, int cMaxList) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -33,7 +39,7 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 	}
 
 	@Override
-	public MapDTO updateRestroom(String id) {
+	public void updateRestroom(String id) {
 		mapper.updateRestroom(id);
 	}
 
@@ -41,5 +47,28 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 	public int deleteRestroom(int id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<MapDTO> showRestroomList() {
+		List<MapDTO> list = mapper.showRestroomList();
+		return list;
+	}
+
+	@Override
+	public List<MapDTO> getListPaging(Criteria cri) {
+		// TODO Auto-generated method stub
+	      return mapper.getListPaging(cri);
+	}
+
+	@Override
+	public int getTotal() {
+		return mapper.getTotal();
+	}
+
+	@Override
+	public MapDTO adminRestroom(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

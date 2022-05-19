@@ -52,5 +52,6 @@ body{
 		<button onclick="location.href='/boardList'">목록으로</button>
 	</div>
 	<script type="text/javascript" src="${path}/resources/js/reply.js"></script>
+
 </body>
 </html>

@@ -40,7 +40,7 @@
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
 					<li><a href="/admin"> 어드민페이지 </a></li>
-					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+							<li><a href="/admininsert"> 어드민페이지 </a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -54,13 +54,14 @@
 	</div>
 
 	<div id="titleArea">
-		<h1 id="titleh1">[ 수정 페이지 ]</h1>
+		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
+		<h1>화장실 추가</h1>
 		
-		id : <input >
+    </div>
     
-    
+     <div>
 		<form id="moveForm" method="get">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
         <input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
@@ -69,11 +70,6 @@
 
 	</div>
 
-	<script type="text/javascript">
-		<c:if test="${msgCheckID==false}">
-		alert('없는 아이디입니다.');
-		</c:if>
-	</script>
 
 	<script src="${path}/resources/js/admin.js"></script>
 	<script src="${path}/resources/js/map.js"></script>
