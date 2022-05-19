@@ -43,6 +43,7 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.memberCount(user_id);
 	}
 
+
 	public List<MemberDTO> getListPaging(Criteria cri) {
 		   return mapper.getListPaging(cri);
 	}
@@ -54,7 +55,6 @@ public class AdminServiceImpl implements AdminService {
 
 	}
 
-	
 	
 }
 

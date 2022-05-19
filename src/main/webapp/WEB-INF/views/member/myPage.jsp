@@ -22,7 +22,7 @@
 	</div>
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
-	<div id="menu">
+	<div id="menu"> 
 		<h2 class="BGateLogo">
 		<a href="/map">BGate</a>
 		</h2>
@@ -44,12 +44,14 @@
 		</div>
 		<div onclick="history.back();" class="close"></div>
 		</div>
-
+ 
 	<div class="headMain">
+	
 		<h1 class="Logo">
 			<a href="/map">BGate</a>
 		</h1>
 	</div>
+	
 	<br>
 	<br>
 

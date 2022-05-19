@@ -1,3 +1,4 @@
+
 let moveForm = $("#moveForm");
 
 $(".pageInfo a").on("click", function(e){
@@ -7,4 +8,3 @@ $(".pageInfo a").on("click", function(e){
         moveForm.attr("action", "/admin");
         moveForm.submit();
     });
-

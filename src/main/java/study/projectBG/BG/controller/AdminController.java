@@ -1,16 +1,14 @@
 package study.projectBG.BG.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import study.projectBG.BG.model.Criteria;
-import study.projectBG.BG.model.MemberDTO;
 import study.projectBG.BG.model.PageMakerDTO;
 import study.projectBG.BG.service.AdminService;
 
@@ -60,11 +58,11 @@ public class AdminController {
 	}
 
 	public String userDelete(@RequestParam("user_id") String user_id) {
-
 		adminService.userDelete(user_id);
-
 		return "redirect:/admin";
-
 	}
-
+	
+	
 }
+
+

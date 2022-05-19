@@ -20,7 +20,7 @@
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
-	<div onclick="history.back();" class="page_cover"></div>
+	<div onclick="history.back();" class="page_cover"></div> 
 	<div id="menu">
 		<h2 class="BGateLogo">
 			<a href="/map">BGate</a>

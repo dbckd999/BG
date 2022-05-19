@@ -38,6 +38,13 @@
 		UPDATE boardTBL SET b_title = #{b_title}, b_content = #{b_content} WHERE b_no = #{b_no}
 	</update>
    
+   <delete id="boardDelete">
+   
+   
+   DELETE FROM boardTBL WHERE b_no = #{b_no}
+   
+   </delete>
+   
 </mapper>
 
 

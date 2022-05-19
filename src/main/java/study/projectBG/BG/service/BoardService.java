@@ -8,15 +8,11 @@ import study.projectBG.BG.model.Criteria;
 public interface BoardService {
 
 	void boardInsert(BoardDTO dto);
-
+    
+                
+	
 	List<BoardDTO> boardList();
 
-<<<<<<< HEAD
-	 /* 게시판 총 갯수 */
-	    public int getTotal();
-	    
-	  
-=======
 	public List<BoardDTO> getListPaging(Criteria cri);
 
 	/* 게시판 총 갯수 */
@@ -28,5 +24,4 @@ public interface BoardService {
 
 	void boardDelete(String b_no);
 
->>>>>>> refs/remotes/origin/master
 }

@@ -52,7 +52,7 @@ public class BoardServiceimpl implements BoardService {
 
 	@Override
 	public void boardDelete(String b_no) {
-		// TODO Auto-generated method stub
+	 mapper.boardDelete(b_no);
 		
 	}
 
