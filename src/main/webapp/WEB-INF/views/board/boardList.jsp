@@ -72,28 +72,20 @@
 				<th>작성자</th>
 				<th>등록시간</th>
 			</tr>
+		<c:forEach var="list" items="${list}">
+			<tr>
+				<td>${list.b_no}</td>
+				<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
+				</a></td>
+				<td>${list.b_writer}</td>
+				<td><fmt:formatDate value="${list.b_regDate}"
+						pattern="yyyy-MM-dd" /></td>
+			</tr>
+		</c:forEach>
 
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>등록시간</th>
-				</tr>
-			</c:forEach>
 		</table>
 	</div>
 
-	<c:forEach var="list" items="${list}">
-		<tr>
-			<td>${list.b_no}</td>
-			<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
-			</a></td>
-			<td>${list.b_writer}</td>
-			<td><fmt:formatDate value="${list.b_regDate}"
-					pattern="yyyy-MM-dd" /></td>
-		</tr>
-	</c:forEach>
 
 	<div class="search_wrap">
 		<div class="search_area">
@@ -120,7 +112,7 @@
 				<c:forEach var="num" begin="${pageMaker.startPage}"
 					end="${pageMaker.endPage}">
 					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num}">
-					<a	href="${num}">${num}></a></li>
+					<a	href="${num}">${num}</a></li>
 				</c:forEach>
 			</ul>
 		</div>

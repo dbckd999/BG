@@ -60,19 +60,11 @@
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
-<<<<<<< HEAD
 		<h1>장실 목록</h1>
 		<form action="/restroomDelete" id="restroomDelete" method="get">
 			<div>
 				아이디 : <input type="text" id="id" name="id">
 				<input type="submit" value="삭제" id="restroomDelete" name="restroomDelete">
-=======
-		<h1>회원목록</h1>
-		<form action="/userDelete" id="userDelete">
-			<div>
-				아이디 : <input type="text" id="user_id" name="user_id">
-				<input type="submit" value="삭제" id="userDelete" name="userDelete">
->>>>>>> refs/remotes/origin/LSJ
 			</div>
 		</form>
 		<table border="1" id="admintable">
@@ -91,21 +83,21 @@
 				<th>삭제</th>
 			</tr>
 
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td>${list.id}</td>
-					<td>${list.restroom_name}</td>
-					<td>${list.c_man_closet}</td>
-					<td>${list.c_woman_closet}</td>
-					<td>${list.opening_time}</td>
-					<td>${list.closing_time}</td>
-					<td>${list.installation_details}</td>
-					<td>${list.have_emergency_bell}</td>
-					<td>${list.have_entrance_cctv}</td>
-					<td>${list.db_update_date}</td>
-					<td> <a href="/updateRestroom?id=${list.id}"> 수정 </a> </td>
-					<td>삭제</td>
-			</c:forEach>
+		<c:forEach var="list" items="${list}">
+			<tr>
+				<td>${list.id}</td>
+				<td>${list.restroom_name}</td>
+				<td>${list.c_man_closet}</td>
+				<td>${list.c_woman_closet}</td>
+				<td>${list.opening_time}</td>
+				<td>${list.closing_time}</td>
+				<td>${list.installation_details}</td>
+				<td>${list.have_emergency_bell}</td>
+				<td>${list.have_entrance_cctv}</td>
+				<td>${list.db_update_date}</td>
+				<td> <a href="/updateRestroom?id=${list.id}"> 수정 </a> </td>
+				<td>삭제</td>
+		</c:forEach>
 		</table>
 
 		<div class="search_wrap">
@@ -119,28 +111,30 @@
 			<div class="pageInfo_area">
 				<ul id="pageInfo" class="pageInfo">
 
-					<!-- 이전페이지 버튼 -->
-					<c:if test="${pageMaker.prev}">
-						<li class="pageInfo_btn previous"><a
-							href="${pageMaker.startPage-1}">이전</a></li>
-					</c:if>
-					<!-- 각 번호 페이지 버튼 -->
-					<c:forEach var="num" begin="${pageMaker.startPage}"
-						end="${pageMaker.endPage}">
-						<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
-							href="${num}">${num}</a></li>
-					</c:forEach>
+				<!-- 이전페이지 버튼 -->
+				<c:if test="${pageMaker.prev}">
+					<li class="pageInfo_btn previous">
+						<a href="${pageMaker.startPage-1}">이전</a>
+					</li>
+				</c:if>
+				<!-- 각 번호 페이지 버튼 -->
+				<c:forEach var="num" begin="${pageMaker.startPage}"
+					end="${pageMaker.endPage}">
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+						<a href="${num}">${num}</a>
+					</li>
+				</c:forEach>
 
-					<!-- 다음페이지 버튼 -->
-					<c:if test="${pageMaker.next}">
-						<li class="pageInfo_btn next"><a
-							href="${pageMaker.endPage + 1 }">다음</a></li>
-					</c:if>
+				<!-- 다음페이지 버튼 -->
+				<c:if test="${pageMaker.next}">
+					<li class="pageInfo_btn next">
+						<a href="${pageMaker.endPage + 1 }">다음</a>
+					</li>
+				</c:if>
 				</ul>
 			</div>
 
 		</div>
-
 
 		<form id="moveForm" method="get">
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
@@ -158,7 +152,7 @@
 	</script>
 
 	<script src="${path}/resources/js/adminRestRoom.js"></script>
-		<script src="${path}/resources/js/slide.js"></script>
+	<script src="${path}/resources/js/slide.js"></script>
 
 </body>
 </html>
