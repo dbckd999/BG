@@ -1,3 +1,16 @@
+
+	
+$('#infoOpen').click(function(){
+	console.log('run')
+    $('#infoSlide').css('top', '0%');
+});
+
+$('.infoClose').click(function(){
+    $('#infoSlide').css('top', '100%');
+});
+
+
+
 //cdn으로 불러온 L객체에서 지도 로드.
 var map = L.map('map').setView([35.892805, 128.525276], 13);
 
@@ -100,7 +113,7 @@ var callPins = (_east, _west, _south, _north) => {
 				+ '<h3> 여성용 대변기수 : ' + this.c_woman_closet + '</h3><br>'
 				+ day
 				+ '<h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time +'</h3><br>'
-				+ '<button onclick="Info(' + this.id + ')" '
+				+ '<button id="infoOpen" onclick="Info(' + this.id + ')" '
 						+'type="button" '
 						+'id="moreInfo_' + this.id +'" '
 						+'name="moreInfo">상세정보보기</button>'
@@ -132,8 +145,8 @@ function removeRestroomList(){
 function dynamicUpdateRestroomList(list){
 	
 	//새로운 마커를 등록합니다.
-	console.log("start");
-	console.log(restroomList);
+	//console.log("start");
+	//console.log(restroomList);
 	list.forEach(newMarker=>{
 		var addRestroom = false;
 		restroomList.forEach(currentMarker=>{
@@ -146,48 +159,21 @@ function dynamicUpdateRestroomList(list){
 		//겹치는게 없으면 추가합니다.
 		if(!addRestroom){
 			restroomList.push(newMarker.addTo(map));
-			console.log('added ', newMarker.id);
+			//console.log('added ', newMarker.id);
 			//nerMarker를 지웁니다.(list 경량화)
 		}
 	})
 	
 	for(var index = 0; index < restroomList.length; index++){
 		//전체 배열에서 안보이면 undefined를 반환
-		if(list.find((el)=>{if(el.id === restroomList[index].id){console.log(restroomList[index].id, el.id);return this;}}) === undefined){
+		if(list.find((el)=>{if(el.id === restroomList[index].id){return this;}}) === undefined){
 			console.log('removed: ', restroomList[index].id);
 			map.removeLayer(restroomList[index]);
 			restroomList.splice(index, 1);
 		}
 	};
 	
-	/*
-	list.forEach(newMarker=>{
-		
-	});
-	*/
-	
-	//맵을 벗어난 마커를 지웁니다.
-	/*
-	for(var index = 0; index < restroomList.length - 1; index++){
-		var isOverlap = false;
-		list.forEach(newMarker=>{
-			//'!isOverlap | '는 foreach반복문 넘길려고 씀.
-			if(restroomList[index].id === newMarker.id){
-				//정상.
-				isOverlap = true;
-			}
-		});
-		
-		//겹치는게 없다면
-		if(!isOverlap){
-			console.log(index, 'remove: ', restroomList[index].id);
-			map.removeLayer(restroomList[index]);
-			restroomList.splice(index, 1);
-		}
-	};
-	*/
-	console.log(restroomList);
-	console.log("end");
+	//console.log(restroomList);
 }
 
 
@@ -299,3 +285,4 @@ function shortestRestroomdrawLine(){
 	removeMarkLine();
 	setMarkLine(aRestroomPhin);
 }
+

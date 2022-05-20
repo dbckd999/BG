@@ -12,6 +12,7 @@ function cmtModalClose(){
 }
 
 $('#cmt_modal_close').click(cmtModalClose);
+$('.black_background').click(cmtModalClose);
 
 function showRestroomComments(restroomNo){
 	$.ajax({
