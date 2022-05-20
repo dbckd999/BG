@@ -24,12 +24,8 @@ public interface AdminRestroomMapper {
 	// 게시판 페이징//
 	  public List<MapDTO> getListPaging(Criteria cri);
 	   /* 게시판 총 갯수 */
-	  public int getTotal();
+	  public int getTotal(Criteria cri);
 
-	
-
-	
-	
 	public void restroomInsert(MapDTO dto);
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
@@ -37,4 +33,6 @@ public interface AdminRestroomMapper {
 	 * 참고 URL
 	 * https://duriepark.tistory.com/entry/MyBatis-와-iBATIS-성공시-리턴값
 	 * */
+
+	public MapDTO adminRestroom(String id);
 }

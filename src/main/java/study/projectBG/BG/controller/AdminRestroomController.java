@@ -36,14 +36,14 @@ public class AdminRestroomController {
 	public String updateRestroom(@RequestParam("id") String id, Model model) {
 		MapDTO dto = adminrestroomService.adminRestroom(id);
 		model.addAttribute("dto", dto);
-		return "admin/adminRestroom";
+		return "admin/adminUpdate";
 	}
 
 	@PostMapping("/updateRestroom")
-	public String postUpdateRestroom(MapDTO dto, Model model) {
+	public String postUpdateRestroom(MapDTO dto) {
+		System.out.println(dto);
 		adminrestroomService.updateRestroom(dto);
-		model.addAttribute("id", dto.getId());
-		return "redirect:/adminRestroom";
+		return "redirect:/adminRestroom?id=" + dto.getId();
 	}
 
 	
@@ -54,7 +54,7 @@ public class AdminRestroomController {
            
 		model.addAttribute("list", adminrestroomService.getListPaging(cri));
 		System.out.println("adminRestroomLISTGET");
-		int total = adminrestroomService.getTotal();
+		int total = adminrestroomService.getTotal(cri);
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 		 model.addAttribute("pageMaker", pageMake);
 		return "admin/adminRestroom";

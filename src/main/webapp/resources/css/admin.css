@@ -5,9 +5,29 @@
 	height: 100%;
 }
 
+<<<<<<< HEAD
 .active {
 	background-color: #cdd5ec;
 }
+=======
+.search_area{
+   display: inline-block;
+    margin-top: 30px;
+    margin-left: 35%;
+  }
+  .search_area input{
+      height: 30px;
+    width: 250px;
+  }
+  .search_area button{
+     width: 100px;
+    height: 36px;
+  }
+
+.active{
+      background-color: #cdd5ec;
+  }
+>>>>>>> refs/remotes/origin/JHS
 
 #userDelete {
 	margin-bottom: 2%;

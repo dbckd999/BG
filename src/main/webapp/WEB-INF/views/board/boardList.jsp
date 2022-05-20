@@ -38,7 +38,9 @@
 					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
-					<li><a href="/admin"> 어드민페이지 </a></li>
+					<li><a href="/admin"> 회원관리 페이지 </a></li>
+					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+					<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
@@ -60,86 +62,98 @@
 		</h1>
 	</div>
 	<br>
-	
+
 	<div id="boardCenter">
-			<table border="1" id="boardtable">
+
+		<table border="1" id="boardtable">
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>등록시간</th>
+			</tr>
+
+			<c:forEach var="list" items="${list}">
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록시간</th>
 				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
-				<c:forEach var="list" items="${list}">
-					<tr>
-						<td>${list.b_no}</td>
-						<td><a href="/boardRead?b_no=${list.b_no}">
-								${list.b_title} </a></td>
-						<td>${list.b_writer}</td>
-						<td><fmt:formatDate value="${list.b_regDate}"
-								pattern="yyyy-MM-dd" /></td>
+	<c:forEach var="list" items="${list}">
+		<tr>
+			<td>${list.b_no}</td>
+			<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
+			</a></td>
+			<td>${list.b_writer}</td>
+			<td><fmt:formatDate value="${list.b_regDate}"
+					pattern="yyyy-MM-dd" /></td>
+		</tr>
+	</c:forEach>
 
-					</tr>
+	<div class="search_wrap">
+		<div class="search_area">
+			<input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+			<button>Search</button>
+		</div>
+		<form action="/boardInsert" id="boardInsertForm">
+			<input id="bwBtn" type="submit" value="글쓰기">
+		</form>
+	</div>
+
+	<div id="boardWrite"></div>
+
+	<div class="pageInfo_wrap">
+		<div class="pageInfo_area">
+			<ul id="pageInfo" class="pageInfo">
+
+				<!-- 이전페이지 버튼 -->
+				<c:if test="${pageMaker.prev}">
+					<li class="pageInfo_btn previous">
+					<a	href="${pageMaker.startPage-1}">이전</a></li>
+				</c:if>
+				<!-- 각 번호 페이지 버튼 -->
+				<c:forEach var="num" begin="${pageMaker.startPage}"
+					end="${pageMaker.endPage}">
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num}">
+					<a	href="${num}">${num}></a></li>
 				</c:forEach>
-			</table>
+			</ul>
+		</div>
+	</div>
 
+	<div id="boardWrite">
+		<form action="/boardInsert" id="boardInsertForm">
+			<input id="bwBtn" type="submit" value="글쓰기">
+		</form>
+	</div>
 
-			</div>
-
-			<div id="boardWrite">
-				<form action="/boardInsert" id="boardInsertForm">
-					<input id="bwBtn" type="submit" value="글쓰기">
-				</form>
-			</div>
-
-			<div class="pageInfo_wrap">
-				<div class="pageInfo_area">
-					<ul id="pageInfo" class="pageInfo">
-
-						<!-- 이전페이지 버튼 -->
-						<c:if test="${pageMaker.prev}">
-							<li class="pageInfo_btn previous"><a
-								href="${pageMaker.startPage-1}">이전</a></li>
-						</c:if>
-						<!-- 각 번호 페이지 버튼 -->
-						<c:forEach var="num" begin="${pageMaker.startPage}"
-							end="${pageMaker.endPage}">
-							<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? " active":" " }">
-							<a href="${num}">${num}</a></li>
-						</c:forEach>
-
-						<!-- 다음페이지 버튼 -->
-						<c:if test="${pageMaker.next}">
-							<li class="pageInfo_btn next"><a
-								href="${pageMaker.endPage + 1 }">다음</a></li>
-						</c:if>
-					</ul>
-				</div>
-
-			</div>
-
-
-			<form id="moveForm" method="get">
-				<input type="hidden" name="pageNum"
-					value="${pageMaker.cri.pageNum }"> <input type="hidden"
-					name="amount" value="${pageMaker.cri.amount }">
-			</form>
+	<form id="moveForm" method="get">
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+		<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+	</form>
 
 
 
-			<div id="footer">
-				<ul>
-					<li>
-						<h3>BGate</h3>
-					</li>
-					<li>문의 사항 <br> 문의: 게시판 혹은 email <br> OPEN : MON-FRI
-						09:00-24:00 <br> EVERY WEEKEND, HOLIDAY OFF
-					</li>
-					<li id="liemail">https://github.com/dbckd999/BG/issues <br>
-						<!-- 			</li> -->
-				</ul>
-			</div>
-			<script src="${path}/resources/js/slide.js"></script>
-			<script src="${path}/resources/js/board.js"></script>
+	<div id="footer">
+		<ul>
+			<li>
+				<h3>BGate</h3>
+			</li>
+			<li>문의 사항 <br> 문의: 게시판 혹은 email <br> OPEN : MON-FRI
+				09:00-24:00 <br> EVERY WEEKEND, HOLIDAY OFF
+			</li>
+			<li id="liemail">https://github.com/dbckd999/BG/issues <br>
+			</li>
+		</ul>
+	</div>
+	<script src="${path}/resources/js/slide.js"></script>
+	<script src="${path}/resources/js/board.js"></script>
+
 </body>
 </html>

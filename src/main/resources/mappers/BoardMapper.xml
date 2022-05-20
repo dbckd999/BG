@@ -16,17 +16,22 @@
    <!-- MySQL-->
     <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="study.projectBG.BG.model.BoardDTO">
-    
-        select * from boardTBL order by b_no desc
+        select * 
+        from boardTBL  
+        <if test="keyword != null">
+        <![CDATA[where b_title like concat('%',#{keyword},'%')]]>  
+        </if>
+        order by b_no desc 
         <!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
         limit #{skip},#{amount}
-    
     </select>
     
     <select id="getTotal" resultType="int">
     
         select count(*) from boardTBL
-    
+          <if test="keyword != null">
+        <![CDATA[where b_title like concat('%',#{keyword},'%')]]>  
+        </if>
     </select>
    
    	<select id="boardRead" resultType="study.projectBG.BG.model.BoardDTO">

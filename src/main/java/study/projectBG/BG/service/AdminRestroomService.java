@@ -22,12 +22,12 @@ public interface AdminRestroomService {
 	
 	public List<MapDTO> getListPaging(Criteria cri);
 	
-	public int getTotal();
-
 	public MapDTO adminRestroom(String id);
+	
 	 void restroomInsert(MapDTO dto);
 	//화장실 추가
 	
+	public int getTotal(Criteria cri);
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 

@@ -16,20 +16,32 @@
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
 
-	<div id="menu">
+		<div id="menu">
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
-
 	<div id="menu">
 		<h2 class="BGateLogo">
-			<a href="/map">BGate</a>
+		<a href="/map">BGate</a>
 		</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
-				<li><a href="login"> 로그인 </a></li>
-				<li><a href="">회원가입</a></li>
+				<c:if test="${empty sessionScope.user_id}">
+				<li><a href="/login"> 로그인 </a></li>
+				<li><a href="/memberInsert">회원가입</a></li>
+				</c:if>
+
+				<c:if test="${not empty sessionScope.user_id}">
+				<li><a href="/logout"> 로그아웃 </a></li>
+				<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+				</c:if>
+				<c:if test="${sessionScope.user_id eq 'admin'}">
+				<li><a href="/admin"> 회원관리 페이지 </a></li>
+				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
+				</c:if>
+				<li><a href="/boardList">게시판</a></li>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>
