@@ -1,5 +1,3 @@
-
-	
 $('#infoOpen').click(function(){
 	console.log('run')
     $('#infoSlide').css('top', '0%');
@@ -141,7 +139,6 @@ function removeRestroomList(){
 }
 
 //옮긴 맵에서 새로운정보를 가져오고, 기존 정보는 유지합니다.
-//
 function dynamicUpdateRestroomList(list){
 	
 	//새로운 마커를 등록합니다.
@@ -167,7 +164,7 @@ function dynamicUpdateRestroomList(list){
 	for(var index = 0; index < restroomList.length; index++){
 		//전체 배열에서 안보이면 undefined를 반환
 		if(list.find((el)=>{if(el.id === restroomList[index].id){return this;}}) === undefined){
-			console.log('removed: ', restroomList[index].id);
+			//console.log('removed: ', restroomList[index].id);
 			map.removeLayer(restroomList[index]);
 			restroomList.splice(index, 1);
 		}
@@ -175,8 +172,6 @@ function dynamicUpdateRestroomList(list){
 	
 	//console.log(restroomList);
 }
-
-
 
 //최단거리 화장실 찾고 현위치-화장실 선 긋고 실 거리 표시
 function shortestRestroom(_latitude, _longitude) {

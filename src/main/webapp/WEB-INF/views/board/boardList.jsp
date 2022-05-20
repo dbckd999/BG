@@ -86,7 +86,6 @@
 		</table>
 	</div>
 
-
 	<div class="search_wrap">
 		<div class="search_area">
 			<input type="text" name="keyword" value="${pageMaker.cri.keyword }">
@@ -116,12 +115,6 @@
 				</c:forEach>
 			</ul>
 		</div>
-	</div>
-
-	<div id="boardWrite">
-		<form action="/boardInsert" id="boardInsertForm">
-			<input id="bwBtn" type="submit" value="글쓰기">
-		</form>
 	</div>
 
 	<form id="moveForm" method="get">
