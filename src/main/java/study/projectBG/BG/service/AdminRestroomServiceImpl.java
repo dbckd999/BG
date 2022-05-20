@@ -50,4 +50,9 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 		mapper.restroomInsert(dto);
 		
 	}
+
+	@Override
+	public void restroomDelete(int id) {
+		mapper.restroomDelete(id);
+	}
 }

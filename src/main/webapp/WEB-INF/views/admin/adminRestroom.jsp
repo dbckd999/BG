@@ -57,11 +57,11 @@
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
-		<h1>회원목록</h1>
-		<form action="/userDelete" id="userDelete">
+		<h1>장실 목록</h1>
+		<form action="/restroomDelete" id="restroomDelete" method="get">
 			<div >
-				아이디 : <input type="text" id="user_id" name="user_id">
-				<input type="submit" value="삭제" id="userDelete" name="userDelete">
+				아이디 : <input type="text" id="id" name="id">
+				<input type="submit" value="삭제" id="restroomDelete" name="restroomDelete">
 			</div>
 		</form>
 		<table border="1" id="admintable">

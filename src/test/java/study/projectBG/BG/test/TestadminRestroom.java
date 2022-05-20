@@ -18,7 +18,7 @@ public class TestadminRestroom {
 	@Autowired
 	AdminRestroomService adminRestroomService;
 	
-	@Test
+	//@Test
 	public void test() {
 		MapDTO dto = new MapDTO();
 		dto.setCategory("dfdfd");
@@ -54,6 +54,12 @@ public class TestadminRestroom {
 		dto.setDiaper_switchboard_location(null);
 		dto.setRemodeling_date(null);
 		adminRestroomService.restroomInsert(dto);
+	}
+	
+	@Test
+	public void test2(int id) {
+		id = 1983;
+		adminRestroomService.restroomDelete(id);
 	}
 	
 }

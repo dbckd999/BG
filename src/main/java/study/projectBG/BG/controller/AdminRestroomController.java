@@ -39,4 +39,12 @@ public class AdminRestroomController {
 		//dto2.setC_man_closet(Integer.parseInt(dto.getC_man_closet()));
 		return "redirect:/adminInsert";
 	}
+	
+	@GetMapping("restroomDelete")
+	public String restroomDelete(int id) {
+		adminRestroomService.restroomDelete(id);
+		return "admin/adminRestroom";
+	}
+	
+	
 }

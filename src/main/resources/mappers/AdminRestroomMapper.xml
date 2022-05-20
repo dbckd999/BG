@@ -24,5 +24,9 @@
 		#{diaper_switchboard_location}, #{remodeling_date}, #{db_update_date});
 	</insert>
 	
+	<delete id="restroomDelete">
+		DELETE FROM restroom WHERE id = #{id}
+	</delete>
+	
 	
 </mapper>
