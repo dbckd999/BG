@@ -33,9 +33,9 @@ public class BoardServiceimpl implements BoardService {
 	}
 
 	@Override
-	public int getTotal() {
+	public int getTotal(Criteria cri) {
 		// TODO Auto-generated method stub
-		 return mapper.getTotal();
+		 return mapper.getTotal(cri);
 	}
 
 	@Override

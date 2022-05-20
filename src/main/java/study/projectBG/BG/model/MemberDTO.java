@@ -1,6 +1,7 @@
 package study.projectBG.BG.model;
 
 import java.sql.Timestamp;
+
 import lombok.Data;
 
 @Data

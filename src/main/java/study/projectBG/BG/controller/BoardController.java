@@ -1,7 +1,5 @@
 package study.projectBG.BG.controller;
 
-import java.net.http.HttpRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +24,7 @@ public class BoardController {
 		System.out.println("BOARDLISTGET");
 		model.addAttribute("list", boardservice.getListPaging(cri));
 
-		int total = boardservice.getTotal();
+		int total = boardservice.getTotal(cri);
 
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 

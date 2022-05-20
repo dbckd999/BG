@@ -6,9 +6,39 @@ public class Criteria {
     
     private int amount;
     
+    private String keyword;
+    
     private int skip;
     
-    public Criteria() {
+    /**
+	 * @return the keyword
+	 */
+	public String getKeyword() {
+		return keyword;
+	}
+
+	/**
+	 * @param keyword the keyword to set
+	 */
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	/**
+	 * @return the skip
+	 */
+	public int getSkip() {
+		return skip;
+	}
+
+	/**
+	 * @param skip the skip to set
+	 */
+	public void setSkip(int skip) {
+		this.skip = skip;
+	}
+
+	public Criteria() {
         this(1,9);
         this.skip = 0;
     }
@@ -42,7 +72,7 @@ public class Criteria {
 
 	@Override
 	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + "]";
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", skip=" + skip + "]";
 	}
 	
 }

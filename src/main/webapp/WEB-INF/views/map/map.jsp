@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 
-
 <link rel="stylesheet" href="${path}/resources/css/leaflet.css" />
 <link rel="stylesheet" 	href="${path}/resources/css/L.Control.Locate.min.css" />
 <link rel="stylesheet" href="${path}/resources/css/map.css" />
@@ -20,6 +19,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
+	<!-- 메뉴바 슬라이드 -->
 	<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -50,6 +50,8 @@
 		</div>
 		<div onclick="history.back();" class="close"></div>
 	</div>
+	<!-- 메뉴바 슬라이드 fin -->
+	
 	<!-- 지도 -->
 	<div id="map"></div>
 	
