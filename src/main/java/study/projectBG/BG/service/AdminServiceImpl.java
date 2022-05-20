@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import study.projectBG.BG.mapper.AdminMapper;
+import study.projectBG.BG.model.Criteria;
 import study.projectBG.BG.model.MemberDTO;
 
 @Service
@@ -42,7 +43,18 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.memberCount(user_id);
 	}
 
-	
+
+	public List<MemberDTO> getListPaging(Criteria cri) {
+		   return mapper.getListPaging(cri);
+	}
+
+	@Override
+	public int getTotal() {
+		// TODO Auto-generated method stub
+		return mapper.getTotal();
+
+	}
+
 	
 }
 

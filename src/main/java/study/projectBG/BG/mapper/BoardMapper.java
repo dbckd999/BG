@@ -24,10 +24,15 @@ public List<BoardDTO> getListPaging(Criteria cri);
 public int getTotal();
 
 /* 게시물 상세보기 */
+
+	
+	void boardDelete(String b_no);
+
 	public BoardDTO boardRead(String b_no);
 
 
 	void boardUpdate(BoardDTO dto); 
+
 
 
 }

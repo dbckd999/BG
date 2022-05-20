@@ -17,6 +17,12 @@ public interface AdminRestroomService {
 	//D 화장실 삭제합니다.
 	public int deleteRestroom(int id);
 	
+	 void restroomInsert(MapDTO dto);
+	//화장실 추가
+	 void restroomDelete(int id);
+	//화장실 삭제
+	
+	
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 

@@ -19,10 +19,12 @@ public interface AdminRestroomMapper {
 	//D 화장실 삭제합니다.
 	public int deleteRestroom(int id);
 	
+	public void restroomInsert(MapDTO dto);
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 
 	 * 참고 URL
 	 * https://duriepark.tistory.com/entry/MyBatis-와-iBATIS-성공시-리턴값
 	 * */
+	public void restroomDelete(int id);
 }

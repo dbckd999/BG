@@ -40,6 +40,7 @@
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
 					<li><a href="/admin"> 어드민페이지 </a></li>
+							<li><a href="/admininsert"> 어드민페이지 </a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -56,31 +57,31 @@
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
-		<h1>회원목록</h1>
-		<form action="/userDelete" id="userDelete">
+		<h1>장실 목록</h1>
+		<form action="/restroomDelete" id="restroomDelete" method="get">
 			<div >
-				아이디 : <input type="text" id="user_id" name="user_id">
-				<input type="submit" value="삭제" id="userDelete" name="userDelete">
+				아이디 : <input type="text" id="id" name="id">
+				<input type="submit" value="삭제" id="restroomDelete" name="restroomDelete">
 			</div>
 		</form>
 		<table border="1" id="admintable">
 			<tr>
-				<th>번호</th>
-				<th>아이디</th>
-				<th>별명</th>
-				<th>주소</th>
-				<th>가입일</th>
-				<th>삭제</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 
 			<c:forEach var="list" items="${list}">
 				<tr>
-					<td>${list.user_no}</td>
-					<td>${list.user_id}</td>
-					<td>${list.user_nick}</td>
-					<td>${list.user_addr}</td>
-					<td><fmt:formatDate value="${list.user_regDate}" pattern="yyyy-MM-dd" /></td>
-					<td><a href="/adminDelete?user_no=${list.user_no}" id="confirmStart">삭제</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><fmt:formatDate value="" pattern="yyyy-MM-dd" /></td>
+					<td><a href="/adminDelete?user_no=" id="confirmStart">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</table>
