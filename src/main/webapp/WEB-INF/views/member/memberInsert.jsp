@@ -103,12 +103,8 @@
 					<tr>
 						<th>주소</th>
 						<td>
-						<input type="text" id="user_addr" name="user_addr" style="display:none">
-						<span id="road_addr_wrap">
-							<span id="roadAddress">도로명주소</span>
-							<input type="button" onclick="juso_execDaumPostcode()" value="도로명주소 찾기" class="w-btn w-btn-indigo inputSize">
-						</span>
-						<label for="addr_byhand">직접입력<input type="checkbox" id="addr_byhand" /></label>
+						<input type="text" id="user_addr" name="user_addr">
+							<button type="button" onclick="juso_execDaumPostcode()" class="w-btn w-btn-indigo inputSize">도로명주소 찾기</button>
 						</td>
 					</tr>
 					<tr>

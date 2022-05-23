@@ -23,8 +23,10 @@ function juso_execDaumPostcode() {
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("roadAddress").textContent = roadAddr;
+                document.getElementById("user_addr").value = roadAddr;
                 
+/*
+				
                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
                 if(data.autoRoadAddress) {
@@ -40,20 +42,24 @@ function juso_execDaumPostcode() {
                     guideTextBox.innerHTML = '';
                     guideTextBox.style.display = 'none';
                 }
+*/
             }
         }).open();
     }
 
+//통합으로 인해 사용안함
+/*
 $(function(){
 	
 	$('input[id=addr_byhand]').click(function(){
 		if($('input[id=addr_byhand]').is(':checked')){
-			$('input[id=user_addr]').css('display', 'inline-block');
+			//$('input[id=user_addr]').css('display', 'inline-block');
 			$('span[id=road_addr_wrap]').css('display', 'none');
 		}else{
-			$('input[id=user_addr]').css('display', 'none');
+			//$('input[id=user_addr]').css('display', 'none');
 			$('span[id=road_addr_wrap]').css('display', 'inline-block');
 		}
 	})
 	
 })
+*/
