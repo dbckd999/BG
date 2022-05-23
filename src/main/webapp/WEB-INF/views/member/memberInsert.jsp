@@ -4,7 +4,6 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="${path}/resources/css/memberInsert.css" />
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
@@ -134,5 +133,6 @@
 	<script src="${path}/resources/js/member.js"></script>
 	<script src="${path}/resources/js/login.js"></script>
 	<script src="${path}/resources/js/juso.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>
