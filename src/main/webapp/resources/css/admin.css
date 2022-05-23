@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 #adminCenter {
 	width: 100%;
 	height: 100%;
@@ -23,17 +25,16 @@
       background-color: #cdd5ec;
   }
 
-#userDelete
-{
+#userDelete {
 	margin-bottom: 2%;
-/* 	margin-top: 2%; */
+ 	margin-top: 2%; 
 }
+
 th, td {
 	text-align: center;
 }
 
 a:link {
-
 	text-decoration: none;
 }
 
@@ -69,15 +70,18 @@ table {
 	font-size: 12px;
 	text-shadow: 1px 1px 0px #fff;
 	background: #eaebec;
-	width: 100%; font-size : 30px;
-	border-collapse: collapse; border : #ccc 1px solid;
+	width: 100%;
+	font-size: 30px;
+	border-collapse: collapse;
+	border: #ccc 1px solid;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	-moz-box-shadow: 0 1px 2px #d1d1d1;
 	-webkit-box-shadow: 0 1px 2px #d1d1d1;
 	box-shadow: 0 1px 2px #d1d1d1;
-	font-size: 30px; border-collapse : collapse;
+	font-size: 30px;
+	border-collapse: collapse;
 	border: #ccc 1px solid;
 }
 
@@ -126,7 +130,6 @@ table tr td {
 	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb),
 		to(#fafafa));
 	background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
-	
 }
 
 table tr.even td {
@@ -160,16 +163,32 @@ table tr:hover td {
 }
 
 
- .pageInfo{
-      list-style : none;
-      display: inline-block;
-         
-  }
-  .pageInfo li{
-      float: left;
-    font-size: 40px;
-    margin-left: 18px;
-    padding: 7px;
-    font-weight: 500;
-  }
+.pageInfo {
+	list-style: none;
+	display: inline-block;
+}
+
+.pageInfo li {
+	float: left;
+	font-size: 40px;
+	margin-left: 18px;
+	padding: 7px;
+	font-weight: 500;
+}
+
+#regist{
+	width: 100%;
+	height: 100px;
+	font-size : xx-large;
+	background-color: rgba(0,0,255,50%);
+}
+
+table input{
+	width : 100%;
+	height: 50px;
+	outline : none;
+	border : 0;
+	font-size : x-large;
+	
+}
 

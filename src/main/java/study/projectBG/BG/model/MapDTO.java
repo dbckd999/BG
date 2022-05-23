@@ -25,8 +25,8 @@ public class MapDTO {
 	private String manage_group_name; //관리기관명
 	private int call_number; //전화번호: "-"미포함으로 저장합니다.
 	private String open_day_info; //개방 요일
-	private Timestamp opening_time; //개방시간
-	private Timestamp closing_time; //폐쇄시간
+	private String opening_time; //개방시간
+	private String closing_time; //폐쇄시간
 	private String installation_date; // 설치연월
 	private BigDecimal wgs84_latitude; // WGS84위도 (WGS84는 좌표계 중 하나). 소수점 8자리 가로
 	private BigDecimal wgs84_longitude; // WGS84경도 세로

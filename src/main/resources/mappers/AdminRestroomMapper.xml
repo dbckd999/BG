@@ -7,6 +7,26 @@
 	<select id="showRestroomList" resultType="study.projectBG.BG.model.MapDTO">
 		SELECT * FROM restroom
 	</select>
+	<insert id="restroomInsert">
+		INSERT INTO restroom (category, restroom_name, address_load, address_location, 
+		is_public_gender, c_man_closet, c_man_urinal, c_man_disable_person_closet, 
+		c_man_disable_person_urinal, c_man_child_closet, c_man_child_urinal, 
+		c_woman_closet, c_woman_disable_person_urinal, c_woman_child_closet, 
+		manage_group_name, call_number, open_day_info, opening_time, closing_time, 
+		installation_date, wgs84_latitude, wgs84_longitude, owner_name_group, 
+		installation_details, sewage_care_processing, have_emergency_bell, 
+		emergency_bell_location, have_entrance_cctv, have_diaper_switchboard, 
+		diaper_switchboard_location, remodeling_date, db_update_date) 
+		VALUES(#{category}, #{restroom_name}, #{address_load}, #{address_location}, 
+		#{is_public_gender}, #{c_man_closet}, #{c_man_urinal}, #{c_man_disable_person_closet}, 
+		#{c_man_disable_person_urinal}, #{c_man_child_closet}, #{c_man_child_urinal}, 
+		#{c_woman_closet}, #{c_woman_disable_person_urinal}, #{c_woman_child_closet}, 
+		#{manage_group_name}, #{call_number}, #{open_day_info}, #{opening_time}, #{closing_time}, 
+		#{installation_date}, #{wgs84_latitude}, #{wgs84_longitude}, #{owner_name_group}, 
+		#{installation_details}, #{sewage_care_processing}, #{have_emergency_bell}, 
+		#{emergency_bell_location}, #{have_entrance_cctv}, #{have_diaper_switchboard}, 
+		#{diaper_switchboard_location}, #{remodeling_date}, #{db_update_date});
+	</insert>
 	
 	  <!-- MySQL-->
     <!-- 게시물 목록(페이징) -->

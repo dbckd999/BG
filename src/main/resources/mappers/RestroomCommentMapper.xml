@@ -26,4 +26,5 @@
 		DELETE FROM restroom_comment WHERE c_no = #{c_no};
 	</delete>
 	
+	
 </mapper>

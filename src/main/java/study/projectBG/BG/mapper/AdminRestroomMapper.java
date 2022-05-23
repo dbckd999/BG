@@ -29,6 +29,7 @@ public interface AdminRestroomMapper {
 	
 
 	
+	public void restroomInsert(MapDTO dto);
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 
