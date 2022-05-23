@@ -96,7 +96,7 @@
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr"></td>
+						<td><input type="text" id="user_addr" name="user_addr" value="${dto.user_addr}"></td>
 					</tr>
 					<tr>
 						<th>email</th>
