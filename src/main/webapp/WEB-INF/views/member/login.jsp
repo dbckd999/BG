@@ -71,26 +71,19 @@
 					<tr>
 						<td><input type="hidden" id="user_nick" name="user_nick"></td>
 					</tr>
-
 					<tr>
-
-						<td><input type="text" id="user_id" name="user_id"
-							placeholder="아이디"></td>
+						<td><input type="text" id="user_id" name="user_id" placeholder="아이디"></td>
 					</tr>
 					<tr>
-
-						<td><input type="password" id="user_pw" name="user_pw"
-							placeholder="패스워드"></td>
+						<td><input type="password" id="user_pw" name="user_pw" placeholder="패스워드"></td>
 					</tr>
 
 				</table>
-				<input type="submit" id="login" name="login"
-					class="w-btn w-btn-indigo inputSize" value="로그인하기">
+				<input type="submit" id="login" name="login" class="w-btn w-btn-indigo inputSize" value="로그인하기">
 
 			</form>
 		</div>
-		<input type="button" id="regist" name="regist" value="회원가입"
-			onclick="location.href='/memberInsert'">
+		<input type="button" id="regist" name="regist" value="회원가입" onclick="location.href='/memberInsert'">
 
 	</div>
 	<div id=footer>
