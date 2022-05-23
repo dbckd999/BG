@@ -69,7 +69,7 @@ function insertRestroomComment(c_restroom_no, c_user_no, c_comment){
 		url: '/insertRestroomComment'
 		, type: 'post'
 		, data: {c_restroom_no: c_restroom_no
-			, c_user_no: c_user_nof
+			, c_user_no: c_user_no
 			, c_comment: c_comment}
 		, success: function(){
 			$('textarea[id="cmt_content"]').val('');
