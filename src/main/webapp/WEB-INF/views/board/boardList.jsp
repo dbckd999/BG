@@ -9,8 +9,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="${patd}/resources/css/slideMenu.css" />
-<link rel="stylesheet" href="${patd}/resources/css/footer.css" />
+<link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
+<link rel="stylesheet" href="${path}/resources/css/footer.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <link rel="stylesheet" href="${path}/resources/css/board.css" />
 <title>Map</title>
@@ -73,18 +73,16 @@
 				<th>등록시간</th>
 			</tr>
 
-			<c:forEach var="list" items="${list}">
+			<%-- <c:forEach var="list" items="${list}">
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록시간</th>
 				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<c:forEach var="list" items="${list}">
+			</c:forEach> --%>
+			
+			<c:forEach var="list" items="${list}">
 		<tr>
 			<td>${list.b_no}</td>
 			<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
@@ -94,6 +92,11 @@
 					pattern="yyyy-MM-dd" /></td>
 		</tr>
 	</c:forEach>
+			
+		</table>
+	</div>
+
+	
 
 	<div class="search_wrap">
 		<div class="search_area">
