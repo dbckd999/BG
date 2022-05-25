@@ -41,7 +41,6 @@
 		WHERE id=#{id};
 	</update>
 	
-	
 	<insert id="restroomInsert">
 		INSERT INTO restroom (category, restroom_name, address_load, address_location, 
 		is_public_gender, c_man_closet, c_man_urinal, c_man_disable_person_closet, 
@@ -75,7 +74,7 @@
 		SELECT * FROM restroom
 	</select>
 	
-	  <!-- MySQL-->
+	<!-- MySQL-->
     <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="study.projectBG.BG.model.MapDTO">
         select * 

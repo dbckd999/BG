@@ -24,13 +24,12 @@ public interface AdminRestroomService {
 	
 	public MapDTO adminRestroom(String id);
 	
-	 void restroomInsert(MapDTO dto);
-	//화장실 추가
-	 void restroomDelete(int id);
-	//화장실 삭제
-	
-	
 	public int getTotal(Criteria cri);
+	
+	void restroomInsert(MapDTO dto);
+	//화장실 추가
+	void restroomDelete(int id);
+	//화장실 삭제
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 

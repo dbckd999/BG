@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,13 +9,16 @@
 <link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <link rel="stylesheet" href="${path}/resources/css/footer.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <title>Map</title>
 </head>
 <body>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
-
+		
 		<div id="menu">
 		<div class="close"></div>
 	</div>
@@ -26,6 +30,8 @@
 		</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
+			
+			
 				<c:if test="${empty sessionScope.user_id}">
 				<li><a href="/login"> 로그인 </a></li>
 				<li><a href="/memberInsert">회원가입</a></li>
@@ -110,9 +116,12 @@
 						<th>이메일</th>
 						<td><input type="email" id="user_email" name="user_email">
 							<button type="button" class="w-btn w-btn-indigo inputSize" id="emailCheckBtn">중복확인</button> <br></td>
+			
+					<tr>
+					 <td colspan="2"><input  type="submit" name="regist" id="regist" value="가입하기"></td>
 					</tr>
 				</table>
-				<input class="w-btn w-btn-indigo inputSize" type="submit" name="regist" id="regist" value="가입하기">
+		
 			</form>
 		</div>
 	</div>

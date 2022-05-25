@@ -119,6 +119,21 @@
 
 
 	</div>
+	
+		<div id="footer">
+		<ul>
+			<li>
+				<h3>BGate</h3>
+			</li>
+			<li>
+				문의 사항<br>
+				문의: 게시판 혹은 email<br>
+				OPEN : MON-FRI 09:00-24:00<br>
+				EVERY WEEKEND, HOLIDAY OFF
+			</li>
+			<li id="liemail">https://github.com/dbckd999/BG/issues<br></li>
+		</ul>
+	</div>
 
 	<script type="text/javascript">
 		<c:if test="${msgCheckID==false}">

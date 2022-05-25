@@ -86,12 +86,12 @@
 		</table>
 	</div>
 
-	<div class="search_wrap">
-		<div class="search_area">
-			<input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-			<button>Search</button>
-		</div>
-		<form action="/boardInsert" id="boardInsertForm">
+      <div class="search_wrap">
+        <div class="search_area">
+            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+            <button>Search</button>
+        </div>
+          <form action="/boardInsert" id="boardInsertForm">
 			<input id="bwBtn" type="submit" value="글쓰기">
 		</form>
 	</div>
@@ -110,9 +110,15 @@
 				<!-- 각 번호 페이지 버튼 -->
 				<c:forEach var="num" begin="${pageMaker.startPage}"
 					end="${pageMaker.endPage}">
-					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num}">
-					<a	href="${num}">${num}</a></li>
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+					<a href="${num}">${num}</a></li>
 				</c:forEach>
+
+				<!-- 다음페이지 버튼 -->
+				<c:if test="${pageMaker.next}">
+					<li class="pageInfo_btn next"><a
+						href="${pageMaker.endPage + 1 }">다음</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</div>
@@ -139,6 +145,5 @@
 	</div>
 	<script src="${path}/resources/js/slide.js"></script>
 	<script src="${path}/resources/js/board.js"></script>
-
 </body>
 </html>

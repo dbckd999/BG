@@ -25,6 +25,7 @@
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
+		<div class=>
 		<h2 class="BGateLogo">
 		<a href="/map">BGate</a>
 		</h2>
@@ -46,6 +47,7 @@
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
+			</div>
 		</div>
 		<div onclick="history.back();" class="close"></div>
 	</div>
@@ -76,13 +78,10 @@
 				<th>개방</th>
 				<th>폐쇄</th>
 				<th>설치장소</th>
-				<th>비상벨여부</th>
-				<th>CCTV</th>
 				<th>데이터기준일자</th>
 				<th>수정</th>
 				<th>삭제</th>
 			</tr>
-
 		<c:forEach var="list" items="${list}">
 			<tr>
 				<td>${list.id}</td>
@@ -141,7 +140,20 @@
 			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
 		</form>
 
-
+	<div id="footer">
+		<ul>
+			<li>
+				<h3>BGate</h3>
+			</li>
+			<li>
+				문의 사항<br>
+				문의: 게시판 혹은 email<br>
+				OPEN : MON-FRI 09:00-24:00<br>
+				EVERY WEEKEND, HOLIDAY OFF
+			</li>
+			<li id="liemail">https://github.com/dbckd999/BG/issues<br></li>
+		</ul>
+	</div>
 	</div>
 
 	<script type="text/javascript">
@@ -151,7 +163,7 @@
 	</script>
 
 	<script src="${path}/resources/js/adminRestRoom.js"></script>
-	<script src="${path}/resources/js/slide.js"></script>
+	<script src="${path}/resources/js/slide.js"></script> 
 
 </body>
 </html>

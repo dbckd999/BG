@@ -240,6 +240,7 @@
     
     <input type="submit" id="regist" name="regist" value="화장실 추가하기">
 	</form>
+	
 	<script src="${path}/resources/js/admin.js"></script>
 	<script src="${path}/resources/js/map.js"></script>
 		<script src="${path}/resources/js/slide.js"></script>
