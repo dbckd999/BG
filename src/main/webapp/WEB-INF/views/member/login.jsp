@@ -84,8 +84,6 @@
 							value="회원가입" onclick="location.href='/memberInsert'"></td>
 					</tr>
 				</table>
-				<!-- 확인1 -->
-				<input type="submit" id="login" name="login" class="w-btn w-btn-indigo inputSize" value="로그인하기">
 			</form>
 		</div>
 

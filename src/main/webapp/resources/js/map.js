@@ -116,7 +116,16 @@ var callPins = (_east, _west, _south, _north) => {
 						+'id="moreInfo_' + this.id +'" '
 						+'name="moreInfo">상세정보보기</button>'
 				+ '<button onclick="aRestroomComment('+ this.id +')">댓글보기</button>'
-				);
+				).on('click', function(){
+						setMarkLine(this);
+						alert(
+							calcDistance(
+										myLocationMarker.lat
+										, myLocationMarker.lng
+										, this._latlng.lat
+										, this._latlng.lng)
+						+ 'm 입니다.');
+					});
 				marker.id = this.id;
 				//restroomList.push(marker.addTo(map));
 				list.push(marker);
@@ -262,22 +271,23 @@ function deg2rad(deg) {
 //현위치부터 목표 마크까지 줄을 긋습니다.
 var markLine;
 function setMarkLine(singMark){
+	removeMarkLine();
 	markLine = L.polygon([
 		[myLocationMarker.lat,myLocationMarker.lng],
 		[singMark._latlng.lat,singMark._latlng.lng]
 	]).addTo(map);
 }
 
+//기존에 그어진 줄을 삭제합니다.
 function removeMarkLine(){
 	if(markLine != null){
 		map.removeLayer(markLine)
 	}
 }
 
-var aRestroomPhin = null;
+var aRestroomPin = null;
 function shortestRestroomdrawLine(){
-	aRestroomPhin = shortestRestroom_js(lc._event.latlng, restroomList);
-	removeMarkLine();
-	setMarkLine(aRestroomPhin);
+	aRestroomPin = shortestRestroom_js(lc._event.latlng, restroomList);
+	setMarkLine(aRestroomPin);
 }
 
