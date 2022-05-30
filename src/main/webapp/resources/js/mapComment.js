@@ -25,8 +25,10 @@ function showRestroomComments(restroomNo){
 				result += "<tr>"
 						+ "<td>" + this.c_id + "</td>"
 						+ "<td>"+ this.c_comment +"</td>"
-						+ "<td><a onclick='deleteComment("+ this.c_no + ',' + restroomNo +")'>삭제</a></td>"
-						+ "</tr>";
+						if(el_userID == this.c_id){
+							result += "<td><a onclick='deleteComment("+ this.c_no + ',' + restroomNo +")'>삭제</a></td>"
+						}
+						result += "</tr>";
 			})
 			result += "</tr><input type=hidden name=c_restroom_no value='"+ restroomNo +"'>";
 			$('table[id=restroom_comment_modal]').html(result);

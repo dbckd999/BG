@@ -101,6 +101,9 @@
 		</c:if>
 		<table id="restroom_comment_modal"></table>
 	</div>
+	<script>
+		el_userID = '${user_id}';
+	</script>
 	<script src="${path}/resources/js/map_modal.js"></script>
 	<script src="${path}/resources/js/leaflet.js"></script>
 	<script src="${path}/resources/js/L.Control.Locate.min.js"></script>
