@@ -18,7 +18,7 @@ public interface AdminRestroomMapper {
 	//C 새로운 화장실을 생성합니다.
 	public int insertRestroom();
 	//U 화장실 정보를 최신화합니다.
-	public int updateRestroom(MapDTO dto);
+	public void updateRestroom(MapDTO dto);
 	//D 화장실 삭제합니다.
 	public int deleteRestroom(int id);
 	// 게시판 페이징//
@@ -26,9 +26,6 @@ public interface AdminRestroomMapper {
 	   /* 게시판 총 갯수 */
 	  public int getTotal(Criteria cri);
 
-	
-
-	
 	public void restroomInsert(MapDTO dto);
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
@@ -36,4 +33,6 @@ public interface AdminRestroomMapper {
 	 * 참고 URL
 	 * https://duriepark.tistory.com/entry/MyBatis-와-iBATIS-성공시-리턴값
 	 * */
+	public void restroomDelete(int id);
+	public MapDTO adminRestroom(String id);
 }

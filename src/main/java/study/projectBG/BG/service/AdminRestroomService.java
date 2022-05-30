@@ -16,16 +16,20 @@ public interface AdminRestroomService {
 	//C 새로운 화장실을 생성합니다.
 	public int insertRestroom();
 	//U 화장실 정보를 최신화합니다.
-	public int updateRestroom(MapDTO dto);
+	public void updateRestroom(MapDTO dto);
 	//D 화장실 삭제합니다.
 	public int deleteRestroom(int id);
 	
 	public List<MapDTO> getListPaging(Criteria cri);
 	
-	public int getTotal(Criteria cri);
-	 void restroomInsert(MapDTO dto);
-	//화장실 추가
+	public MapDTO adminRestroom(String id);
 	
+	public int getTotal(Criteria cri);
+	
+	void restroomInsert(MapDTO dto);
+	//화장실 추가
+	void restroomDelete(int id);
+	//화장실 삭제
 	/*
 	 * insert, update, delete는 성공/실패 시 반환하는 값이 있습니다.
 	 * service구현 시 

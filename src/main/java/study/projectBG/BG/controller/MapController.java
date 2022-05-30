@@ -66,9 +66,13 @@ public class MapController {
 			@Param("west") BigDecimal west,
 			@Param("east") BigDecimal east
 			){
-		System.out.println(south + ", " + north + ", " + west + ", " + east);
+		System.out.print("ID: ");
+		//System.out.println(south + ", " + north + ", " + west + ", " + east);
 		List<Restroom_SampleDTO> list = service.callPins2(south, north, west, east);
-		System.out.println(list);
+		for(Restroom_SampleDTO dto : list) {
+			System.out.print(dto.getId() + " ");
+		}
+		System.out.println();
 		return list;
 	}
 	

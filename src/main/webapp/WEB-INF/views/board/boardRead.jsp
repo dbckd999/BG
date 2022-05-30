@@ -96,13 +96,6 @@ body {
 		<hr>
 		${dto.b_content}
 	</div>
-
-
-
-
-
-
-
 	<br>
 
 

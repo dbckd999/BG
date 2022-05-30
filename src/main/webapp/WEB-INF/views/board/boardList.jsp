@@ -17,30 +17,30 @@
 </head>
 <body>
 
-		<div id="menu">
+	<div id="menu">
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
 		<h2 class="BGateLogo">
-		<a href="/map">BGate</a>
+			<a href="/map">BGate</a>
 		</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<c:if test="${empty sessionScope.user_id}">
-				<li><a href="/login"> 로그인 </a></li>
-				<li><a href="/memberInsert">회원가입</a></li>
+					<li><a href="/login"> 로그인 </a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
 				</c:if>
 
 				<c:if test="${not empty sessionScope.user_id}">
-				<li><a href="/logout"> 로그아웃 </a></li>
-				<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
-				<li><a href="/admin"> 회원관리 페이지 </a></li>
-				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
-				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
+					<li><a href="/admin"> 회원관리 페이지 </a></li>
+					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+					<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
@@ -63,11 +63,6 @@
 	</div>
 	<br>
 
-
-  
-  
-
-
 	<div id="boardCenter">
 
 		<table border="1" id="boardtable">
@@ -77,21 +72,20 @@
 				<th>작성자</th>
 				<th>등록시간</th>
 			</tr>
+		<c:forEach var="list" items="${list}">
+			<tr>
+				<td>${list.b_no}</td>
+				<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
+				</a></td>
+				<td>${list.b_writer}</td>
+				<td><fmt:formatDate value="${list.b_regDate}"
+						pattern="yyyy-MM-dd" /></td>
+			</tr>
+		</c:forEach>
 
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td>${list.b_no}</td>
-					<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title} </a></td>
-					<td>${list.b_writer}</td>
-					<td><fmt:formatDate value="${list.b_regDate}"
-							pattern="yyyy-MM-dd" /></td>
-
-				</tr>
-			</c:forEach>
 		</table>
-</div>
+	</div>
 
-      
       <div class="search_wrap">
         <div class="search_area">
             <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
@@ -100,11 +94,9 @@
           <form action="/boardInsert" id="boardInsertForm">
 			<input id="bwBtn" type="submit" value="글쓰기">
 		</form>
-    </div>
-      
-	<div id="boardWrite">
-		
 	</div>
+
+	<div id="boardWrite"></div>
 
 	<div class="pageInfo_wrap">
 		<div class="pageInfo_area">
@@ -112,14 +104,14 @@
 
 				<!-- 이전페이지 버튼 -->
 				<c:if test="${pageMaker.prev}">
-					<li class="pageInfo_btn previous"><a
-						href="${pageMaker.startPage-1}">이전</a></li>
+					<li class="pageInfo_btn previous">
+					<a	href="${pageMaker.startPage-1}">이전</a></li>
 				</c:if>
 				<!-- 각 번호 페이지 버튼 -->
 				<c:forEach var="num" begin="${pageMaker.startPage}"
 					end="${pageMaker.endPage}">
-					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
-						href="${num}">${num}</a></li>
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+					<a href="${num}">${num}</a></li>
 				</c:forEach>
 
 				<!-- 다음페이지 버튼 -->
@@ -129,9 +121,7 @@
 				</c:if>
 			</ul>
 		</div>
-
 	</div>
-
 
 	<form id="moveForm" method="get">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
@@ -150,7 +140,7 @@
 				09:00-24:00 <br> EVERY WEEKEND, HOLIDAY OFF
 			</li>
 			<li id="liemail">https://github.com/dbckd999/BG/issues <br>
-							</li> 
+			</li>
 		</ul>
 	</div>
 	<script src="${path}/resources/js/slide.js"></script>

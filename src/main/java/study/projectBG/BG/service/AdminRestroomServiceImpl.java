@@ -35,9 +35,8 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 	}
 
 	@Override
-	public int updateRestroom(MapDTO dto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void updateRestroom(MapDTO dto) {
+		mapper.updateRestroom(dto);
 	}
 
 	@Override
@@ -62,7 +61,20 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 	public int getTotal(Criteria cri) {
 		return mapper.getTotal(cri);
 	}
+
+	@Override
+	public MapDTO adminRestroom(String id) {
+		return mapper.adminRestroom(id);
+	}
+	
+	@Override
 	public void restroomInsert(MapDTO dto) {
 		mapper.restroomInsert(dto);
+		
+	}
+
+	@Override
+	public void restroomDelete(int id) {
+		mapper.restroomDelete(id);
 	}
 }

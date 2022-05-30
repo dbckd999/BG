@@ -70,16 +70,11 @@
 					<tr>
 						<td><input type="hidden" id="user_nick" name="user_nick"></td>
 					</tr>
-
 					<tr>
-
-						<td><input type="text" id="user_id" name="user_id"
-							placeholder="아이디"></td>
+						<td><input type="text" id="user_id" name="user_id" placeholder="아이디"></td>
 					</tr>
 					<tr>
-
-						<td><input type="password" id="user_pw" name="user_pw"
-							placeholder="패스워드"></td>
+						<td><input type="password" id="user_pw" name="user_pw" placeholder="패스워드"></td>
 					</tr>
 					<tr>
 						<td><input type="submit" id="login" name="login" value="로그인"></td>
@@ -91,7 +86,6 @@
 				</table>
 			</form>
 		</div>
-
 
 	</div>
 	<div id=footer style="margin-left: 5%">
