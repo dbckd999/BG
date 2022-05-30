@@ -56,3 +56,9 @@ select{
 	list-style: none;
 	padding-inline-start: 0px;
 }
+
+/* 맵 ui크기 변경 */
+/* .leaflet-touch .leaflet-bar a{
+	width: 3em;
+	height:3em;
+} */
