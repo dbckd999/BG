@@ -19,7 +19,7 @@ var restRooms;
 L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
-	maxZoom: 22,
+	maxZoom: 20,
 	subdomains: 'abcd',
 	accessToken: 'vAMEUGsqvj1NebwCreykRA1ZKXEVzyyRsUX7d0Il5wnGXe2BoJPTtUAVBaTjYGEB'
 }).addTo(map);
@@ -57,8 +57,8 @@ var mapMove = () => {
 	north = northEast.lat;
 
 	myLocationMarker = lc._event.latlng;
-	
 	callPins(east, west, south, north);
+	setMarkLine(currentMark);
 }
 
 //지도 움직임 이벤트 등록
@@ -69,6 +69,7 @@ var restroomList = new Array();
 var markLineList = null;
 
 var polygon = null;
+var currentMark = null;
 
 //현 지도의 위치에 있는 화장실 정보를 불러옵니다.
 var callPins = (_east, _west, _south, _north) => {
@@ -117,7 +118,8 @@ var callPins = (_east, _west, _south, _north) => {
 						+'name="moreInfo">상세정보보기</button>'
 				+ '<button onclick="aRestroomComment('+ this.id +')">댓글보기</button>'
 				).on('click', function(){
-						setMarkLine(this);
+						currentMark = this;
+						setMarkLine(currentMark);
 						alert(
 							calcDistance(
 										myLocationMarker.lat
@@ -271,11 +273,15 @@ function deg2rad(deg) {
 //현위치부터 목표 마크까지 줄을 긋습니다.
 var markLine;
 function setMarkLine(singMark){
-	removeMarkLine();
-	markLine = L.polygon([
-		[myLocationMarker.lat,myLocationMarker.lng],
-		[singMark._latlng.lat,singMark._latlng.lng]
-	]).addTo(map);
+	if(currentMark != null){
+	console.log(myLocationMarker);
+	console.log(currentMark._latlng);
+		removeMarkLine();
+		markLine = L.polygon([
+			[myLocationMarker.lat,myLocationMarker.lng],
+			[singMark._latlng.lat,singMark._latlng.lng]
+		]).addTo(map);
+	}
 }
 
 //기존에 그어진 줄을 삭제합니다.
@@ -290,4 +296,3 @@ function shortestRestroomdrawLine(){
 	aRestroomPin = shortestRestroom_js(lc._event.latlng, restroomList);
 	setMarkLine(aRestroomPin);
 }
-
