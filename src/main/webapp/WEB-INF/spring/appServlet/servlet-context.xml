@@ -25,5 +25,5 @@
 	
 	<context:component-scan base-package="study.projectBG.BG" />
 	
-	
+
 </beans:beans>
