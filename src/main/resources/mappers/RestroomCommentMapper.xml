@@ -26,5 +26,20 @@
 		DELETE FROM restroom_comment WHERE c_no = #{c_no};
 	</delete>
 	
+	 <!-- 게시물 목록(페이징) -->
+    <select id="getListPaging" resultType="study.projectBG.BG.model.MemberDTO">
+    
+        select * from restroom_comment order by c_no desc
+        <!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
+        limit #{skip},#{amount}
+    
+    </select>
+    
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from restroom_comment
+    
+    </select>
+	
 	
 </mapper>

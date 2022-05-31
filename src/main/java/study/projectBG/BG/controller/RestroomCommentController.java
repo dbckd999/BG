@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import study.projectBG.BG.model.Criteria;
+import study.projectBG.BG.model.PageMakerDTO;
 import study.projectBG.BG.model.RestroomCommentDTO;
 import study.projectBG.BG.service.RestroomCommentService;
 
@@ -50,4 +53,6 @@ public class RestroomCommentController {
 		int res = service.deleteComment(c_no);
 		return res;
 	}
+	
+	
 }

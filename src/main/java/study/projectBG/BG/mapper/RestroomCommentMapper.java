@@ -1,8 +1,10 @@
 package study.projectBG.BG.mapper;
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
+import study.projectBG.BG.model.Criteria;
 import study.projectBG.BG.model.MapDTO;
 import study.projectBG.BG.model.RestroomCommentDTO;
 
@@ -21,4 +23,9 @@ public interface RestroomCommentMapper {
 	
 	public void restroomInsert(MapDTO dto);
 	//화장실 추가
+	
+	 public List<RestroomCommentDTO> getListPaging(Criteria cri);
+	 
+	 public int getTotal();
+	
 }

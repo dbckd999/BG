@@ -54,5 +54,20 @@ select{
 
 #restroomInfo{
 	list-style: none;
-	padding-inline-start: 0px;
+	padding-inline-start: 0px;	
+}
+
+input{
+	border: none;
+	font-size: 30px;
+	width: 90%;
+}
+
+.infoClose{
+	 width: 150px;
+    height: 100px;
+    margin-top: 12px;
+    margin-left: 70%;
+    position: fixed;
+    font-size: 30px;
 }

@@ -2,6 +2,7 @@ package study.projectBG.BG.service;
 
 import java.util.List;
 
+import study.projectBG.BG.model.Criteria;
 import study.projectBG.BG.model.RestroomCommentDTO;
 
 public interface RestroomCommentService{
@@ -15,4 +16,7 @@ public interface RestroomCommentService{
 	public int modifyComment(RestroomCommentDTO dto);
 	//댓글을 삭제합니다.
 	public int deleteComment(int c_no);
+	
+	public List<RestroomCommentDTO> getListPaging(Criteria cri);
+	
 }
