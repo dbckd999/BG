@@ -25,6 +25,7 @@
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
+		<div class=>
 		<h2 class="BGateLogo">
 		<a href="/map">BGate</a>
 		</h2>
@@ -46,6 +47,7 @@
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
+			</div>
 		</div>
 		<div onclick="history.back();" class="close"></div>
 	</div>
@@ -60,11 +62,11 @@
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
-		<h1>회원목록</h1>
-		<form action="/userDelete" id="userDelete">
+		<h1>장실 목록</h1>
+		<form action="/restroomDelete" id="restroomDelete" method="get">
 			<div>
-				아이디 : <input type="text" id="user_id" name="user_id"> <input
-					type="submit" value="삭제" id="userDelete" name="userDelete">
+				아이디 : <input type="text" id="id" name="id">
+				<input type="submit" value="삭제" id="restroomDelete" name="restroomDelete">
 			</div>
 		</form>
 		<table border="1" id="admintable">
@@ -76,29 +78,25 @@
 				<th>개방</th>
 				<th>폐쇄</th>
 				<th>설치장소</th>
-				<th>비상벨여부</th>
-				<th>CCTV</th>
 				<th>데이터기준일자</th>
 				<th>수정</th>
 				<th>삭제</th>
-
 			</tr>
-
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td>${list.id}</td>
-					<td>${list.restroom_name}</td>
-					<td>${list.c_man_closet}</td>
-					<td>${list.c_woman_closet}</td>
-					<td>${list.opening_time}</td>
-					<td>${list.closing_time}</td>
-					<td>${list.installation_details}</td>
-					<td>${list.have_emergency_bell}</td>
-					<td>${list.have_entrance_cctv}</td>
-					<td>${list.db_update_date}</td>
-					<td> <a href="/updateRestroom?id=${list.id}"> 수정 </a> </td>
-					<td>삭제</td>
-			</c:forEach>
+		<c:forEach var="list" items="${list}">
+			<tr>
+				<td>${list.id}</td>
+				<td>${list.restroom_name}</td>
+				<td>${list.c_man_closet}</td>
+				<td>${list.c_woman_closet}</td>
+				<td>${list.opening_time}</td>
+				<td>${list.closing_time}</td>
+				<td>${list.installation_details}</td>
+				<td>${list.have_emergency_bell}</td>
+				<td>${list.have_entrance_cctv}</td>
+				<td>${list.db_update_date}</td>
+				<td><a href="/updateRestroom?id=${list.id}">수정</a></td>
+				<td><a href="/adminDelete?user_no=" id="confirmStart">삭제</a></td>
+		</c:forEach>
 		</table>
 
 		<div class="search_wrap">
@@ -112,28 +110,29 @@
 			<div class="pageInfo_area">
 				<ul id="pageInfo" class="pageInfo">
 
-					<!-- 이전페이지 버튼 -->
-					<c:if test="${pageMaker.prev}">
-						<li class="pageInfo_btn previous"><a
-							href="${pageMaker.startPage-1}">이전</a></li>
-					</c:if>
-					<!-- 각 번호 페이지 버튼 -->
-					<c:forEach var="num" begin="${pageMaker.startPage}"
-						end="${pageMaker.endPage}">
-						<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
-							href="${num}">${num}</a></li>
-					</c:forEach>
+				<!-- 이전페이지 버튼 -->
+				<c:if test="${pageMaker.prev}">
+					<li class="pageInfo_btn previous">
+						<a href="${pageMaker.startPage-1}">이전</a>
+					</li>
+				</c:if>
+				<!-- 각 번호 페이지 버튼 -->
+				<c:forEach var="num" begin="${pageMaker.startPage}"
+					end="${pageMaker.endPage}">
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+						<a href="${num}">${num}</a>
+					</li>
+				</c:forEach>
 
-					<!-- 다음페이지 버튼 -->
-					<c:if test="${pageMaker.next}">
-						<li class="pageInfo_btn next"><a
-							href="${pageMaker.endPage + 1 }">다음</a></li>
-					</c:if>
+				<!-- 다음페이지 버튼 -->
+				<c:if test="${pageMaker.next}">
+					<li class="pageInfo_btn next">
+						<a href="${pageMaker.endPage + 1 }">다음</a>
+					</li>
+				</c:if>
 				</ul>
 			</div>
-
 		</div>
-
 
 		<form id="moveForm" method="get">
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
@@ -141,7 +140,20 @@
 			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
 		</form>
 
-
+	<div id="footer">
+		<ul>
+			<li>
+				<h3>BGate</h3>
+			</li>
+			<li>
+				문의 사항<br>
+				문의: 게시판 혹은 email<br>
+				OPEN : MON-FRI 09:00-24:00<br>
+				EVERY WEEKEND, HOLIDAY OFF
+			</li>
+			<li id="liemail">https://github.com/dbckd999/BG/issues<br></li>
+		</ul>
+	</div>
 	</div>
 
 	<script type="text/javascript">
@@ -151,7 +163,7 @@
 	</script>
 
 	<script src="${path}/resources/js/adminRestRoom.js"></script>
-		<script src="${path}/resources/js/slide.js"></script>
+	<script src="${path}/resources/js/slide.js"></script> 
 
 </body>
 </html>

@@ -69,7 +69,7 @@
 		<br>	<input type="text" id="b_title" name="b_title" value="${dto.b_title}" />
 		</div>
 		<div>
-		<br>	<textarea id="b_content" name="b_content" rows="20" cols="30">${dto.b_content}</textarea>	
+		<br>	<textarea  id="b_content"  name="b_content" rows="20" cols="30">${dto.b_content}</textarea>	
 		</div>
 		<div id="div_b_writer">
 		작성자 	<input type="text" id="b_writer" name="b_writer" value="${dto.b_writer}" readonly />  

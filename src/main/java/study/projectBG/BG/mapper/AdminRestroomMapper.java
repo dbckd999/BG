@@ -33,6 +33,6 @@ public interface AdminRestroomMapper {
 	 * 참고 URL
 	 * https://duriepark.tistory.com/entry/MyBatis-와-iBATIS-성공시-리턴값
 	 * */
-
+	public void restroomDelete(int id);
 	public MapDTO adminRestroom(String id);
 }

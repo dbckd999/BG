@@ -17,44 +17,44 @@
 </head>
 <body>
 
-		<div id="menu">
+	<div id="menu">
 		<div class="close"></div>
 	</div>
 	<div class="btn"></div>
 	<div onclick="history.back();" class="page_cover"></div>
 	<div id="menu">
 		<h2 class="BGateLogo">
-		<a href="/map">BGate</a>
+			<a href="/map">BGate</a>
 		</h2>
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<c:if test="${empty sessionScope.user_id}">
-				<li><a href="/login"> 로그인 </a></li>
-				<li><a href="/memberInsert">회원가입</a></li>
+					<li><a href="/login"> 로그인 </a></li>
+					<li><a href="/memberInsert">회원가입</a></li>
 				</c:if>
 
 				<c:if test="${not empty sessionScope.user_id}">
-				<li><a href="/logout"> 로그아웃 </a></li>
-				<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
-				<li><a href="/admin"> 회원관리 페이지 </a></li>
-				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
-				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
+					<li><a href="/admin"> 회원관리 페이지 </a></li>
+					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+					<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>
 	</div>
- 
+
 	<div class="headMain">
-	
+
 		<h1 class="Logo">
 			<a href="/map">BGate</a>
 		</h1>
 	</div>
-	
+
 	<br>
 	<br>
 
@@ -96,7 +96,11 @@
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" id="user_addr" name="user_addr"></td>
+						<td>
+							<input type="text" id="user_addr" name="user_addr" value="${dto.user_addr}">
+							<button type="button" onclick="juso_execDaumPostcode()" class="w-btn w-btn-indigo inputSize">도로명주소 찾기</button>
+						</td>
+						
 					</tr>
 					<tr>
 						<th>email</th>
@@ -105,20 +109,22 @@
 					</tr>
 					<tr>
 						<td colspan="2"><input type="submit" id="memberUpdate"
-							name="memberUpdate" class="w-btn w-btn-indigo inputSize"
 							value="수정하기"></td>
 					</tr>
+					<tr>
+						<td colspan="2"><input type="button" id="delete" name="delete"
+							value="탈퇴하기"></td>
+					</tr>
 				</table>
-				<button type="button" id="delete" name="delete"
-					class="w-btn w-btn-indigo inputSize"
-					<%-- value="memberDelete?user_id=${dto.user_id}" --%>>탈퇴하기</button>
-				
+
+
+
 				<!-- 모달창 -->
 				<div class="black_bg"></div>
 				<div class="modal_wrap">
 
 					<div id="delete_cont">
-						<div>탈퇴하시겠습니까?</div>
+						<div id="deletediv">탈퇴하시겠습니까?</div>
 						<button type="button" id="delete_fin" name="delete_fin">
 							탈퇴하기</button>
 						<button type="button" id="cancel">취소</button>
@@ -148,6 +154,8 @@
 	<script src="${path}/resources/js/myPage.js"></script>
 	<script src="${path}/resources/js/slide.js"></script>
 	<script src="${path}/resources/js/member.js"></script>
+	<script src="${path}/resources/js/juso.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </body>
 </html>

@@ -37,25 +37,6 @@ logo {
 	cursor: pointer;
 }
 
-#menu {
-	width: 150px;
-	height: 100%;
-	position: fixed;
-	top: 0px;
-	right: -152px;
-	z-index: 10;
-	border: 1px solid #c9c9c9;
-	background-color: white;
-	text-align: center;
-	transition: All 0.2s ease;
-	-webkit-transition: All 0.2s ease;
-	-moz-transition: All 0.2s ease;
-	-o-transition: All 0.2s ease;
-}
-
-#menu.open {
-	right: 0px;
-}
 
 html.open {
 	overflow: hidden;
@@ -111,7 +92,7 @@ html.open {
  #menu.open {
 
 	right: 0px;
-	width: 80%;
+	width: 52%;
 	
 }
 
@@ -136,7 +117,6 @@ html.open {
 .BGateLogo{
 	
 	font-size: 3cm;
-	margin-right: 30%;
 	border-bottom: 1px solid black;
    
 	
@@ -147,8 +127,8 @@ html.open {
 
 .ulmenuList{
 	list-style: none;
-	margin-right: 60%;
-	
+	margin-right: 35%;
+	    text-align: end;
 }
 
 li { margin-top: 50px;
@@ -176,5 +156,9 @@ a{text-decoration: none;
 .BGateLogo > a:active, .BGateLogo > a:hover {
 	color: black;
 	text-decoration: underline;
+}
+
+#loginWelcome{
+	font-size : 30px;
 }
 

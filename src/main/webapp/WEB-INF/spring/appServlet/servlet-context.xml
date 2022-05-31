@@ -26,4 +26,6 @@
 	<context:component-scan base-package="study.projectBG.BG" />
 	
 
+	<resources mapping="/resources/**" location="/resources/" />
+	
 </beans:beans>

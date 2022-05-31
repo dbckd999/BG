@@ -47,12 +47,16 @@ function Info(id) {
 			result_open_day_info.val(data.open_day_info);
 			result_call_number.val(data.call_number);
 			result_installation_date.val(data.installation_date);
+			$('#infoSlide').css('top', '0%');
+			$('.infoClose').click(function(){
+			    $('#infoSlide').css('top', '100%');
+			});
 		},
 		error: function(request, status, error) {
 			console.log(error);
 		}
 	});
-	onClick();
+	//onClick();
 }
 
 function onClick() {
@@ -65,5 +69,5 @@ function offClick() {
 	document.querySelector('.black_background').style.display = 'none';
 }
 
-document.querySelector('.black_background').addEventListener('click', offClick);
-document.querySelector('.modal_close').addEventListener('click', offClick);
+//document.querySelector('.black_background').addEventListener('click', offClick);
+//document.querySelector('.modal_close').addEventListener('click', offClick);

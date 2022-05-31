@@ -1,3 +1,14 @@
+$('#infoOpen').click(function(){
+	console.log('run')
+    $('#infoSlide').css('top', '0%');
+});
+
+$('.infoClose').click(function(){
+    $('#infoSlide').css('top', '100%');
+});
+
+
+
 //cdn으로 불러온 L객체에서 지도 로드.
 var map = L.map('map').setView([35.892805, 128.525276], 13);
 
@@ -71,8 +82,6 @@ var callPins = (_east, _west, _south, _north) => {
 
 	myLocationMarker = lc._event.latlng;
 	
-	removeRestroomList();
-	
 	$.ajax({
 		type: 'post'
 		, url: '/showRestrooms2'
@@ -85,29 +94,43 @@ var callPins = (_east, _west, _south, _north) => {
 			"west": _west
 		}
 		, success: function(data) {
-			console.log('콘솔값 확인 : ' + data.length);
+			console.log('새 데이터 길이: ' + data.length);
 			// element -> this로 변경
 			/*alert(data[1600].open_day_info);*/
-			
+			var list = new Array();
 			$(data).each(function() {
 				var day = "";
 				if (this.open_day_info !== null) {
 					day = "<h3> 개방요일 : " + this.open_day_info + "</h3><br>";
 				}
 
-				restroomList.push(L.marker([this.wgs84_latitude, this.wgs84_longitude]).addTo(map).bindPopup(
-					'<h1>' + this.restroom_name +'</h1><br>'
-					+ '<h3> 남성용 대변기수 : ' + this.c_man_closet + '</h3><br>'
-					+ '<h3> 여성용 대변기수 : ' + this.c_woman_closet + '</h3><br>'
-					+ day
-					+ '<h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time +'</h3><br>'
-					+ '<button onclick="Info(' + this.id + ')" '
-							+'type="button" '
-							+'id="moreInfo_' + this.id +'" '
-							+'name="moreInfo">상세정보보기</button>'
-					+ '<button onclick="aRestroomComment('+ this.id +')">댓글보기</button>'
-					));
+				//마커 추가는 다른 함수에서 실행됩니다.
+				var marker = L.marker([this.wgs84_latitude, this.wgs84_longitude]).bindPopup(
+				'<h1>' + this.restroom_name +'</h1><br>'
+				+ '<h3> 남성용 대변기수 : ' + this.c_man_closet + '</h3><br>'
+				+ '<h3> 여성용 대변기수 : ' + this.c_woman_closet + '</h3><br>'
+				+ day
+				+ '<h3> 개방시간 : ' + this.opening_time + '~' + this.closing_time +'</h3><br>'
+				+ '<button id="infoOpen" onclick="Info(' + this.id + ')" '
+						+'type="button" '
+						+'id="moreInfo_' + this.id +'" '
+						+'name="moreInfo">상세정보보기</button>'
+				+ '<button onclick="aRestroomComment('+ this.id +')">댓글보기</button>'
+				).on('click', function(){
+						setMarkLine(this);
+						alert(
+							calcDistance(
+										myLocationMarker.lat
+										, myLocationMarker.lng
+										, this._latlng.lat
+										, this._latlng.lng)
+						+ 'm 입니다.');
+					});
+				marker.id = this.id;
+				//restroomList.push(marker.addTo(map));
+				list.push(marker);
 			})
+			dynamicUpdateRestroomList(list);
 		}
 		, error: (request, status, error) => {
 			console.log(error);
@@ -122,6 +145,41 @@ function removeRestroomList(){
 	});
 
 	restroomList = new Array();
+}
+
+//옮긴 맵에서 새로운정보를 가져오고, 기존 정보는 유지합니다.
+function dynamicUpdateRestroomList(list){
+	
+	//새로운 마커를 등록합니다.
+	//console.log("start");
+	//console.log(restroomList);
+	list.forEach(newMarker=>{
+		var addRestroom = false;
+		restroomList.forEach(currentMarker=>{
+			if(currentMarker.id === newMarker.id){
+				//겹치는게 있으면 탈출.
+				addRestroom = true;
+				//break;
+			}
+		});
+		//겹치는게 없으면 추가합니다.
+		if(!addRestroom){
+			restroomList.push(newMarker.addTo(map));
+			//console.log('added ', newMarker.id);
+			//nerMarker를 지웁니다.(list 경량화)
+		}
+	})
+	
+	for(var index = 0; index < restroomList.length; index++){
+		//전체 배열에서 안보이면 undefined를 반환
+		if(list.find((el)=>{if(el.id === restroomList[index].id){return this;}}) === undefined){
+			//console.log('removed: ', restroomList[index].id);
+			map.removeLayer(restroomList[index]);
+			restroomList.splice(index, 1);
+		}
+	};
+	
+	//console.log(restroomList);
 }
 
 //최단거리 화장실 찾고 현위치-화장실 선 긋고 실 거리 표시
@@ -213,21 +271,23 @@ function deg2rad(deg) {
 //현위치부터 목표 마크까지 줄을 긋습니다.
 var markLine;
 function setMarkLine(singMark){
+	removeMarkLine();
 	markLine = L.polygon([
 		[myLocationMarker.lat,myLocationMarker.lng],
 		[singMark._latlng.lat,singMark._latlng.lng]
 	]).addTo(map);
 }
 
+//기존에 그어진 줄을 삭제합니다.
 function removeMarkLine(){
 	if(markLine != null){
 		map.removeLayer(markLine)
 	}
 }
 
-var aRestroomPhin = null;
+var aRestroomPin = null;
 function shortestRestroomdrawLine(){
-	aRestroomPhin = shortestRestroom_js(lc._event.latlng, restroomList);
-	removeMarkLine();
-	setMarkLine(aRestroomPhin);
+	aRestroomPin = shortestRestroom_js(lc._event.latlng, restroomList);
+	setMarkLine(aRestroomPin);
 }
+

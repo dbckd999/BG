@@ -73,5 +73,8 @@ public class AdminRestroomServiceImpl implements AdminRestroomService {
 		
 	}
 
-
+	@Override
+	public void restroomDelete(int id) {
+		mapper.restroomDelete(id);
+	}
 }

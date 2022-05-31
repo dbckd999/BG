@@ -72,6 +72,16 @@
 				<th>작성자</th>
 				<th>등록시간</th>
 			</tr>
+			<c:forEach var="list" items="${list}">
+				<tr>
+					<td>${list.b_no}</td>
+					<td><a href="/boardRead?b_no=${list.b_no}">
+							${list.b_title} </a></td>
+					<td>${list.b_writer}</td>
+					<td><fmt:formatDate value="${list.b_regDate}"
+							pattern="yyyy-MM-dd" /></td>
+				</tr>
+			</c:forEach>
 
 			<%-- <c:forEach var="list" items="${list}">
 				<tr>
@@ -81,22 +91,21 @@
 					<th>등록시간</th>
 				</tr>
 			</c:forEach> --%>
-			
+
 			<c:forEach var="list" items="${list}">
-		<tr>
-			<td>${list.b_no}</td>
-			<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
-			</a></td>
-			<td>${list.b_writer}</td>
-			<td><fmt:formatDate value="${list.b_regDate}"
-					pattern="yyyy-MM-dd" /></td>
-		</tr>
-	</c:forEach>
-			
+				<tr>
+					<td>${list.b_no}</td>
+					<td><a href="/boardRead?b_no=${list.b_no}">
+							${list.b_title} </a></td>
+					<td>${list.b_writer}</td>
+					<td><fmt:formatDate value="${list.b_regDate}"
+							pattern="yyyy-MM-dd" /></td>
+				</tr>
+			</c:forEach>
+
 		</table>
 	</div>
 
-	
 
 	<div class="search_wrap">
 		<div class="search_area">
@@ -104,7 +113,7 @@
 			<button>Search</button>
 		</div>
 		<form action="/boardInsert" id="boardInsertForm">
-			<input id="bwBtn" type="submit" value="글쓰기">
+			<input id="bwBtn" type="submit"	value="글쓰기">
 		</form>
 	</div>
 
@@ -116,23 +125,25 @@
 
 				<!-- 이전페이지 버튼 -->
 				<c:if test="${pageMaker.prev}">
-					<li class="pageInfo_btn previous">
-					<a	href="${pageMaker.startPage-1}">이전</a></li>
+					<li class="pageInfo_btn previous"><a
+						href="${pageMaker.startPage-1}">이전</a></li>
 				</c:if>
+				
 				<!-- 각 번호 페이지 버튼 -->
 				<c:forEach var="num" begin="${pageMaker.startPage}"
 					end="${pageMaker.endPage}">
-					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num}">
-					<a	href="${num}">${num}></a></li>
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+						<a href="${num}">${num}</a>
+					</li>
 				</c:forEach>
+
+				<!-- 다음페이지 버튼 -->
+				<c:if test="${pageMaker.next}">
+					<li class="pageInfo_btn next"><a
+						href="${pageMaker.endPage + 1 }">다음</a></li>
+				</c:if>
 			</ul>
 		</div>
-	</div>
-
-	<div id="boardWrite">
-		<form action="/boardInsert" id="boardInsertForm">
-			<input id="bwBtn" type="submit" value="글쓰기">
-		</form>
 	</div>
 
 	<form id="moveForm" method="get">
@@ -157,6 +168,5 @@
 	</div>
 	<script src="${path}/resources/js/slide.js"></script>
 	<script src="${path}/resources/js/board.js"></script>
-
 </body>
 </html>
