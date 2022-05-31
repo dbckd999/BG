@@ -30,6 +30,9 @@
 		<a href="/map">BGate</a>
 		</h2>
 		<div class="menuList">
+		
+		
+		
 			<ul class="ulmenuList">
 			      
 			      
@@ -39,13 +42,14 @@
 				</c:if>
 
 				<c:if test="${not empty sessionScope.user_id}">
-				<li><a href="/logout"> 로그아웃 </a></li>
-				<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
+					<div id="loginWelcome"> ${sessionScope.user_nick}님, 환영합니다. </div>
+					<li><a href="/logout"> 로그아웃 </a></li>
+					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
 				<c:if test="${sessionScope.user_id eq 'admin'}">
-				<li><a href="/admin"> 회원관리 페이지 </a></li>
-				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
-				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
+					<li><a href="/admin"> 회원관리 페이지 </a></li>
+					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
+					<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
 				<li><a href="/boardList">게시판</a></li>
 			</ul>
