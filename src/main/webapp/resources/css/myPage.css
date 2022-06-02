@@ -11,7 +11,7 @@
 
 #centerMain{
 	height: 100%;
- 	width: 80%; 
+ 	width: 90%; 
  	    border: black solid 1px;
  
 
@@ -38,12 +38,15 @@ margin-bottom: 2%;
 }
 
 
-#user_id , #user_addr , #user_nick {
+#user_id ,  #user_nick {
 	
 	
 	width: 30%
 }
 
+#user_addr{
+	width: 70%
+}
 
 input {
 	font-size: 25px;
@@ -57,7 +60,7 @@ inputSize{
 }
 
 th{
-	font-size: 35px;
+	font-size: 25px;
 
 }
 
