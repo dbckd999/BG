@@ -32,6 +32,17 @@ body {
 	display: inline-block;
 	float: right;
 }
+
+.wrap_title{
+	display: inline-block;
+}
+
+.board_buttons{
+	font-size: 1.5em;
+    padding: 20px;
+    border: none;
+    margin: 5px;
+}
 </style>
 </head>
 <body>
@@ -84,23 +95,25 @@ body {
 	<br>
 	
 	<div class="wrap_content">
-		<h1>${dto.b_title}</h1>
-		<span>${dto.b_writer} | ${dto.b_regDate}</span>
+		<div class="wrap_title">
+			<h1>${dto.b_title}</h1>
+			<span>${dto.b_writer} | ${dto.b_regDate}</span>
+		</div>
 		<c:if test="${sessionScope.user_id == dto.b_writer}">
 			<div class="modify_wrap">
-				<button onclick="location.href='/boardUpdate?b_no=${dto.b_no}'">수정</button>
+				<button class="board_buttons" onclick="location.href='/boardUpdate?b_no=${dto.b_no}'">수정</button>
 				<span> | </span>
-				<button onclick="location.href='/boardDelete?b_no=${dto.b_no}'">삭제</button>
+				<button class="board_buttons" onclick="location.href='/boardDelete?b_no=${dto.b_no}'">삭제</button>
 			</div>
 		</c:if>
-		<hr>
+		<hr style="clear: both">
 		<div id="content">${dto.b_content}</div>
 	</div>
 	<br>
 
 
 	<div class="wrap_boardList">
-		<button onclick="location.href='/boardList'">목록으로</button>
+		<button class="board_buttons" onclick="location.href='/boardList'">목록으로</button>
 	</div>
 
 	<div id="footer">
