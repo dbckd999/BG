@@ -9,8 +9,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="${patd}/resources/css/slideMenu.css" />
-<link rel="stylesheet" href="${patd}/resources/css/footer.css" />
+<link rel="stylesheet" href="${path}/resources/css/slideMenu.css" />
+<link rel="stylesheet" href="${path}/resources/css/footer.css" />
 <link rel="stylesheet" href="${path}/resources/css/headLogo.css" />
 <link rel="stylesheet" href="${path}/resources/css/board.css" />
 <title>Map</title>
@@ -34,6 +34,7 @@
 				</c:if>
 
 				<c:if test="${not empty sessionScope.user_id}">
+				<div id="loginWelcome"> ${sessionScope.user_nick}님, 환영합니다. </div>
 					<li><a href="/logout"> 로그아웃 </a></li>
 					<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
@@ -42,7 +43,7 @@
 					<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
 					<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
-				<li><a href="/boardList">게시판</a></li>
+				<li><a href="/boardList">공지사항</a></li>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>
@@ -58,7 +59,7 @@
 
 	<div id="titleArea">
 		<h1>
-			<span id="titleh1">[ 공지사항 및 게시판 ]</span>
+			<span id="titleh1">[ 공지사항 ]</span>
 		</h1>
 	</div>
 	<br>
@@ -72,28 +73,31 @@
 				<th>작성자</th>
 				<th>등록시간</th>
 			</tr>
-		<c:forEach var="list" items="${list}">
-			<tr>
-				<td>${list.b_no}</td>
-				<td><a href="/boardRead?b_no=${list.b_no}"> ${list.b_title}
-				</a></td>
-				<td>${list.b_writer}</td>
-				<td><fmt:formatDate value="${list.b_regDate}"
-						pattern="yyyy-MM-dd" /></td>
-			</tr>
-		</c:forEach>
-
+			<c:forEach var="list" items="${list}">
+				<tr>
+					<td>${list.b_no}</td>
+					<td><a href="/boardRead?b_no=${list.b_no}">
+							${list.b_title} </a></td>
+					<td>${list.b_writer}</td>
+					<td><fmt:formatDate value="${list.b_regDate}"
+							pattern="yyyy-MM-dd" /></td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 
-      <div class="search_wrap">
-        <div class="search_area">
-            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-            <button>Search</button>
-        </div>
-          <form action="/boardInsert" id="boardInsertForm">
-			<input id="bwBtn" type="submit" value="글쓰기">
+
+	<div class="search_wrap">
+		<div class="search_area">
+			<input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+			<button>Search</button>
+		</div>
+		<c:if test="${sessionScope.user_id eq 'admin'}">
+		<form action="/boardInsert" id="boardInsertForm">
+			<input id="bwBtn" type="submit"	value="글쓰기">
+				
 		</form>
+		</c:if>
 	</div>
 
 	<div id="boardWrite"></div>
@@ -104,14 +108,16 @@
 
 				<!-- 이전페이지 버튼 -->
 				<c:if test="${pageMaker.prev}">
-					<li class="pageInfo_btn previous">
-					<a	href="${pageMaker.startPage-1}">이전</a></li>
+					<li class="pageInfo_btn previous"><a
+						href="${pageMaker.startPage-1}">이전</a></li>
 				</c:if>
+				
 				<!-- 각 번호 페이지 버튼 -->
 				<c:forEach var="num" begin="${pageMaker.startPage}"
 					end="${pageMaker.endPage}">
 					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
-					<a href="${num}">${num}</a></li>
+						<a href="${num}">${num}</a>
+					</li>
 				</c:forEach>
 
 				<!-- 다음페이지 버튼 -->

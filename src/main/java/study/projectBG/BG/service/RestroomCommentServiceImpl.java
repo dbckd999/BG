@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import study.projectBG.BG.mapper.RestroomCommentMapper;
+import study.projectBG.BG.model.Criteria;
 import study.projectBG.BG.model.MapDTO;
 import study.projectBG.BG.model.RestroomCommentDTO;
 
@@ -60,6 +61,11 @@ public class RestroomCommentServiceImpl implements RestroomCommentService{
 	public int deleteComment(int c_no) {
 		int deleteRes = mapper.deleteComment(c_no); 
 		return deleteRes;
+	}
+
+	@Override
+	public List<RestroomCommentDTO> getListPaging(Criteria cri) {
+		 return mapper.getListPaging(cri);
 	}
 
 }

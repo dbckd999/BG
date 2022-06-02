@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 
 /* 전역설정 */
 html, body {
@@ -54,11 +54,20 @@ select{
 
 #restroomInfo{
 	list-style: none;
-	padding-inline-start: 0px;
+	padding-inline-start: 0px;	
 }
 
-/* 맵 ui크기 변경 */
-/* .leaflet-touch .leaflet-bar a{
-	width: 3em;
-	height:3em;
-} */
+input{
+	border: none;
+	font-size: 30px;
+	width: 90%;
+}
+
+.infoClose{
+	 width: 150px;
+    height: 100px;
+    margin-top: 12px;
+    margin-left: 70%;
+    position: fixed;
+    font-size: 30px;
+}

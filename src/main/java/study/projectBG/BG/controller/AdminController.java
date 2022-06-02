@@ -24,11 +24,8 @@ public class AdminController {
 		System.out.println("adminListGET");
 		model.addAttribute("list", adminService.getListPaging(cri));
 		int total = adminService.getTotal();
-
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
-
 		model.addAttribute("pageMaker", pageMake);
-
 		return "admin/admin";
 	}
 

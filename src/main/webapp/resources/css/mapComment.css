@@ -11,3 +11,21 @@
 	background: #eee;
 	z-index: 2;
 }
+
+.cmt_modal_wrap button{
+	width: 17%;
+    height: 52px;
+    float: right;
+    margin-right: 4px;
+    border: 1px solid black;
+}
+
+#cmt_content{
+	width: 80%;
+	height: 46px;
+	
+}
+
+.restroom_comment_modal{
+	
+}

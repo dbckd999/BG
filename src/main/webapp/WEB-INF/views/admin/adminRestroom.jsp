@@ -37,6 +37,7 @@
 				</c:if>
 
 				<c:if test="${not empty sessionScope.user_id}">
+				<div id="loginWelcome"> ${sessionScope.user_nick}님, 환영합니다. </div>
 				<li><a href="/logout"> 로그아웃 </a></li>
 				<li><a href="/myPage?user_id=${user_id}"> 마이페이지 </a></li>
 				</c:if>
@@ -45,7 +46,7 @@
 				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
 				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
-				<li><a href="/boardList">게시판</a></li>
+				<li><a href="/boardList">공지사항</a></li>
 			</ul>
 			</div>
 		</div>
@@ -62,13 +63,7 @@
 		<h1 id="titleh1">[ 어드민 페이지 ]</h1>
 	</div>
 	<div id="adminCenter">
-		<h1>장실 목록</h1>
-		<form action="/restroomDelete" id="restroomDelete" method="get">
-			<div>
-				아이디 : <input type="text" id="id" name="id">
-				<input type="submit" value="삭제" id="restroomDelete" name="restroomDelete">
-			</div>
-		</form>
+		<h1>화장실 목록</h1>
 		<table border="1" id="admintable">
 			<tr>
 				<th>번호</th>

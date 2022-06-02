@@ -31,6 +31,8 @@
 		<div class="menuList">
 			<ul class="ulmenuList">
 				<c:if test="${empty sessionScope.user_id}">
+				<div id="loginWelcome"> ${sessionScope.user_nick}님, 환영합니다. </div>.
+				
 				<li><a href="/login"> 로그인 </a></li>
 				<li><a href="/memberInsert">회원가입</a></li>
 				</c:if>
@@ -44,7 +46,7 @@
 				<li><a href="/adminRestroom"> 화장실관리 페이지 </a></li>
 				<li><a href="/adminInsert"> 화장실추가 페이지 </a></li>
 				</c:if>
-				<li><a href="/boardList">게시판</a></li>
+				<li><a href="/boardList">공지사항</a></li>
 			</ul>
 		</div>
 		<div onclick="history.back();" class="close"></div>

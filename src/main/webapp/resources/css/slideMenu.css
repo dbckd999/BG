@@ -127,7 +127,7 @@ html.open {
 
 .ulmenuList{
 	list-style: none;
-	margin-right: 35%;
+	margin-right: 25%;
 	    text-align: end;
 }
 
@@ -156,5 +156,9 @@ a{text-decoration: none;
 .BGateLogo > a:active, .BGateLogo > a:hover {
 	color: black;
 	text-decoration: underline;
+}
+
+#loginWelcome{
+	font-size : 30px;
 }
 

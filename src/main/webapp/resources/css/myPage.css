@@ -10,18 +10,11 @@
 }
 
 #centerMain{
-	border: 1px dashed black;
 	height: 100%;
- 	width: 100%; 
+ 	width: 90%; 
+ 	    border: black solid 1px;
  
 
-}
-#centerLogo{
-	border-bottom: 1px dotted black;
-	height: 5%;
-	width: 100%;
-
- 	 background-color: #d5d5d5;
 }
 
 
@@ -34,9 +27,7 @@ margin-bottom: 2%;
 #centertable{
 	height: 100%;
     width: 100%; 
-    border-top: 1px solid #444444;
     border-collapse: collapse;
-  border-bottom: 1 solid black;
 }
 
 
@@ -47,12 +38,15 @@ margin-bottom: 2%;
 }
 
 
-#user_id , #user_addr , #user_nick {
+#user_id ,  #user_nick {
 	
 	
 	width: 30%
 }
 
+#user_addr{
+	width: 70%
+}
 
 input {
 	font-size: 25px;
@@ -66,7 +60,7 @@ inputSize{
 }
 
 th{
-	font-size: 35px;
+	font-size: 25px;
 
 }
 
@@ -138,7 +132,7 @@ tr{
 	width: 100%;
 	font-size: 30px;
 	height: 70px;
-
+border: none;
 
 }
 
