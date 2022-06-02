@@ -51,6 +51,7 @@ public class BoardController {
 	@GetMapping("/boardRead")
 	public String boardRead(@RequestParam("b_no") String b_no, Model model) {
 		BoardDTO dto = boardservice.boardRead(b_no);
+		dto.setB_content(dto.getB_content().replace("\n", "<br>"));
 		model.addAttribute("dto", dto);
 		return "board/boardRead";
 	}

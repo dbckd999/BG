@@ -94,7 +94,7 @@ body {
 			</div>
 		</c:if>
 		<hr>
-		${dto.b_content}
+		<div id="content">${dto.b_content}</div>
 	</div>
 	<br>
 
